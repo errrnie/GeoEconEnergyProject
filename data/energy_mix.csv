@@ -1,0 +1,24 @@
+geography,year,fuel,twh,share_pct,source_url
+Peninsular Malaysia,2024,coal,84.36,56.5,https://www.thestar.com.my/business/business-news/2026/01/08/malaysia-steps-up-gas-fired-power-use-in-december-as-reliance-on-coal-falls
+Peninsular Malaysia,2024,gas,54.35,36.4,https://www.thestar.com.my/business/business-news/2026/01/08/malaysia-steps-up-gas-fired-power-use-in-december-as-reliance-on-coal-falls
+Peninsular Malaysia,2024,solar,3.14,2.1,https://www.thestar.com.my/business/business-news/2026/01/08/malaysia-steps-up-gas-fired-power-use-in-december-as-reliance-on-coal-falls
+Peninsular Malaysia,2024,hydro and other,7.47,5.0,https://www.thestar.com.my/business/business-news/2026/01/08/malaysia-steps-up-gas-fired-power-use-in-december-as-reliance-on-coal-falls
+Peninsular Malaysia,2025,coal,88.87,58.6,https://www.thestar.com.my/business/business-news/2026/01/08/malaysia-steps-up-gas-fired-power-use-in-december-as-reliance-on-coal-falls
+Peninsular Malaysia,2025,gas,50.2,33.1,https://www.thestar.com.my/business/business-news/2026/01/08/malaysia-steps-up-gas-fired-power-use-in-december-as-reliance-on-coal-falls
+Peninsular Malaysia,2025,solar,3.64,2.4,https://www.thestar.com.my/business/business-news/2026/01/08/malaysia-steps-up-gas-fired-power-use-in-december-as-reliance-on-coal-falls
+Peninsular Malaysia,2025,hydro and other,8.95,5.9,https://www.thestar.com.my/business/business-news/2026/01/08/malaysia-steps-up-gas-fired-power-use-in-december-as-reliance-on-coal-falls
+Peninsular Malaysia,2026-04 (month),coal,6.67,51.2,https://www.bairdmaritime.com/shipping/tankers/gas/heatwave-and-data-centres-push-malaysia-to-tap-offshore-gas-fields
+Peninsular Malaysia,2026-04 (month),gas,5.54,42.6,https://www.bairdmaritime.com/shipping/tankers/gas/heatwave-and-data-centres-push-malaysia-to-tap-offshore-gas-fields
+Peninsular Malaysia,2026-04 (month),"solar, hydro and other",0.81,6.2,https://www.bairdmaritime.com/shipping/tankers/gas/heatwave-and-data-centres-push-malaysia-to-tap-offshore-gas-fields
+Malaysia,2023,coal,80.93,43,https://ember-energy.org/latest-insights/solar-and-grid-flexibility-critical-for-malaysia/
+Malaysia,2023,gas,69.63,37,https://ember-energy.org/latest-insights/solar-and-grid-flexibility-critical-for-malaysia/
+Malaysia,2023,hydro,31.99,17,https://ember-energy.org/latest-insights/solar-and-grid-flexibility-critical-for-malaysia/
+Malaysia,2023,solar,3.2,1.7,https://ember-energy.org/latest-insights/solar-and-grid-flexibility-critical-for-malaysia/
+Malaysia,2023,bioenergy,1.13,0.6,https://ember-energy.org/latest-insights/solar-and-grid-flexibility-critical-for-malaysia/
+Malaysia,2023,other,1.32,0.7,https://ember-energy.org/latest-insights/solar-and-grid-flexibility-critical-for-malaysia/
+Malaysia,2025-06 to 2026-05,coal,90.46,43,https://lowcarbonpower.org/region/Malaysia
+Malaysia,2025-06 to 2026-05,gas,71.53,34,https://lowcarbonpower.org/region/Malaysia
+Malaysia,2025-06 to 2026-05,hydro,35.76,17,https://lowcarbonpower.org/region/Malaysia
+Malaysia,2025-06 to 2026-05,solar,4.21,2,https://lowcarbonpower.org/region/Malaysia
+Malaysia,2025-06 to 2026-05,bioenergy,6.31,3,https://lowcarbonpower.org/region/Malaysia
+Malaysia,2025-06 to 2026-05,other,2.1,1,https://lowcarbonpower.org/region/Malaysia

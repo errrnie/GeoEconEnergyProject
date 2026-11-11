@@ -1,0 +1,465 @@
+<title>Malaysia's Compute Bet</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..100,500..800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+/* Layout: one long scroll, a narrow reading column with full-width figure bands. Palette borrows from grid single-line diagrams: copper for power, two stack colours for US and China. */
+:root{
+  --bg:#f5f6f3; --surface:#ffffff; --fg:#17201c; --muted:#5d6a63; --line:#d9ded8;
+  --accent:#b8611f; --accent-soft:#f3e3d3;
+  --us:#2b62c9; --cn:#c8382f; --other:#7a8780; --unk:#b9c2bc;
+  --t1:#3f8f6b; --t2:#e2b77a; --t3:#c8382f; --t0:#e6e9e4;
+  --coal:#4a4f4c; --gas:#d08a3c; --hydro:#3f7fb8; --solar:#e5c13d; --oth:#9aa79f;
+  --display:"Archivo","Arial Narrow",system-ui,sans-serif;
+  --body:"Inter",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#101512; --surface:#18201b; --fg:#e7ece8; --muted:#9aa79f; --line:#2c3630;
+  --accent:#e08a45; --accent-soft:#3a2a1c; --us:#6f9cf0; --cn:#f0736a; --other:#8e9a93; --unk:#4a554f;
+  --t1:#5cb38c; --t2:#b98b4f; --t3:#e0625a; --t0:#2c3630; --coal:#8a918d; --gas:#e09a50; --hydro:#5f9ee0; --solar:#e8cc55; --oth:#6c7872; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#101512; --surface:#18201b; --fg:#e7ece8; --muted:#9aa79f; --line:#2c3630;
+  --accent:#e08a45; --accent-soft:#3a2a1c; --us:#6f9cf0; --cn:#f0736a; --other:#8e9a93; --unk:#4a554f;
+  --t1:#5cb38c; --t2:#b98b4f; --t3:#e0625a; --t0:#2c3630; --coal:#8a918d; --gas:#e09a50; --hydro:#5f9ee0; --solar:#e8cc55; --oth:#6c7872; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font-family:var(--body);font-size:16px;line-height:1.6;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 64px}
+.wrap{max-width:1040px;margin:0 auto}
+.read{max-width:66ch}
+h1,h2,h3{font-family:var(--display);font-stretch:85%;line-height:1.08;text-wrap:balance;margin:0}
+h1{font-size:clamp(2.4rem,6vw,4.4rem);font-weight:800;letter-spacing:-.01em}
+h2{font-size:clamp(1.6rem,3.4vw,2.3rem);font-weight:750}
+h3{font-size:1.15rem;font-weight:700}
+p{margin:0}
+a{color:var(--accent)}
+.eyebrow{font-family:var(--mono);font-size:.74rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.mono{font-family:var(--mono);font-variant-numeric:tabular-nums}
+section{padding-block:56px;border-top:1px solid var(--line);display:grid;gap:20px}
+header.hero{padding-block:56px 40px;display:grid;gap:22px}
+.banner{font-family:var(--mono);font-size:.78rem;background:var(--accent-soft);color:var(--fg);padding:8px 12px;border-radius:6px;justify-self:start}
+.lede{font-size:1.18rem}
+.sub{color:var(--muted)}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
+.kpi{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:14px 16px;display:grid;gap:4px}
+.kpi b{font-family:var(--display);font-size:2rem;font-stretch:80%;font-weight:800}
+.kpi span{font-size:.86rem;color:var(--muted)}
+.controls{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:8px;overflow:hidden;background:var(--surface)}
+.seg button{font:inherit;font-size:.86rem;padding:6px 12px;border:0;background:transparent;color:var(--fg);cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--fg);color:var(--bg)}
+button:focus-visible,.site:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.figure{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:16px;overflow-x:auto}
+.legend{display:flex;flex-wrap:wrap;gap:14px;font-size:.84rem;color:var(--muted)}
+.legend i{display:inline-block;width:12px;height:12px;border-radius:2px;margin-right:6px;vertical-align:-1px}
+.note{font-size:.84rem;color:var(--muted)}
+.drivers{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+.driver{border-top:3px solid var(--accent);padding-top:10px;display:grid;gap:6px;align-content:start}
+.driver p{font-size:.94rem;color:var(--muted)}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{font:inherit;font-size:.82rem;border:1px solid var(--line);border-left-width:4px;background:var(--surface);color:var(--fg);border-radius:6px;padding:4px 12px;cursor:pointer}
+.chip[aria-pressed="false"]{opacity:.45}
+.tl{position:relative;display:grid;padding-left:22px}
+.tl::before{content:"";position:absolute;left:6px;top:4px;bottom:4px;width:2px;background:var(--line)}
+.ev{position:relative;display:grid;grid-template-columns:110px minmax(0,1fr);gap:14px;padding:10px 0}
+.ev::before{content:"";position:absolute;left:-21px;top:16px;width:12px;height:12px;border-radius:50%;background:var(--c,var(--other));border:2px solid var(--bg)}
+.ev.key::before{width:16px;height:16px;left:-23px;top:14px;box-shadow:0 0 0 3px var(--accent-soft)}
+.ev .d{font-family:var(--mono);font-size:.8rem;color:var(--muted);padding-top:3px}
+.ev h3{font-family:var(--body);font-size:1rem;font-weight:600}
+.ev p{font-size:.92rem;color:var(--muted)}
+.ev .why{color:var(--fg);font-size:.88rem}
+.ev .src{font-size:.78rem}
+.tag{font-family:var(--mono);font-size:.68rem;letter-spacing:.06em;text-transform:uppercase;color:var(--c);margin-left:8px;white-space:nowrap}
+.amt{font-family:var(--mono);font-size:.78rem;background:var(--accent-soft);padding:1px 6px;border-radius:4px;margin-left:8px;white-space:nowrap}
+@media (max-width:560px){.ev{grid-template-columns:1fr;gap:2px}}
+.mapgrid{display:grid;grid-template-columns:minmax(0,2fr) minmax(0,1fr);gap:16px;align-items:start}
+@media (max-width:760px){.mapgrid{grid-template-columns:1fr}}
+.map svg{width:100%;height:auto;display:block}
+.land{fill:var(--line);stroke:var(--muted);stroke-width:.6}
+.land.my{fill:var(--accent-soft)}
+.site{cursor:pointer;stroke-width:1.6}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:16px;display:grid;gap:8px;min-width:0;align-content:start}
+.card dl{display:grid;grid-template-columns:auto minmax(0,1fr);gap:4px 12px;margin:0;font-size:.88rem}
+.card dt{color:var(--muted)}
+.card dd{margin:0;overflow-wrap:anywhere}
+.stackbar{display:flex;height:34px;border-radius:6px;overflow:hidden}
+.stackbar div{display:flex;align-items:center;justify-content:center;color:#fff;font-family:var(--mono);font-size:.8rem;min-width:28px}
+.funnel{display:grid;gap:10px}
+.fbar{display:grid;grid-template-columns:190px minmax(0,1fr);gap:12px;align-items:center}
+.fbar .track{height:34px}
+.fbar .fill{height:100%;background:var(--accent);border-radius:4px;display:flex;align-items:center;justify-content:flex-end;padding-right:8px;color:#fff;font-family:var(--mono);font-size:.85rem;min-width:72px}
+.fbar.water .fill{background:var(--us)}
+.fbar .lab{font-size:.9rem}
+@media (max-width:560px){.fbar{grid-template-columns:1fr}}
+.two{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+.risk{display:grid;gap:6px;border-left:3px solid var(--cn);padding-left:12px;align-content:start}
+.risk.lev{border-left-color:var(--us)}
+.risk ul{margin:0;padding-left:18px;color:var(--muted);font-size:.94rem;display:grid;gap:4px}
+.undisc{font-size:.85rem;color:var(--muted)}
+.sources{font-size:.85rem;color:var(--muted);display:grid;gap:4px}
+.sources a{overflow-wrap:anywhere}
+@media (prefers-reduced-motion:no-preference){.fill{transition:width .5s ease}}
+button.driver{font:inherit;text-align:left;background:transparent;border:0;border-top:3px solid var(--line);color:var(--fg);cursor:pointer;padding:10px 0 0}
+button.driver[aria-expanded="true"]{border-top-color:var(--accent)}
+button.driver .more{font-family:var(--mono);font-size:.74rem;color:var(--accent)}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:16px;display:grid;gap:10px}
+.panel[hidden]{display:none}
+.panel svg{width:100%;height:auto;display:block}
+.world svg{width:100%;height:auto;display:block}
+.world path{stroke:var(--bg);stroke-width:.5}
+.world path.my{stroke:var(--fg);stroke-width:1.6}
+.stat{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px}
+.box{border:1px solid var(--line);border-radius:8px;padding:12px 14px;display:grid;gap:4px;background:var(--surface)}
+.box b{font-family:var(--display);font-size:1.6rem;font-stretch:80%}
+.box span{font-size:.84rem;color:var(--muted)}
+.callout{border-left:3px solid var(--accent);padding:4px 0 4px 14px;display:grid;gap:6px;align-content:start}
+table.sc{border-collapse:collapse;font-size:.88rem;width:100%;min-width:520px}
+table.sc th,table.sc td{padding:6px 8px;border-bottom:1px solid var(--line);text-align:right}
+table.sc th:first-child,table.sc td:first-child{text-align:left}
+table.sc td{font-family:var(--mono);font-variant-numeric:tabular-nums}
+table.sc td:first-child{font-family:var(--body)}
+</style>
+
+<div class="wrap">
+<header class="hero">
+  <span class="banner">Draft v2 · sources linked throughout · figures marked "est." are my own estimates</span>
+  <span class="eyebrow">Middle power compute · Malaysia · 2017 to 2026</span>
+  <h1>Malaysia's Compute Bet</h1>
+  <p class="lede read">The US and China build most of the world's AI infrastructure at home. A handful of middle powers now host the overflow, and Malaysia has one of the largest data centre pipelines outside the US and China. This page follows how that happened, whose computing it serves, and what it asks of Malaysia's power and water.</p>
+  <div class="kpis">
+    <div class="kpi"><span>Power promised to data centres</span><b class="mono">8.3 GW</b><span>59 projects with supply deals, July 2026</span></div>
+    <div class="kpi"><span>Power actually drawn</span><b class="mono">1.37 GW</b><span>August 2026, 58.6% of contracted capacity</span></div>
+    <div class="kpi"><span>Data centres' share of Peninsular power demand</span><b class="mono">31%</b><span>by 2035 on the energy ministry's projection, up from 7% in 2026</span></div>
+  </div>
+</header>
+
+<section id="global">
+  <span class="eyebrow">1 · The global picture</span>
+  <h2>Outside the US, the pipeline is moving to Asia</h2>
+  <p class="read sub">Operational capacity runs today. Pipeline is under construction or planned. Sort by operational plus pipeline to see which markets leapfrog bigger ones on announcements alone.</p>
+  <div class="controls">
+    <div class="seg" role="group" aria-label="Sort">
+      <button id="sortOp" aria-pressed="false">Sort by operational</button>
+      <button id="sortTot" aria-pressed="true">Sort by operational + pipeline</button>
+    </div>
+    <div class="seg" role="group" aria-label="Units">
+      <button id="uGW" aria-pressed="true">GW</button>
+      <button id="uUSD" aria-pressed="false">US$ bn (est.)</button>
+    </div>
+    <div class="seg" role="group" aria-label="United States">
+      <button id="usOff" aria-pressed="true">Hide US and China</button>
+      <button id="usOn" aria-pressed="false">Show US and China</button>
+    </div>
+  </div>
+  <div class="figure"><svg id="gchart" role="img" aria-label="Bar chart of data centre capacity by country"></svg></div>
+  <div class="legend"><span><i style="background:var(--fg)"></i>Operational</span><span><i style="background:var(--muted);opacity:.35"></i>Pipeline</span><span><i style="background:var(--accent)"></i>Malaysia</span><span><i style="border:2px solid var(--accent);background:transparent"></i>Leapfrogs a market with more operational capacity</span><span>* lower-confidence or partial figure</span><span>‡ SemiAnalysis building-level count</span></div>
+  <p class="note" id="gnote"></p>
+</section>
+
+<section id="why">
+  <span class="eyebrow">2 · Why Malaysia</span>
+  <h2>Speed to power, not the cheapest build</h2>
+  <p class="read sub">Select a card to see the numbers behind it.</p>
+  <div class="drivers" id="drivers">
+    <button class="driver" data-p="sg" aria-expanded="false"><h3>Singapore ran out of room</h3><p>__WHY_SG__</p><span class="more">Show Johor vs Singapore</span></button>
+    <button class="driver" data-p="speed" aria-expanded="false"><h3>Speed to power</h3><p>__WHY_SPEED__</p><span class="more">Show months to power by market</span></button>
+    <button class="driver" data-p="cost" aria-expanded="false"><h3>Cost is middling</h3><p>__WHY_COST__</p><span class="more">Show build cost by country</span></button>
+    <button class="driver" data-p="stacks" aria-expanded="false"><h3>Two stacks needed a host</h3><p>US chip controls from October 2022 pushed Chinese firms to compute offshore, while the AI boom sent US hyperscalers looking for capacity they could get quickly.</p><span class="more">Show the chip access rules</span></button>
+  </div>
+  <div class="panel" id="whyPanel" hidden aria-live="polite"></div>
+</section>
+
+<section id="timeline">
+  <span class="eyebrow">3 · How it happened</span>
+  <h2>A slow decade, then a rush</h2>
+  <div class="controls">
+    <div class="seg" role="group" aria-label="Events shown">
+      <button id="keyOnly" aria-pressed="true">Key moments</button>
+      <button id="allEv" aria-pressed="false">All events</button>
+    </div>
+  </div>
+  <div class="chips" id="chips"></div>
+  <div class="tl" id="tl"></div>
+  <p class="note" id="tlnote"></p>
+</section>
+
+<section id="map">
+  <span class="eyebrow">4 · Where it lands</span>
+  <h2>Johor is Singapore's overflow, Selangor is the second front</h2>
+  <p class="read sub">Each dot is a campus. Colour shows whose stack it mainly serves, size shows megawatts where disclosed. Solid dots are operating, rings are under construction, dashed rings are announced. Select a dot for details.</p>
+  <div class="controls">
+    <div class="seg" role="group" aria-label="Map view">
+      <button id="vJohor" data-v="johor" aria-pressed="true">Johor</button>
+      <button id="vPen" data-v="pen" aria-pressed="false">Peninsular Malaysia</button>
+      <button id="vSwk" data-v="swk" aria-pressed="false">Sarawak</button>
+    </div>
+    <div class="chips" id="stackChips"></div>
+  </div>
+  <div class="mapgrid">
+    <div class="figure map"><svg id="mmap" role="img" aria-label="Map of data centre campuses in Malaysia"></svg></div>
+    <div class="card" id="siteCard" aria-live="polite"></div>
+  </div>
+  <p class="note" id="mapnote"></p>
+  <p class="undisc" id="undisc"></p>
+</section>
+
+<section id="stacks">
+  <span class="eyebrow">5 · Two stacks, one host</span>
+  <h2>Who owns the building is not who uses it</h2>
+  <p class="read sub">Sites are tagged by their known tenant first, then by the operator's home country. The owner's money is a separate layer, which is why the two can disagree.</p>
+  <div class="stackbar" id="stackbar" role="img" aria-label="Sites by stack"></div>
+  <div class="legend"><span><i style="background:var(--us)"></i>US-linked</span><span><i style="background:var(--cn)"></i>China-linked</span><span><i style="background:var(--other)"></i>Other or Malaysian</span><span><i style="background:var(--unk)"></i>Unknown or mixed</span></div>
+  <div class="two">
+    <div class="card"><h3>Bridge Data Centres MY06, Sedenak</h3><p class="sub">Owned by Bain Capital in the US, anchored by ByteDance from China. About 110 MW.</p></div>
+    <div class="card"><h3>DayOne</h3><p class="sub">The former international arm of China's GDS, now Singapore-based with GDS holding an estimated 24% and global investors behind it. Its Johor campuses are tagged China-linked here, which is a judgment call.</p></div>
+  </div>
+  <p class="read sub">Chai's ISEAS paper counts four US and three Chinese hyperscalers in Malaysia. Colocation, which hides who the tenant is, makes up about 59% of capacity, so the Chinese share is likely larger than the headline count.</p>
+</section>
+
+<section id="chipaccess">
+  <span class="eyebrow">6 · Chip access and security</span>
+  <h2>__CHIP_H2__</h2>
+  __CHIP_LEDE__
+  <div class="controls">
+    <div class="seg" role="group" aria-label="Rule shown">
+      <button id="tJan" aria-pressed="true">January 2025 rule</button>
+      <button id="tNow" aria-pressed="false">Now</button>
+    </div>
+  </div>
+  <div class="figure world"><svg id="wmap" role="img" aria-label="World map of US AI chip export tiers"></svg></div>
+  <div class="legend" id="tlegend"></div>
+  <p class="note" id="tnote"></p>
+  __CHIP_BODY__
+</section>
+
+<section id="energy">
+  <span class="eyebrow">7 · Energy security</span>
+  __ENERGY__
+</section>
+
+<section id="risk">
+  <span class="eyebrow">8 · Leverage and weak points</span>
+  <h2>Promises run far ahead of use, and water runs out first</h2>
+  <div class="funnel" id="funnel"></div>
+  <p class="note">Sources: RHB Research after meeting TNB, via Business Today, 11 Jul 2026; energy ministry via Malay Mail, 4 Nov 2026; water regulator SPAN via Free Malaysia Today, 10 Feb 2025.</p>
+  <div class="two">
+    <div class="risk"><h3>Weak points</h3><ul>
+      <li>Most Peninsular power comes from imported coal, and the coal exit runs through new gas plants that will not arrive before 2028.</li>
+      <li>In 2024 the water regulator approved only 18% of the water data centres asked for.</li>
+      <li>A typical data centre needs only 30 to 50 permanent staff, up to about 200 for the largest (US benchmark cited by ISEAS).</li>
+      <li>Chip enforcement is rising: a server fraud case in Singapore, a 72-server customs seizure at KLIA, and two US prosecutions involving shipments via Malaysia.</li>
+    </ul></div>
+    <div class="risk lev"><h3>Leverage</h3><ul>
+      <li>Both stacks need scarce power, water and land that Malaysia controls.</li>
+      <li>Ramp-or-pay rules and ten-year load plans now push bubble risk back onto developers.</li>
+      <li>Approvals now depend on surplus power and water, with water going to residents first (deputy minister, July 2026).</li>
+    </ul></div>
+  </div>
+</section>
+
+<section id="sources">
+  <span class="eyebrow">Sources and method</span>
+  <div class="sources" id="srcs"></div>
+</section>
+</div>
+
+<script>
+const GEO=__GEO__, CO=__COUNTRIES__, EV=__EVENTS__, SI=__SITES__, WORLD=__WORLD__, TIERS=__TIERS__, SPEED=__SPEED__, JOHOR=__JOHOR__, MIX=__MIX__;
+const NS="http://www.w3.org/2000/svg";
+function el(t,a,p){const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);if(p)p.appendChild(e);return e}
+const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+function bindSeg(a,b,f,after){const A=document.getElementById(a),B=document.getElementById(b);
+  A.onclick=()=>{A.setAttribute("aria-pressed","true");B.setAttribute("aria-pressed","false");f(true);after()};
+  B.onclick=()=>{B.setAttribute("aria-pressed","true");A.setAttribute("aria-pressed","false");f(false);after()};}
+
+/* 1. global chart */
+const BIG=new Set(["United States","China"]);
+const C=CO.map(c=>({n:c.country,o:+c.operational_gw,p:+c.pipeline_gw,cost:+c.build_cost_usd_m_per_mw||null,low:c.confidence==="low",big:BIG.has(c.country)})).map(c=>({...c,t:c.o+c.p}));
+C.forEach(a=>{a.leap=!a.big&&C.some(b=>!b.big&&b.o>a.o&&a.t>b.t)});
+const st={sort:"tot",usd:false,us:false};
+function draw(){
+  const svg=document.getElementById("gchart");svg.innerHTML="";
+  let d=C.filter(x=>st.us||!x.big);
+  const val=x=>st.usd?{o:x.o*(x.cost||9.5),t:x.t*(x.cost||9.5)}:{o:x.o,t:x.t};
+  d=[...d].sort((a,b)=>st.sort==="op"?val(b).o-val(a).o:val(b).t-val(a).t);
+  const rowH=24,left=150,right=150,W=Math.max(620,svg.parentElement.clientWidth-32),H=d.length*rowH+8;
+  svg.setAttribute("viewBox",`0 0 ${W} ${H}`);svg.setAttribute("width",W);svg.setAttribute("height",H);
+  const max=Math.max(...d.map(x=>val(x).t)),sx=v=>v/max*(W-left-right);
+  d.forEach((x,i)=>{
+    const y=i*rowH+4,isM=x.n==="Malaysia",v=val(x),g=el("g",{},svg);
+    el("text",{x:left-8,y:y+13,"text-anchor":"end","font-size":12,fill:isM?"var(--accent)":"var(--fg)","font-weight":isM?700:400,"font-family":"Inter,system-ui,sans-serif"},g).textContent=x.n+(x.big?" ‡":x.low?" *":"");
+    el("rect",{x:left,y,width:Math.max(1,sx(v.t)),height:17,rx:3,fill:isM?"var(--accent)":"var(--muted)","fill-opacity":.28},g);
+    el("rect",{x:left,y,width:Math.max(1,sx(v.o)),height:17,rx:3,fill:isM?"var(--accent)":"var(--fg)"},g);
+    if(x.leap&&st.sort==="tot") el("rect",{x:left-1,y:y-1,width:sx(v.t)+2,height:19,rx:4,fill:"none",stroke:"var(--accent)","stroke-width":2},g);
+    const lab=st.usd?`$${Math.round(v.o)} · $${Math.round(v.t)}bn${x.cost?"":" †"}`:`${x.o.toFixed(2)} · ${x.t.toFixed(2)} GW`;
+    el("text",{x:left+sx(v.t)+6,y:y+13,"font-size":11,fill:"var(--muted)","font-family":"JetBrains Mono,monospace"},g).textContent=lab;
+    el("title",{},g).textContent=`${x.n}: ${x.o} GW operational, ${x.p} GW pipeline${x.cost?`, build cost about US$${x.cost}m per MW`:""}`;
+  });
+  document.getElementById("gnote").innerHTML=`__GNOTE__`;
+}
+bindSeg("sortOp","sortTot",v=>st.sort=v?"op":"tot",draw);
+bindSeg("uGW","uUSD",v=>st.usd=!v,draw);
+bindSeg("usOff","usOn",v=>st.us=!v,draw);
+draw();addEventListener("resize",draw);
+
+/* 2. why cards */
+const T=(svg,x,y,txt,o={})=>{const t=el("text",{x,y,"font-size":o.fs||11,fill:o.fill||"var(--muted)","font-family":o.mono===false?"Inter,system-ui,sans-serif":"JetBrains Mono,monospace","text-anchor":o.a||"start","font-weight":o.w||400},svg);t.textContent=txt;return t};
+function hbars(rows,{unit,fmt,colorOf,title}){
+  const svg=el("svg",{role:"img","aria-label":title}),rowH=24,left=210,right=90,W=760,H=rows.length*rowH+30;
+  svg.setAttribute("viewBox",`0 0 ${W} ${H}`);
+  const max=Math.max(...rows.map(r=>r.hi??r.v)),sx=v=>v/max*(W-left-right);
+  rows.forEach((r,i)=>{const y=i*rowH+4,me=r.n.includes("Malaysia");
+    T(svg,left-8,y+13,r.n,{a:"end",mono:false,fill:me?"var(--accent)":"var(--fg)",w:me?700:400,fs:12});
+    if(r.hi!=null&&r.lo!=null&&r.hi!==r.lo){el("rect",{x:left+sx(r.lo),y:y+2,width:Math.max(2,sx(r.hi)-sx(r.lo)),height:13,rx:3,fill:colorOf(r),"fill-opacity":.85},svg)}
+    else el("rect",{x:left,y,width:Math.max(2,sx(r.hi??r.v)),height:17,rx:3,fill:colorOf(r)},svg);
+    T(svg,left+sx(r.hi??r.v)+6,y+13,fmt(r));});
+  el("line",{x1:left,x2:left,y1:0,y2:H-26,stroke:"var(--line)"},svg);
+  T(svg,left,H-8,"0");T(svg,W-right,H-8,`${Math.round(max)} ${unit}`,{a:"end"});
+  return svg}
+function lines(series,periods,{unit,title}){
+  const svg=el("svg",{role:"img","aria-label":title}),W=760,H=300,l=56,r=150,t=16,b=34;
+  svg.setAttribute("viewBox",`0 0 ${W} ${H}`);
+  const max=Math.max(...series.flatMap(s=>s.pts.map(p=>p.v)))*1.08;
+  const sx=i=>l+i/(periods.length-1||1)*(W-l-r),sy=v=>t+(1-v/max)*(H-t-b);
+  [0,.5,1].forEach(f=>{const v=max*f;el("line",{x1:l,x2:W-r,y1:sy(v),y2:sy(v),stroke:"var(--line)"},svg);T(svg,l-6,sy(v)+4,Math.round(v).toLocaleString(),{a:"end"})});
+  periods.forEach((p,i)=>T(svg,sx(i),H-12,p,{a:"middle",fs:10}));
+  series.forEach(s=>{const pts=s.pts.map(p=>[sx(periods.indexOf(p.p)),sy(p.v)]);
+    el("polyline",{points:pts.map(q=>q.join(",")).join(" "),fill:"none",stroke:s.c,"stroke-width":2.5},svg);
+    pts.forEach((q,i)=>{const c=el("circle",{cx:q[0],cy:q[1],r:3.5,fill:s.c},svg);el("title",{},c).textContent=`${s.name}, ${s.pts[i].p}: ${s.pts[i].v.toLocaleString()} ${unit}`});
+    const last=pts[pts.length-1],off=series.length>1?(s===series[0]?-8:12):4;T(svg,last[0]+8,last[1]+off,`${s.name} ${s.pts[s.pts.length-1].v.toLocaleString()} ${unit}`,{fill:s.c,w:600});});
+  return svg}
+const PANELS={
+  sg(){const geos=[...new Set(JOHOR.map(r=>r.geography))],periods=[...new Set(JOHOR.map(r=>r.period))];
+    const col={Johor:"var(--accent)",Singapore:"var(--us)"};
+    const series=geos.filter(g=>col[g]||/kuala|klang|greater kl/i.test(g)).map(g=>({name:g,c:col[g]||"var(--other)",pts:JOHOR.filter(r=>r.geography===g&&r.operational_mw).map(r=>({p:r.period,v:+r.operational_mw}))})).filter(s=>s.pts.length);
+    return [`<h3>Operating data centre capacity, MW</h3>`,lines(series,periods,{unit:"MW",title:"Johor and Singapore operating capacity over time"}),`<p class="note">${esc([...new Set(JOHOR.map(r=>r.source_name))].join("; "))}. __SG_NOTE__</p>`]},
+  speed(){const rows=SPEED.filter(r=>r.months_low||r.months_high).map(r=>({n:r.market,lo:+(r.months_low||r.months_high),hi:+(r.months_high||r.months_low),note:r.metric_note})).sort((a,b)=>a.hi-b.hi);
+    const qual=SPEED.filter(r=>!r.months_low&&!r.months_high);
+    return [`<h3>Typical wait for a large grid connection, months</h3>`,hbars(rows,{unit:"months",title:"Months to power by market",fmt:r=>r.lo===r.hi?`${r.hi}`:`${r.lo} to ${r.hi}`,colorOf:r=>r.n.includes("Green Lane")?"var(--accent)":"var(--other)"}),
+      qual.length?`<p class="note">No comparable number: ${qual.map(r=>`${esc(r.market)} (${esc(r.metric_note)})`).join("; ")}.</p>`:"",`<p class="note">Estimates come from different studies and years, so treat the order as rough. Sources: ${esc([...new Set(SPEED.map(r=>r.source_name))].join("; "))}.</p>`]},
+  cost(){const rows=C.filter(x=>x.cost).map(x=>({n:x.n,v:x.cost})).sort((a,b)=>b.v-a.v);
+    return [`<h3>Cost to build a mid-spec data centre, US$ million per MW</h3>`,hbars(rows,{unit:"US$m/MW",title:"Build cost per MW by country",fmt:r=>r.v.toFixed(1),colorOf:r=>r.n==="Malaysia"?"var(--accent)":"var(--other)"}),`<p class="note">Building shell, power and cooling only, chips excluded. Asia-Pacific, US, UAE and Saudi figures are national averages; the European and Brazilian figures are for the main city. Sources: Cushman &amp; Wakefield Data Center Development Cost Guide 2026 and Turner &amp; Townsend Data Centre Cost Index.</p>`]},
+  stacks(){return [`<h3>Two stacks, one host</h3>`,`<div class="stat"><div class="box"><b class="mono">~75%</b><span>US share of the world's GPU cluster performance, May 2025 (Epoch AI)</span></div><div class="box"><b class="mono">~15%</b><span>China's share, same measure</span></div><div class="box"><b class="mono">~4 GW</b><span>Overseas capacity Chinese cloud firms are set to lease by 2029, about double 2026 (SemiAnalysis)</span></div></div>`,`<p><a href="#chipaccess">See where Malaysia sits in the US chip rules ↓</a></p>`]}
+};
+document.querySelectorAll("button.driver").forEach(b=>b.onclick=()=>{
+  const pnl=document.getElementById("whyPanel"),open=b.getAttribute("aria-expanded")==="true";
+  document.querySelectorAll("button.driver").forEach(x=>x.setAttribute("aria-expanded","false"));
+  if(open){pnl.hidden=true;return}
+  b.setAttribute("aria-expanded","true");pnl.hidden=false;pnl.innerHTML="";
+  PANELS[b.dataset.p]().forEach(x=>{if(typeof x==="string")pnl.insertAdjacentHTML("beforeend",x);else pnl.appendChild(x)});});
+
+/* 6. chip tier map */
+const TCOL={"Tier 1":"var(--t1)","Tier 2":"var(--t2)","Tier 3":"var(--t3)"};
+const NOWCOL=__NOWCOL__;
+const tierBy=new Map(TIERS.map(r=>[String(r.iso_n3).padStart(3,"0"),r]));
+let tmode="jan";
+function drawTiers(){
+  const m=document.getElementById("wmap");m.innerHTML="";m.setAttribute("viewBox",`0 0 ${WORLD.W} ${WORLD.H}`);
+  WORLD.paths.forEach(p=>{const r=tierBy.get(String(p.id).padStart(3,"0"));
+    const cat=tmode==="jan"?(r?.diffusion_tier_2025||"Tier 2"):(r?.current_status_2026||"__NOWDEFAULT__");
+    const fill=tmode==="jan"?TCOL[cat]||"var(--t0)":NOWCOL[cat]||"var(--t0)";
+    const e=el("path",{d:p.d,fill,class:p.name==="Malaysia"?"my":""},m);
+    el("title",{},e).textContent=`${p.name}: ${cat}${tmode==="now"&&r?.current_status_note?" · "+r.current_status_note:""}`});
+  const [mx,my]=WORLD.my;el("line",{x1:mx,y1:my,x2:mx+40,y2:my+46,stroke:"var(--fg)"},m);
+  T(m,mx+42,my+58,"Malaysia",{fill:"var(--fg)",w:700,fs:13,mono:false});
+  const cats=tmode==="jan"?TCOL:NOWCOL;
+  document.getElementById("tlegend").innerHTML=Object.entries(cats).map(([k,c])=>`<span><i style="background:${c}"></i>${esc(k)}</span>`).join("");
+  document.getElementById("tnote").innerHTML=tmode==="jan"?`__TNOTE_JAN__`:`__TNOTE_NOW__`;
+}
+bindSeg("tJan","tNow",v=>tmode=v?"jan":"now",drawTiers);
+drawTiers();
+
+/* 7. energy */
+(function(){
+  const svg=document.getElementById("mixchart"),FC={coal:"var(--coal)",gas:"var(--gas)",solar:"var(--solar)","hydro and other":"var(--hydro)","solar, hydro and other":"var(--hydro)"};
+  const rows=MIX.filter(r=>r.geography==="Peninsular Malaysia"),yrs=[...new Set(rows.map(r=>r.year))];
+  const W=760,rowH=40,left=110,H=yrs.length*rowH+6;svg.setAttribute("viewBox",`0 0 ${W} ${H}`);
+  yrs.forEach((y,i)=>{let x=left;const yy=i*rowH+4;T(svg,left-8,yy+20,y.replace("2026-04 (month)","Apr 2026"),{a:"end",mono:false,fill:"var(--fg)",fs:12});
+    rows.filter(r=>r.year===y).forEach(r=>{const w=+r.share_pct/100*(W-left-10);const rc=el("rect",{x,y:yy,width:Math.max(0,w-1),height:28,fill:FC[r.fuel]||"var(--oth)"},svg);
+      el("title",{},rc).textContent=`${r.fuel}: ${r.share_pct}%`;if(w>44)T(svg,x+6,yy+18,`${Math.round(+r.share_pct)}%`,{fill:r.fuel==="solar"?"#17201c":"#fff",fs:11});x+=w;});});
+  const S=[["Low",26.3,14,3.07,2.26],["Mid",39.3,21,5.61,4.12],["High",61.8,33,10.0,7.35]];
+  document.getElementById("scenrows").innerHTML=S.map(s=>`<tr><td>${s[0]}</td><td>${s[1]}</td><td>${s[2]}%</td><td>${s[3].toFixed(1)}</td><td>${s[4].toFixed(2)}</td></tr>`).join("");
+  const sc=document.getElementById("scenchart"),W2=760,H2=200,l=110,r=30,max=8;sc.setAttribute("viewBox",`0 0 ${W2} ${H2}`);
+  const sx=v=>l+v/max*(W2-l-r);
+  S.forEach((s,i)=>{const y=20+i*44;T(sc,l-8,y+18,`${s[0]} case`,{a:"end",mono:false,fill:"var(--fg)",fs:12});
+    el("rect",{x:l,y,width:sx(s[4])-l,height:26,rx:3,fill:"var(--gas)"},sc);T(sc,sx(s[4])+6,y+18,`${s[4].toFixed(2)} Mt`,{fill:"var(--fg)"});});
+  [[2.26,"2025 imports"],[3.2,"2024 imports"]].forEach(([v,lab],k)=>{el("line",{x1:sx(v),x2:sx(v),y1:12,y2:H2-18,stroke:"var(--fg)","stroke-dasharray":"4 3"},sc);T(sc,sx(v)+(k?4:-4),H2-4,lab,{a:k?"start":"end",fs:10})});
+})();
+
+/* 3. timeline */
+const TR={"Investment":"var(--us)","Malaysia policy":"var(--accent)","Geopolitics":"var(--cn)","Energy and water":"var(--other)"};
+const KEY=new Set(["2019-01-01","2022-10-07","2023-08-09","2023-12-08","2024-05-02","2025-07-14","2025-11-26","2026-06-30","2026-11-04","2025-12-22","2026-05-31"]);
+const MON=["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+const fmt=(d,p)=>{const [y,m,dd]=d.split("-");if(p==="year")return y;if(p==="month")return `${MON[+m-1]} ${y}`;return `${+dd} ${MON[+m-1]} ${y}`};
+const on=new Set(Object.keys(TR));let keyOnly=true;
+function drawTL(){
+  const ch=document.getElementById("chips");ch.innerHTML="";
+  Object.keys(TR).forEach(t=>{const b=document.createElement("button");b.className="chip";b.textContent=t;b.style.borderLeftColor=TR[t];
+    b.setAttribute("aria-pressed",on.has(t));b.onclick=()=>{on.has(t)?on.delete(t):on.add(t);drawTL()};ch.appendChild(b)});
+  const tl=document.getElementById("tl");tl.innerHTML="";
+  const list=EV.filter(e=>on.has(e.track)&&(!keyOnly||KEY.has(e.date)));
+  list.forEach(e=>{
+    const r=document.createElement("div");r.className="ev"+(KEY.has(e.date)?" key":"");r.style.setProperty("--c",TR[e.track]);
+    const amt=e.amount_usd_m&&e.track==="Investment"?`<span class="amt">US$${(+e.amount_usd_m/1000).toFixed(1)}bn</span>`:"";
+    r.innerHTML=`<div class="d">${fmt(e.date,e.date_precision)}</div><div><h3>${esc(e.title)}${amt}<span class="tag">${esc(e.track)}</span></h3><p>${esc(e.description)}</p>${keyOnly?`<p class="why">${esc(e.significance)}</p>`:""}<p class="src note"><a href="${esc(e.source_url)}" target="_blank" rel="noopener">${esc(e.source_name)}</a></p></div>`;
+    tl.appendChild(r)});
+  document.getElementById("tlnote").textContent=`Showing ${list.length} of ${EV.length} verified events. Investment amounts are announced pledges, often multi-year and national, not money spent.`;
+}
+bindSeg("keyOnly","allEv",v=>keyOnly=v,drawTL);
+drawTL();
+
+/* 4. map */
+const SC={"US":"var(--us)","China":"var(--cn)","Other":"var(--other)","Unknown":"var(--unk)","Mixed":"var(--unk)"};
+const SL={"US":"US-linked","China":"China-linked","Other":"Other or Malaysian","Unknown":"Unknown","Mixed":"Mixed"};
+const sOn=new Set(["US","China","Other","Unknown","Mixed"]);let view="johor";
+const card=document.getElementById("siteCard");
+function show(x){card.innerHTML=`<span class="eyebrow">${esc(x.town||x.state)}</span><h3>${esc(x.site_name)}</h3><dl>
+ <dt>Operator</dt><dd>${esc(x.operator)}</dd><dt>Owners</dt><dd>${esc(x.owner_investors||"Not disclosed")}</dd>
+ <dt>Anchor tenant</dt><dd>${esc(x.anchor_tenant||"Not disclosed")}</dd><dt>Stack</dt><dd>${esc(SL[x.stack]||x.stack)}</dd>
+ <dt>Status</dt><dd>${esc(x.status)}</dd><dt>Capacity</dt><dd class="mono">${x.it_mw?esc(x.it_mw)+" MW ("+esc(x.mw_type)+")":"Not disclosed"}</dd>
+ <dt>Confidence</dt><dd>${esc(x.confidence)}</dd></dl><p class="note"><a href="${esc(x.source_url)}" target="_blank" rel="noopener">Source</a>, placed at ${esc(x.latlon_precision||"town")} level.</p>`}
+function drawMap(){
+  const g=GEO[view],[x0,y0,x1,y1]=g.bbox,s=Math.min(g.W/(x1-x0),g.H/(y1-y0));
+  const m=document.getElementById("mmap");m.innerHTML="";m.setAttribute("viewBox",`0 0 ${g.W} ${g.H}`);
+  g.paths.forEach(p=>el("path",{d:p.d,class:"land"+(p.name==="Malaysia"?" my":"")},m));
+  const P=(lon,lat)=>[(lon-x0)*s,(y1-lat)*s];
+  const lab=(lon,lat,t)=>{const [x,y]=P(lon,lat);el("text",{x,y,"font-size":view==="pen"?12:13,fill:"var(--muted)","font-family":"JetBrains Mono,monospace","text-anchor":"middle"},m).textContent=t};
+  if(view==="johor"){lab(104.05,1.97,"JOHOR");lab(103.82,1.33,"SINGAPORE")}else if(view==="swk"){lab(110.35,1.62,"Kuching");lab(111.0,1.05,"SARAWAK")}else{lab(102.3,4.3,"PENINSULAR MALAYSIA");lab(100.75,3.3,"Klang Valley");lab(103.85,1.85,"Johor")}
+  const pts=SI.filter(x=>x.lat&&x.lon&&sOn.has(x.stack)).filter(x=>+x.lon>=x0&&+x.lon<=x1&&+x.lat>=y0&&+x.lat<=y1);
+  const groups={};pts.forEach(x=>{const k=x.lat+","+x.lon;(groups[k]=groups[k]||[]).push(x)});
+  Object.values(groups).forEach(gr=>{gr.forEach((x,i)=>{
+    let [cx,cy]=P(+x.lon,+x.lat);
+    if(gr.length>1){const ring=view==="pen"?9:16,a=i/gr.length*2*Math.PI;cx+=Math.cos(a)*ring*(1+Math.floor(i/8)*.6);cy+=Math.sin(a)*ring*(1+Math.floor(i/8)*.6)}
+    const r=(view==="pen"?3:4)+Math.sqrt(+x.it_mw||40)*(view==="pen"?.35:.55);
+    const solid=x.status==="Operational",paused=x.status==="Paused/Cancelled";
+    const c=el("circle",{cx,cy,r,fill:solid?SC[x.stack]:"var(--surface)","fill-opacity":solid?.85:.6,stroke:paused?"var(--muted)":SC[x.stack],"stroke-dasharray":x.status==="Announced"||paused?"3 2":"",class:"site",tabindex:0,role:"button","aria-label":x.site_name},m);
+    el("title",{},c).textContent=`${x.site_name} · ${x.status}`;
+    c.onclick=()=>show(x);c.onkeydown=e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();show(x)}};
+  })});
+  const off=SI.filter(x=>x.lat&&x.lon&&sOn.has(x.stack)).length-pts.length;
+  document.getElementById("mapnote").textContent=`${pts.length} ${pts.length===1?"campus":"campuses"} shown${off?`, ${off} outside this view`:""}. Sites in the same industrial park are fanned out around the park so each can be selected; positions are approximate.`;
+}
+const sc=document.getElementById("stackChips");
+["US","China","Other","Unknown"].forEach(k=>{const b=document.createElement("button");b.className="chip";b.textContent=SL[k];b.style.borderLeftColor=SC[k];b.setAttribute("aria-pressed","true");
+  b.onclick=()=>{const was=sOn.has(k);if(k==="Unknown"){["Unknown","Mixed"].forEach(z=>was?sOn.delete(z):sOn.add(z))}else{was?sOn.delete(k):sOn.add(k)}b.setAttribute("aria-pressed",!was);drawMap()};sc.appendChild(b)});
+document.querySelectorAll("[data-v]").forEach(b=>b.onclick=()=>{document.querySelectorAll("[data-v]").forEach(x=>x.setAttribute("aria-pressed",x===b));view=b.dataset.v;drawMap()});
+drawMap();show(SI.find(x=>x.site_name.startsWith("Bridge Data Centres MY06"))||SI[0]);
+const und=SI.filter(x=>!x.lat||!x.lon);
+document.getElementById("undisc").textContent=`Location not disclosed: ${und.map(x=>x.site_name).join("; ")}.`;
+
+/* 5. stacks */
+const cnt={};SI.forEach(x=>{const k=x.stack==="Mixed"?"Unknown":x.stack;cnt[k]=(cnt[k]||0)+1});
+const sb=document.getElementById("stackbar");
+["US","China","Other","Unknown"].forEach(k=>{if(!cnt[k])return;const d=document.createElement("div");d.style.flex=cnt[k];d.style.background=SC[k];d.textContent=cnt[k];d.title=`${SL[k]}: ${cnt[k]} sites`;sb.appendChild(d)});
+
+/* 6. funnel */
+const F=[["Promised: 59 projects with supply deals",8300,"8.3 GW",""],["Contracted capacity (Aug 2026)",2346,"2.35 GW",""],["Actually drawn (Aug 2026)",1374,"1.37 GW",""]];
+const fu=document.getElementById("funnel");
+F.forEach(([l,v,t])=>{const r=document.createElement("div");r.className="fbar";r.innerHTML=`<span class="lab">${l}</span><div class="track"><div class="fill" style="width:${v/8300*100}%">${t}</div></div>`;fu.appendChild(r)});
+const w=document.createElement("div");w.className="fbar water";w.innerHTML=`<span class="lab">Water: approved vs requested, 2024</span><div class="track"><div class="fill" style="width:18%">142 of 808 ML/day</div></div>`;fu.appendChild(w);
+
+/* sources */
+const urls=new Map();
+[...EV.map(e=>[e.source_name,e.source_url]),...CO.map(c=>[c.capacity_source,c.capacity_source_url]),...SI.map(x=>[x.site_name,x.source_url])].forEach(([n,u])=>{if(u&&!urls.has(u))urls.set(u,n)});
+document.getElementById("srcs").innerHTML=`<span>Datasets: ${EV.length} timeline events, ${SI.length} Malaysian campuses and ${CO.length} countries, each row tied to a source and a confidence rating. Main secondary source: James Chai, <a href="https://www.iseas.edu.sg/wp-content/uploads/2026/08/TRS22_26.pdf" target="_blank" rel="noopener">Behind Malaysia's Data Centre Boom</a>, ISEAS Trends 22/2026.</span><details><summary>All ${urls.size} source links</summary>${[...urls].map(([u,n])=>`<div><a href="${esc(u)}" target="_blank" rel="noopener">${esc(n)}</a></div>`).join("")}</details>`;
+</script>

@@ -1,0 +1,17 @@
+country,field,new_value
+United States,operational_gw,56
+United States,pipeline_gw,38
+United States,confidence,medium
+United States,capacity_source,SemiAnalysis datacenter model
+United States,capacity_source_url,https://newsletter.semianalysis.com/p/the-chinese-ai-infrastructure-boom
+China,operational_gw,24
+China,pipeline_gw,20
+China,confidence,medium
+China,capacity_source,SemiAnalysis China datacenter model
+China,capacity_source_url,https://newsletter.semianalysis.com/p/the-chinese-ai-infrastructure-boom
+France,build_cost_usd_m_per_mw,10.8
+Netherlands,build_cost_usd_m_per_mw,10.8
+Ireland,build_cost_usd_m_per_mw,10.0
+United Arab Emirates,build_cost_usd_m_per_mw,9.2
+Saudi Arabia,build_cost_usd_m_per_mw,10.8
+United Kingdom,build_cost_usd_m_per_mw,12.95

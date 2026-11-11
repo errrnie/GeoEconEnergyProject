@@ -1,0 +1,20 @@
+site_name,lat,lon,latlon_precision,source_url,notes
+YTL Green Data Center Park (incl. YTL AI Cloud),1.61966,103.52184,site,https://baxtel.com/campus/ytl-johor-campus,"Baxtel campus coordinate for YTL JDC1/2/3/6 campus, Kulai; not independently cross-checked"
+Bridge Data Centres MY06 (Sedenak),1.69836,103.41201,site,https://baxtel.com/campus/bridge-dc-sedenak-my06-campus,"Baxtel campus coordinate; 17 Jalan Digital 7, Sedenak Tech Park"
+Princeton Digital Group JH1,1.69235,103.4118,site,https://baxtel.com/campus/princeton-pdg-sedenak-tech-park-jh1,"Baxtel campus coordinate, Sedenak Tech Park"
+Vantage JHB1 (ex-Yondr Johor campus),1.696,103.4085,site,https://baxtel.com/campus/vantage-johor-jhb1-sedenak-campus,"Baxtel campus coordinate, Sedenak Tech Park"
+K2 JHR1 campus,1.70505,103.41132,site,https://baxtel.com/campus/k2-kulai-johor-campus,"Baxtel campus coordinate, Sedenak Tech Park"
+BrightRay Sedenak campus (MY-01),1.69794,103.41091,park,https://baxtel.com/campus/bridge-dc-sedenak-my06-campus,"Sedenak Tech Park point = mean of 4 Baxtel campus coordinates in STeP (Bridge MY06, PDG JH1, Vantage JHB1, K2)"
+Global Data Centre GDC-SDK1,1.69794,103.41091,park,https://baxtel.com/campus/k2-kulai-johor-campus,"Sedenak Tech Park point = mean of 4 Baxtel campus coordinates in STeP (Bridge MY06, PDG JH1, Vantage JHB1, K2)"
+Equinix JH1,1.43129,103.5984,site,https://baxtel.com/campus/equinix-johor-jh1-campus,"Baxtel campus coordinate, Nusajaya Tech Park"
+Equinix JH2,1.43129,103.5984,site,https://baxtel.com/campus/equinix-johor-jh1-campus,Baxtel lists JH2 on the same campus as JH1 (conflicts with sites.csv Gelang Patah note)
+DayOne Nusajaya Tech Park (NTP) campus,1.43129,103.5984,park,https://baxtel.com/campus/equinix-johor-jh1-campus,"Point inside Nusajaya Tech Park (Equinix JH1 campus, same park), not a centroid; DayOne address 2 Jalan Teknologi Perintis 1 per Baxtel"
+STACK Johor campus (JHB01),1.47154,103.5885,site,https://baxtel.com/campus/stack-iskandar-puteri-jhb01-campus,"Baxtel campus coordinate; 27 Jalan SiLC 1/5, SiLC Iskandar Puteri"
+TM One Iskandar Puteri Data Centre (IPDC) Block 2,1.43588,103.59911,site,https://baxtel.com/campus/telekom-malaysia-iskandar-puteri-core-dc-ipdc,Baxtel IPDC campus coordinate (IPDC 1 and 2)
+Bridge Data Centres MY07 (Ulu Tiram),1.56206,103.84201,site,https://baxtel.com/campus/bridge-dc-ulu-tiram-my07-campus,"Baxtel campus coordinate; Desa 100 Industrial Park, Ulu Tiram"
+Vantage KUL1 (Cyberjaya),2.9042,101.65158,site,https://baxtel.com/campus/vantage-cyberjaya-campus,Baxtel campus coordinate; Jalan Cyber Point 4
+Vantage KUL2 (Cyberjaya),2.9053,101.6482,site,https://baxtel.com/campus/vantage-cyberjaya-kul2-campus,Baxtel campus coordinate; 52 acres next to KUL1
+Equinix KL1,2.9042,101.65158,site,https://baxtel.com/campus/vantage-cyberjaya-campus,Baxtel says Equinix KL1 sits within Vantage KUL1 campus; uses that campus coordinate
+NTT Cyberjaya campus (CBJ1 to CBJ6),2.92825,101.6589,site,https://baxtel.com/campus/ntt-malaysia-cyberjaya-msc-campus,Baxtel campus coordinate
+TM One Klang Valley Data Centre (KVDC) Block 2,2.93239,101.65783,site,https://baxtel.com/campus/telekom-malaysia-cyberjaya-klang-valley-kvdc,Baxtel KVDC campus coordinate (KVDC 1 and 2)
+EdgeConneX Bukit Jalil,3.0507444,101.6802006,park,https://en.wikipedia.org/wiki/Technology_Park_Malaysia,Technology Park Malaysia (MRANTI Park) coordinate from Wikipedia; Baxtel places site in MRANTI park
