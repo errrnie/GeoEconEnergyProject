@@ -122,6 +122,21 @@ svg text{font-family:var(--mono)!important}
 .land{fill:#1a2430;stroke:#3b4b5e}.land.my{fill:#2a2215;stroke:var(--accent)}
 .seg button[aria-pressed="true"]{background:var(--accent);color:#0b0f14}
 .fbar .fill{color:#0b0f14}
+
+/* 4 Gs drawer */
+.gtab{position:fixed;right:0;top:40%;z-index:20;writing-mode:vertical-rl;transform:rotate(180deg);background:var(--accent);color:#0b0f14;border:0;font:600 14px var(--display);letter-spacing:.14em;padding:16px 9px;cursor:pointer;border-radius:0 2px 2px 0}
+.gdrawer{position:fixed;top:0;right:0;height:100%;width:min(460px,100%);background:var(--surface);border-left:1px solid var(--accent);z-index:30;overflow-y:auto;padding:22px 22px 40px;transform:translateX(100%);transition:transform .25s ease;display:flex;flex-direction:column;gap:18px}
+.gdrawer.open{transform:none}
+.gdrawer .ghead{display:flex;justify-content:space-between;align-items:center}
+.gdrawer .gx{font:inherit;background:transparent;border:1px solid var(--line);color:var(--fg);padding:4px 10px;cursor:pointer}
+.g4{display:grid;gap:8px;border-top:1px solid var(--line);padding-top:14px}
+.g4 h3{font-size:1.25rem;color:var(--accent);text-transform:uppercase;letter-spacing:.06em}
+.g4 .gs{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.g4 .gs div{border:1px solid var(--line);padding:8px;display:grid;gap:2px}
+.g4 .gs b{font:600 1.15rem var(--display);color:var(--fg)}
+.g4 .gs span{font-size:.74rem;color:var(--muted);line-height:1.35}
+.g4 p{font-size:.92rem;color:var(--muted)}
+@media (prefers-reduced-motion:reduce){.gdrawer{transition:none}}
 </style>
 
 <div class="wrap">
@@ -267,6 +282,9 @@ svg text{font-family:var(--mono)!important}
 </section>
 </div>
 
+
+<button class="gtab" id="gtab" aria-expanded="false" aria-controls="gdrawer">THE 4 GS</button>
+<aside class="gdrawer" id="gdrawer" aria-label="The 4 Gs of Malaysia" aria-hidden="true">__FOURG__</aside>
 <script>
 const GEO=__GEO__, CO=__COUNTRIES__, EV=__EVENTS__, SI=__SITES__, WORLD=__WORLD__, TIERS=__TIERS__, SPEED=__SPEED__, JOHOR=__JOHOR__, MIX=__MIX__;
 const NS="http://www.w3.org/2000/svg";
@@ -466,4 +484,10 @@ const w=document.createElement("div");w.className="fbar water";w.innerHTML=`<spa
 const urls=new Map();
 [...EV.map(e=>[e.source_name,e.source_url]),...CO.map(c=>[c.capacity_source,c.capacity_source_url]),...SI.map(x=>[x.site_name,x.source_url])].forEach(([n,u])=>{if(u&&!urls.has(u))urls.set(u,n)});
 document.getElementById("srcs").innerHTML=`<span>Datasets: ${EV.length} timeline events, ${SI.length} Malaysian campuses and ${CO.length} countries, each row tied to a source and a confidence rating. Main secondary source: James Chai, <a href="https://www.iseas.edu.sg/wp-content/uploads/2026/08/TRS22_26.pdf" target="_blank" rel="noopener">Behind Malaysia's Data Centre Boom</a>, ISEAS Trends 22/2026.</span><details><summary>All ${urls.size} source links</summary>${[...urls].map(([u,n])=>`<div><a href="${esc(u)}" target="_blank" rel="noopener">${esc(n)}</a></div>`).join("")}</details>`;
+
+/* 4 Gs drawer */
+(function(){const b=document.getElementById("gtab"),d=document.getElementById("gdrawer");
+const set=o=>{d.classList.toggle("open",o);b.setAttribute("aria-expanded",o);d.setAttribute("aria-hidden",!o);if(o)d.querySelector(".gx").focus()};
+b.onclick=()=>set(!d.classList.contains("open"));d.querySelector(".gx").onclick=()=>{set(false);b.focus()};
+addEventListener("keydown",e=>{if(e.key==="Escape"&&d.classList.contains("open")){set(false);b.focus()}})})();
 </script>

@@ -89,3 +89,17 @@ TX['__ENERGY__'] = '''
       <p class="sub">The fuel is imported and burned in Malaysia, the emissions and water use stay in Malaysia, and the computing largely goes to foreign-owned clouds, American and Chinese. Malaysia is in effect exporting its electricity as compute. Whether that is a good deal depends on what it keeps: tariffs that cover the gas, local jobs, and a say over who uses the chips.</p></div>
   </div>
 '''
+
+def _g(title,stats,para):
+    s=''.join(f'<div><b>{v}</b><span>{l}</span></div>' for v,l in stats)
+    return f'<section class="g4"><h3>{title}</h3><div class="gs">{s}</div><p>{para}</p></section>'
+TX['__FOURG__']=('<div class="ghead"><span class="eyebrow">Draft · Malaysia in 4 Gs</span><button class="gx" aria-label="Close">Close ✕</button></div>'
+ '<p class="sub" style="font-size:.92rem">A quick read of Malaysia through the course lens of geology, geography, growth and geopolitics, as it bears on the data centre boom.</p>'
+ +_g('Geology',[('28 Mt','LNG exported in 2025, mostly from Sarawak'),('59%','Peninsular power from imported coal, 2025'),('2.26 Mt','LNG the Peninsula imported in 2025')],
+   'Malaysia is rich in gas, but not where the data centres are. Its gas sits on Borneo and mostly goes abroad, while the Peninsula burns imported coal and now imports LNG as its own fields decline.')
+ +_g('Geography',[('~1.1 GW','Johor operating capacity, level with Singapore by mid-2026'),('~12 mo','Wait for a large grid connection under Green Lane'),('Malacca','The strait that brings in fuel and is also a chokepoint')],
+   'Johor sits across the causeway from a full Singapore and along the Strait of Malacca. That puts it next to Singapore\'s network hub and customers, and next to the sea lanes that deliver its fuel.')
+ +_g('Growth',[('5.2%','GDP growth, 2025'),('34.4M','Population, 2026'),('7% → 31%','Data centres in Peninsular power demand, 2026 to 2035')],
+   'A growing middle-income economy whose power demand is now being reshaped by one industry.')
+ +_g('Geopolitics',[('US$192bn','Trade with China, its largest partner, 2025'),('10%','US tariff on many Malaysian goods since Jul 2026'),('19 / 14','US-linked and China-linked campuses tracked')],
+   'A middle power hosting both stacks. Its room to stay open to both is narrowing under US chip controls, the stalled 2025 trade deal and the Megaspeed case.'))
