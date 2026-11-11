@@ -1,33 +1,24 @@
 <title>Malaysia's Compute Bet</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..100,500..800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=Share+Tech+Mono&display=swap">
 <style>
-/* Layout: one long scroll, a narrow reading column with full-width figure bands. Palette borrows from grid single-line diagrams: copper for power, two stack colours for US and China. */
+/* Control room: a grid operator's screen. Dark in both colour schemes; amber for power and Malaysia, blue and red for the US and China stacks. */
 :root{
-  --bg:#f5f6f3; --surface:#ffffff; --fg:#17201c; --muted:#5d6a63; --line:#d9ded8;
-  --accent:#b8611f; --accent-soft:#f3e3d3;
-  --us:#2b62c9; --cn:#c8382f; --other:#7a8780; --unk:#b9c2bc;
-  --t1:#3f8f6b; --t2:#e2b77a; --t3:#c8382f; --t0:#e6e9e4;
-  --coal:#4a4f4c; --gas:#d08a3c; --hydro:#3f7fb8; --solar:#e5c13d; --oth:#9aa79f;
-  --display:"Archivo","Arial Narrow",system-ui,sans-serif;
-  --body:"Inter",system-ui,-apple-system,"Segoe UI",sans-serif;
-  --mono:"JetBrains Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;
+  --bg:#0b0f14; --surface:#121a23; --fg:#dbe4ee; --muted:#8a9bad; --line:#243243;
+  --accent:#f2a93b; --accent-soft:#33260f; --us:#4fa3ff; --cn:#ff6b6b; --other:#6f7f8f; --unk:#3b4756;
+  --t1:#3cc49a; --t2:#d9a441; --t3:#ff6b6b; --t0:#1d2733; --coal:#8a96a3; --gas:#f2a93b; --hydro:#4fa3ff; --solar:#f5d547; --oth:#5c6b7a;
+  --display:"Chakra Petch","Arial Narrow",system-ui,sans-serif;
+  --body:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"Share Tech Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;
+  color-scheme:dark;
 }
-@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
-  --bg:#101512; --surface:#18201b; --fg:#e7ece8; --muted:#9aa79f; --line:#2c3630;
-  --accent:#e08a45; --accent-soft:#3a2a1c; --us:#6f9cf0; --cn:#f0736a; --other:#8e9a93; --unk:#4a554f;
-  --t1:#5cb38c; --t2:#b98b4f; --t3:#e0625a; --t0:#2c3630; --coal:#8a918d; --gas:#e09a50; --hydro:#5f9ee0; --solar:#e8cc55; --oth:#6c7872; color-scheme:dark}}
-:root[data-theme="dark"]{
-  --bg:#101512; --surface:#18201b; --fg:#e7ece8; --muted:#9aa79f; --line:#2c3630;
-  --accent:#e08a45; --accent-soft:#3a2a1c; --us:#6f9cf0; --cn:#f0736a; --other:#8e9a93; --unk:#4a554f;
-  --t1:#5cb38c; --t2:#b98b4f; --t3:#e0625a; --t0:#2c3630; --coal:#8a918d; --gas:#e09a50; --hydro:#5f9ee0; --solar:#e8cc55; --oth:#6c7872; color-scheme:dark}
 *{box-sizing:border-box}
 body{background:var(--bg);color:var(--fg);font-family:var(--body);font-size:16px;line-height:1.6;
   padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 64px}
 .wrap{max-width:1040px;margin:0 auto}
 .read{max-width:66ch}
-h1,h2,h3{font-family:var(--display);font-stretch:85%;line-height:1.08;text-wrap:balance;margin:0}
+h1,h2,h3{font-family:var(--display);line-height:1.08;text-wrap:balance;margin:0}
 h1{font-size:clamp(2.4rem,6vw,4.4rem);font-weight:800;letter-spacing:-.01em}
 h2{font-size:clamp(1.6rem,3.4vw,2.3rem);font-weight:750}
 h3{font-size:1.15rem;font-weight:700}
@@ -118,6 +109,19 @@ table.sc th,table.sc td{padding:6px 8px;border-bottom:1px solid var(--line);text
 table.sc th:first-child,table.sc td:first-child{text-align:left}
 table.sc td{font-family:var(--mono);font-variant-numeric:tabular-nums}
 table.sc td:first-child{font-family:var(--body)}
+
+/* control-room layer */
+body{background-color:var(--bg);background-image:linear-gradient(rgba(36,50,67,.45) 1px,transparent 1px),linear-gradient(90deg,rgba(36,50,67,.45) 1px,transparent 1px);background-size:48px 48px}
+h1{text-transform:uppercase;letter-spacing:.02em;font-weight:700}
+h2{font-weight:600;letter-spacing:.01em}
+.kpi b,.box b{font-stretch:normal;color:var(--accent);font-family:var(--display);font-weight:600}
+.kpi,.figure,.box,.card,.panel,.seg,.chip,.banner{border-radius:2px}
+.banner{background:var(--accent);color:#0b0f14}
+.eyebrow{color:var(--accent)}
+svg text{font-family:var(--mono)!important}
+.land{fill:#1a2430;stroke:#3b4b5e}.land.my{fill:#2a2215;stroke:var(--accent)}
+.seg button[aria-pressed="true"]{background:var(--accent);color:#0b0f14}
+.fbar .fill{color:#0b0f14}
 </style>
 
 <div class="wrap">
@@ -376,7 +380,7 @@ drawTiers();
   const W=760,rowH=40,left=110,H=yrs.length*rowH+6;svg.setAttribute("viewBox",`0 0 ${W} ${H}`);
   yrs.forEach((y,i)=>{let x=left;const yy=i*rowH+4;T(svg,left-8,yy+20,y.replace("2026-04 (month)","Apr 2026"),{a:"end",mono:false,fill:"var(--fg)",fs:12});
     rows.filter(r=>r.year===y).forEach(r=>{const w=+r.share_pct/100*(W-left-10);const rc=el("rect",{x,y:yy,width:Math.max(0,w-1),height:28,fill:FC[r.fuel]||"var(--oth)"},svg);
-      el("title",{},rc).textContent=`${r.fuel}: ${r.share_pct}%`;if(w>44)T(svg,x+6,yy+18,`${Math.round(+r.share_pct)}%`,{fill:r.fuel==="solar"?"#17201c":"#fff",fs:11});x+=w;});});
+      el("title",{},rc).textContent=`${r.fuel}: ${r.share_pct}%`;if(w>44)T(svg,x+6,yy+18,`${Math.round(+r.share_pct)}%`,{fill:"#0b0f14",fs:11});x+=w;});});
   const S=[["Low",26.3,14,3.07,2.26],["Mid",39.3,21,5.61,4.12],["High",61.8,33,10.0,7.35]];
   document.getElementById("scenrows").innerHTML=S.map(s=>`<tr><td>${s[0]}</td><td>${s[1]}</td><td>${s[2]}%</td><td>${s[3].toFixed(1)}</td><td>${s[4].toFixed(2)}</td></tr>`).join("");
   const sc=document.getElementById("scenchart"),W2=760,H2=200,l=110,r=30,max=8;sc.setAttribute("viewBox",`0 0 ${W2} ${H2}`);
