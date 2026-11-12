@@ -68,7 +68,7 @@ def build(nav, configs, markets):
   <p class="read sub">Each dot is a data centre campus from the country deep dives, coloured by whose stack it mainly serves. Drag the slider to see campuses appear by the year they were announced. Highlighted countries open their deep dive.</p>
   <div class="yr"><b id="yrv">2026</b><input type="range" id="yr" min="2012" max="2026" value="2026" aria-label="Show campuses announced up to this year"><span class="note" id="yrn"></span></div>
   <div class="figure seamap"><svg id="sea" role="img" aria-label="Map of Southeast Asia data centre campuses"></svg></div>
-  <div class="legend"><span><i style="background:var(--us)"></i>US-linked</span><span><i style="background:var(--cn)"></i>China-linked</span><span><i style="background:var(--other)"></i>Other or local</span><span><i style="background:var(--unk)"></i>Unknown</span><span><i style="border:2px solid var(--accent);background:transparent"></i>Deep dive available</span></div>
+  <div class="legend"><span><i style="background:var(--us)"></i>US-linked</span><span><i style="background:var(--cn)"></i>China-linked</span><span><i style="background:var(--other)"></i>Other or local</span><span><i style="background:var(--unk)"></i>Unknown</span><span><i style="border:2px solid var(--accent);background:transparent"></i>Deep dive available</span><span><i style="border:2px dashed var(--accent);background:transparent;border-radius:50%"></i>Other hubs (operating plus pipeline MW)</span></div>
   <div class="figure hist"><h3>Campuses announced per year</h3><svg id="hist" role="img" aria-label="Campuses announced per year by country"></svg></div>
 </section>
 
@@ -101,10 +101,14 @@ function draw(){{const yr=+document.getElementById("yr").value;document.getEleme
   shown.forEach((x,i)=>{{const [cx,cy]=P(x.lon,x.lat);const jx=((x.n.length*37)%9-4)*.8,jy=((x.n.length*53)%9-4)*.8;const r=2.2+Math.sqrt(+x.mw||30)*.18;
     const solid=x.st==="Operational";const c=el("circle",{{cx:cx+jx,cy:cy+jy,r,fill:solid?SC[x.s]||"var(--unk)":"none",stroke:SC[x.s]||"var(--unk)","stroke-width":1.2,"fill-opacity":.8}},m);
     el("title",{{}},c).textContent=`${{x.n}} (${{x.c}}) · ${{x.op}} · ${{x.st}}${{x.y?" · announced "+x.y:""}}`}});
+  D.hubs.filter(h=>!D.deep[h.country]&&h.lat&&h.lon).forEach(h=>{{const [x,y]=P(+h.lon,+h.lat);const mw=(+h.operational_mw||0)+(+h.pipeline_mw||0);const r=4+Math.sqrt(mw||50)*.25;
+    const c=el("circle",{{cx:x,cy:y,r,fill:"none",stroke:"var(--accent)","stroke-dasharray":"3 2","stroke-width":1.4}},m);
+    el("title",{{}},c).textContent=`${{h.hub}}, ${{h.country}}: ${{h.operational_mw||"?"}} MW operating, ${{h.pipeline_mw||"?"}} MW pipeline (${{h.source_name}}). Deep dive coming.`;
+    const t=el("text",{{x:x+r+3,y:y+4,"font-size":11,fill:"var(--fg)"}},m);t.textContent=h.hub.replace(/\s*\(.*\)/,"")}});
   document.getElementById("yrn").textContent=`${{shown.length}} of ${{D.sites.length}} mapped campuses announced by ${{yr}} (campuses with no announcement year always show)`;}}
 document.getElementById("yr").oninput=draw;draw();
 (function(){{const svg=document.getElementById("hist"),ys=[];for(let y=2012;y<=2026;y++)ys.push(y);
-  const cs=[...new Set(D.sites.map(x=>x.c))],col={{Singapore:"var(--us)",Malaysia:"var(--accent)",Thailand:"var(--t1)"}};
+  const cs=[...new Set(D.sites.map(x=>x.c))],col={{Singapore:"#c792ea",Malaysia:"var(--accent)",Thailand:"var(--t1)",Indonesia:"var(--cn)",Vietnam:"var(--us)"}};
   const W=760,H=220,l=30,b=24,bw=(W-l)/ys.length-6;svg.setAttribute("viewBox",`0 0 ${{W}} ${{H}}`);
   const cnt=ys.map(y=>cs.map(c=>D.sites.filter(x=>+x.y===y&&x.c===c).length));const max=Math.max(1,...cnt.map(a=>a.reduce((p,q)=>p+q,0)));
   ys.forEach((y,i)=>{{let acc=0;const x=l+i*(bw+6);cs.forEach((c,k)=>{{const v=cnt[i][k];if(!v)return;const h=v/max*(H-b-14);const r=el("rect",{{x,y:H-b-acc-h,width:bw,height:h,fill:col[c]||"var(--other)"}},svg);el("title",{{}},r).textContent=`${{c}} ${{y}}: ${{v}}`;acc+=h}});

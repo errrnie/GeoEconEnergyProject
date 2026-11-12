@@ -1,0 +1,8 @@
+{"name":"Singapore","adj":"Singapore","slug":"singapore","title":"Singapore's Rationed Hub","geo":"sg.json",
+ "views":[{"id":"island","label":"Singapore"}],
+ "policyTrack":"Singapore policy","otherLabel":"Other or Singaporean",
+ "keyDates":["2014-01-01","2019-01-01","2022-01-11","2023-07-14","2024-09-05","2025-02-26","2025-10-27","2026-04-01","2026-08-21"],
+ "capColors":{"Johor":"var(--accent)","Singapore":"var(--us)"},"speedHighlight":"","mixGeo":"Singapore",
+ "funnel":{"bars":[["Singapore live capacity, 2026 (BMI)",1460,"~1.46 GW"],["Johor live capacity, H1 2026 (Knight Frank)",1110,"~1.11 GW"],["Released by Singapore tenders, 2023 and 2026",280,"~280 MW"]]},
+ "tagline":"The region's network hub, rationing power since 2019. Its overflow built Johor and Batam, and its gas is all imported.",
+ "srcNote":"Main data: Singapore's Energy Market Authority (EMA), IMDA, EDB and MDDI, with company releases and press."}
