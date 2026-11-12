@@ -1,0 +1,137 @@
+<header class="hero">
+  <span class="banner">Draft · sources linked throughout · figures marked "est." are my own estimates</span>
+  <span class="eyebrow">Middle power compute · Vietnam · 2018 to 2026</span>
+  <h1>Vietnam's Late Opening</h1>
+  <p class="lede read">Vietnam opened its data centre market to foreign owners only in 2025. Until then the market grew inside its own telecom and IT groups, led by the army-owned Viettel. Since the opening, Singaporean, Korean and Gulf builders have lined up, AWS has switched on in Hanoi and Viettel is building a 140 MW campus, but operating capacity is still a fraction of Johor's, on a coal and hydro grid that ran short in the north in 2023.</p>
+  <div class="kpis">
+    <div class="kpi"><span>Operating capacity, Hanoi and Ho Chi Minh City</span><b class="mono">~73 MW</b><span>Cushman &amp; Wakefield, Apr 2026; other estimates run from 60 to 148 MW</span></div>
+    <div class="kpi"><span>Government aim for 2030</span><b class="mono">870 MW</b><span>about twelve times today's operating base</span></div>
+    <div class="kpi"><span>Power from coal and hydro</span><b class="mono">78%</b><span>coal 49.5% and hydro 28.7% in 2024 (EVN)</span></div>
+  </div>
+</header>
+
+<section id="global">
+  <span class="eyebrow">1 · The global picture</span>
+  <h2>Outside the Americas, Asia Pacific has the largest pipeline</h2>
+  <p class="read sub">Operational capacity runs today. Pipeline is under construction or planned. Vietnam's bar is Hanoi plus Ho Chi Minh City, from one broker.</p>
+  <div class="controls">
+    <div class="seg" role="group" aria-label="Sort">
+      <button id="sortOp" aria-pressed="false">Sort by operational</button>
+      <button id="sortTot" aria-pressed="true">Sort by operational + pipeline</button>
+    </div>
+    <div class="seg" role="group" aria-label="Units">
+      <button id="uGW" aria-pressed="true">GW</button>
+      <button id="uUSD" aria-pressed="false">US$ bn (est.)</button>
+    </div>
+    <div class="seg" role="group" aria-label="United States">
+      <button id="usOff" aria-pressed="true">Hide US and China</button>
+      <button id="usOn" aria-pressed="false">Show US and China</button>
+    </div>
+  </div>
+  <div class="figure"><svg id="gchart" role="img" aria-label="Bar chart of data centre capacity by country"></svg></div>
+  <div class="legend"><span><i style="background:var(--fg)"></i>Operational</span><span><i style="background:var(--muted);opacity:.35"></i>Pipeline</span><span><i style="background:var(--accent)"></i>Vietnam</span><span><i style="border:2px solid var(--accent);background:transparent"></i>Leapfrogs a market with more operational capacity</span><span>* lower-confidence or partial figure</span><span>‡ SemiAnalysis building-level count</span></div>
+  <p class="note" id="gnote"></p>
+</section>
+
+<section id="why">
+  <span class="eyebrow">2 · Why Vietnam</span>
+  <h2>Cheap to build, newly open, with a home champion</h2>
+  <p class="read sub">Select a card with a link to see the numbers behind it.</p>
+  <div class="drivers" id="drivers">
+    <div class="driver"><h3>Opened in 2025</h3><p>The 2023 Telecommunications Law removed the foreign ownership cap on data centre and cloud services from January 2025. In April 2026 Ho Chi Minh City licensed its first fully foreign hyperscale projects, Singapore-led Evolution (52 MW) and Sembcorp's Starmason (60 MW).</p></div>
+    <button class="driver" data-p="cost" aria-expanded="false"><h3>The cheapest build in the region</h3><p>Cushman &amp; Wakefield puts a mid-spec build at about US$7.2 million per MW, against 9.6 in Malaysia and 8.8 in Thailand.</p><span class="more">Show build cost by country</span></button>
+    <div class="driver"><h3>A state champion leads</h3><p>Viettel, owned by the defence ministry, opened a 30 MW campus at Hoa Lac in 2024 and broke ground on a 140 MW one in 2025, Vietnam's first above 100 MW. FPT and CMC follow, with Nvidia and Samsung as partners.</p></div>
+    <button class="driver" data-p="stacks" aria-expanded="false"><h3>Data stays onshore</h3><p>The 2018 Cybersecurity Law and 2022's Decree 53 require some user data to be stored in Vietnam, so demand starts at home. AWS's Hanoi Local Zone, live since June 2026, still runs off its Singapore region.</p><span class="more">Show the two-stack numbers</span></button>
+  </div>
+  <div class="panel" id="whyPanel" hidden aria-live="polite"></div>
+</section>
+
+<section id="timeline">
+  <span class="eyebrow">3 · How it happened</span>
+  <h2>From telecom server rooms to licensed hyperscale</h2>
+  <div class="controls">
+    <div class="seg" role="group" aria-label="Events shown">
+      <button id="keyOnly" aria-pressed="true">Key moments</button>
+      <button id="allEv" aria-pressed="false">All events</button>
+    </div>
+  </div>
+  <div class="chips" id="chips"></div>
+  <div class="tl" id="tl"></div>
+  <p class="note" id="tlnote"></p>
+</section>
+
+<section id="map">
+  <span class="eyebrow">4 · Where it lands</span>
+  <h2>Two cities more than 1,000 km apart</h2>
+  <p class="read sub">Each dot is a campus. Colour shows whose stack it mainly serves, size shows megawatts where disclosed. Solid dots are operating, rings are under construction, dashed rings are announced. Only the Tan Phu Trung campus has a public location; other sites are placed at the approximate centre of their technology park, and Hanoi's AWS zone at the city centre. Select a dot for details.</p>
+  <div class="controls">
+    <div class="seg" role="group" aria-label="Map view">
+__VIEWBTNS__
+    </div>
+    <div class="chips" id="stackChips"></div>
+  </div>
+  <div class="mapgrid">
+    <div class="figure map"><svg id="mmap" role="img" aria-label="Map of data centre campuses in Vietnam"></svg></div>
+    <div class="card" id="siteCard" aria-live="polite"></div>
+  </div>
+  <p class="note" id="mapnote"></p>
+  <p class="undisc" id="undisc"></p>
+</section>
+
+<section id="stacks">
+  <span class="eyebrow">5 · Two stacks, one host</span>
+  <h2>Vietnamese groups lead, and foreign clouds are only arriving</h2>
+  <p class="read sub">Sites are tagged by their known tenant first, then by the operator's home country. Many new projects have no named tenant yet, so a large share is unknown.</p>
+  <div class="stackbar" id="stackbar" role="img" aria-label="Sites by stack"></div>
+  <div class="legend"><span><i style="background:var(--us)"></i>US-linked</span><span><i style="background:var(--cn)"></i>China-linked</span><span><i style="background:var(--other)"></i>Other or Vietnamese</span><span><i style="background:var(--unk)"></i>Unknown or mixed</span></div>
+  <div class="two">
+    <div class="card"><h3>US clouds, one step at a time</h3><p class="sub">AWS's Hanoi Local Zone, live since June 2026, is the first US hyperscaler infrastructure in Vietnam. Google was reported in 2024 to be weighing a hyperscale site near Ho Chi Minh City. US chips arrive mainly through FPT and Viettel.</p></div>
+    <div class="card"><h3>Chinese clouds are circling</h3><p class="sub">Huawei and Alibaba were reported in 2024 to be weighing Vietnamese data centres, and neither has announced one. Vietnam keeps top-level partnerships with both Washington and Beijing, and Gulf capital arrived in 2025 through a G42-led US$2 billion proposal in Ho Chi Minh City.</p></div>
+  </div>
+</section>
+
+<section id="chipaccess">
+  <span class="eyebrow">6 · Chip access and security</span>
+  <h2>__CHIP_H2__</h2>
+  __CHIP_LEDE__
+  <div class="controls">
+    <div class="seg" role="group" aria-label="Rule shown">
+      <button id="tJan" aria-pressed="true">January 2025 rule</button>
+      <button id="tNow" aria-pressed="false">Now</button>
+    </div>
+  </div>
+  <div class="figure world"><svg id="wmap" role="img" aria-label="World map of US AI chip export tiers"></svg></div>
+  <div class="legend" id="tlegend"></div>
+  <p class="note" id="tnote"></p>
+  __CHIP_BODY__
+</section>
+
+<section id="energy">
+  <span class="eyebrow">7 · Energy security</span>
+  __ENERGY__
+</section>
+
+<section id="risk">
+  <span class="eyebrow">8 · Leverage and weak points</span>
+  <h2>Plans run ahead of delivery, and nobody agrees on the base</h2>
+  <div class="funnel" id="funnel"></div>
+  <p class="note">Sources: Savills via Vietnamese press; government aim and the 148 MW figure as cited at an August 2026 forum (VnExpress); Cushman &amp; Wakefield, April 2026. The figures use different definitions and are shown for scale.</p>
+  <div class="two">
+    <div class="risk"><h3>Weak points</h3><ul>
+      <li>A dry year cuts hydro, and in 2023 the north ran short for weeks; most data centres sit at the two ends of the long north-south grid.</li>
+      <li>A large grid connection reportedly takes two to three years in the main clusters.</li>
+      <li>Short land leases deter hyperscale: STT GDC sold out of a 60 MW Ho Chi Minh City project in 2026 because its lease ran only to 2041.</li>
+      <li>US tariffs have swung three times since 2025, and a 2026 report alleges GPUs were diverted through Vietnam.</li>
+    </ul></div>
+    <div class="risk lev"><h3>Leverage</h3><ul>
+      <li>The lowest build cost in the region and a large, fast-growing home market with data localisation rules.</li>
+      <li>Domestic builders with state backing, led by Viettel, who do not wait for foreign tenants.</li>
+      <li>Partnerships with the US, China and the Gulf at once, and chip access now part of its trade talks with Washington.</li>
+    </ul></div>
+  </div>
+</section>
+
+<section id="sources">
+  <span class="eyebrow">Sources and method</span>
+  <div class="sources" id="srcs"></div>
+</section>

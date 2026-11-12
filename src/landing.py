@@ -4,7 +4,48 @@ import csv, json, os
 def rd(p):
     return list(csv.DictReader(open(p, encoding='utf-8'))) if os.path.exists(p) else []
 
+NUM = {3: 'Three', 4: 'Four', 5: 'Five', 6: 'Six', 7: 'Seven'}
 ISO = {'Singapore': '702', 'Malaysia': '458', 'Thailand': '764', 'Indonesia': '360', 'Vietnam': '704', 'Philippines': '608'}
+
+
+def _inline(t):
+    import html as H, re
+    t = H.escape(t, quote=False)
+    t = re.sub(r'\*\*(.+?)\*\*', r'<b>\1</b>', t)
+    t = re.sub(r'\[([^\]]+)\]\(([^)]+)\)', r'<a href="\2">\1</a>', t)
+    t = re.sub(r'\[(\d+)\]', r'<sup><a href="#s\1">\1</a></sup>', t)
+    return t.replace('</a></sup><sup><a', '</a>,<a')
+
+
+def render_story(path):
+    """Markdown story (## sections, paragraphs, numbered lists, [n] citations) to HTML sections."""
+    import re
+    if not os.path.exists(path):
+        return ''
+    secs = re.split(r'^## ', open(path, encoding='utf-8').read(), flags=re.M)[1:]
+    body, srcs, take = '', '', ''
+    for sec in secs:
+        head, _, rest = sec.partition('\n')
+        paras = [p.strip() for p in rest.strip().split('\n\n') if p.strip()]
+        if head.startswith('Sources'):
+            for line in rest.strip().split('\n'):
+                m = re.match(r'(\d+)\. (.*?)(https?://\S+)?$', line.strip())
+                if m:
+                    url = m.group(3) or ''
+                    srcs += f'<li id="s{m.group(1)}">{_inline(m.group(2).strip())}' + (f' <a href="{url}" target="_blank" rel="noopener">link</a>' if url else '') + '</li>'
+            continue
+        if head.startswith('Five takeaways'):
+            items = [re.sub(r'^\d+\. ', '', l) for l in rest.strip().split('\n') if l.strip()]
+            take = '<div class="callout"><h3>Five takeaways</h3><ol class="read">' + ''.join(f'<li>{_inline(i)}</li>' for i in items) + '</ol></div>'
+            continue
+        body += f'<div class="phase"><h3>{_inline(head)}</h3>' + ''.join(f'<p class="read">{_inline(p)}</p>' for p in paras) + '</div>'
+    return f"""<section id="story">
+  <span class="eyebrow">2 · How it happened</span>
+  <h2>Singapore filled up, Johor took the overflow, and AI demand spread it further</h2>
+  <div class="phases">{body}</div>
+  {take}
+  <details class="srclist"><summary>Sources for this story ({srcs.count('<li')})</summary><ol>{srcs}</ol></details>
+</section>"""
 
 
 def build(nav, configs, markets):
@@ -25,7 +66,7 @@ def build(nav, configs, markets):
     hubs = rd('data/region/hubs.csv')
     rc = rd('data/region/countries.csv')
     tl = rd('data/region/timeline.csv')
-    story = open('data/region/landing_text.html').read() if os.path.exists('data/region/landing_text.html') else ''
+    story = render_story('data/region/story_v2.md')
     geo = json.load(open('geo/sea.json'))['sea']
     cards = ''
     for m in markets:
@@ -52,6 +93,9 @@ def build(nav, configs, markets):
 .yr input{{flex:1;min-width:200px;accent-color:var(--accent)}}
 .yr b{{font-family:var(--display);font-size:2rem;color:var(--accent);min-width:3ch}}
 .hist svg{{width:100%;height:auto;display:block}}
+.phases{{display:grid;gap:18px}}.phase{{border-left:3px solid var(--line);padding-left:16px}}.phase h3{{color:var(--accent)}}
+.phase p,.callout li{{margin:.5em 0}}.phase sup a,.callout sup a{{color:var(--accent);text-decoration:none;font-family:var(--mono);font-size:.75em}}
+.srclist{{margin-top:14px}}.srclist summary{{cursor:pointer;font-family:var(--mono);color:var(--accent)}}.srclist li{{font-size:.85rem;color:var(--muted);margin:.3em 0;word-break:break-word}}
 </style>
 <div class="wrap">
 {nav(None)}
@@ -59,7 +103,7 @@ def build(nav, configs, markets):
   <span class="banner">Draft · regional overview · sources linked on each country page</span>
   <span class="eyebrow">Southeast Asia compute · 2010 to 2026</span>
   <h1>How compute came to Southeast Asia</h1>
-  <p class="lede read">The US and China build most AI infrastructure at home. The overflow is landing in Southeast Asia, first in Singapore, then across the causeway in Johor, and now in Bangkok, Jakarta and beyond. This site follows where it went, why, and what each host country is giving up to get it.</p>
+  <p class="lede read">The US and China hold about 90% of the world's tracked AI computing power. Outside them, Southeast Asia has become one of the busiest places to build it, and by mid-2026 it held about half of the data centre capacity under construction in Asia Pacific. It started in Singapore, crossed the causeway to Johor, and is now reaching Bangkok, Jakarta, Batam and Ho Chi Minh City. This site follows where the campuses went, why, and what each host is trading for them.</p>
 </header>
 
 <section id="map">
@@ -72,13 +116,13 @@ def build(nav, configs, markets):
   <div class="figure hist"><h3>Campuses announced per year</h3><svg id="hist" role="img" aria-label="Campuses announced per year by country"></svg></div>
 </section>
 
+{story}
+
 <section id="countries">
-  <span class="eyebrow">2 · Country deep dives</span>
-  <h2>Three hosts, three bargains</h2>
+  <span class="eyebrow">3 · Country deep dives</span>
+  <h2>{NUM[len(markets)]} hosts, {NUM[len(markets)].lower()} bargains</h2>
   <div class="mcards">{cards}</div>
 </section>
-
-{story}
 
 <section id="sources">
   <span class="eyebrow">Sources and method</span>
