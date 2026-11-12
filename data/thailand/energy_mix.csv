@@ -1,0 +1,34 @@
+geography,year,fuel,twh,share_pct,source_url
+Thailand,2020,natural gas,113.86,55.3,https://old.eppo.go.th/wp-content/uploads/2026/04/EnergyStatistics2025.pdf
+Thailand,2020,coal and lignite,36.82,17.9,https://old.eppo.go.th/wp-content/uploads/2026/04/EnergyStatistics2025.pdf
+Thailand,2020,imported electricity (mainly Laos hydro),29.55,14.3,https://old.eppo.go.th/wp-content/uploads/2026/04/EnergyStatistics2025.pdf
+Thailand,2020,renewables (solar wind biomass biogas waste),20.53,10.0,https://old.eppo.go.th/wp-content/uploads/2026/04/EnergyStatistics2025.pdf
+Thailand,2020,domestic hydro,4.54,2.2,https://old.eppo.go.th/wp-content/uploads/2026/04/EnergyStatistics2025.pdf
+Thailand,2020,oil,0.72,0.4,https://old.eppo.go.th/wp-content/uploads/2026/04/EnergyStatistics2025.pdf
+Thailand,2022,natural gas,114.64,53.1,https://old.eppo.go.th/wp-content/uploads/2026/04/EnergyStatistics2025.pdf
+Thailand,2022,coal and lignite,35.52,16.5,https://old.eppo.go.th/wp-content/uploads/2026/04/EnergyStatistics2025.pdf
+Thailand,2022,imported electricity (mainly Laos hydro),35.47,16.4,https://old.eppo.go.th/wp-content/uploads/2026/04/EnergyStatistics2025.pdf
+Thailand,2022,renewables (solar wind biomass biogas waste),21.88,10.1,https://old.eppo.go.th/wp-content/uploads/2026/04/EnergyStatistics2025.pdf
+Thailand,2022,domestic hydro,6.60,3.1,https://old.eppo.go.th/wp-content/uploads/2026/04/EnergyStatistics2025.pdf
+Thailand,2022,oil,1.73,0.8,https://old.eppo.go.th/wp-content/uploads/2026/04/EnergyStatistics2025.pdf
+Thailand,2023,natural gas,129.40,58.0,https://old.eppo.go.th/wp-content/uploads/2026/04/EnergyStatistics2025.pdf
+Thailand,2023,coal and lignite,30.43,13.6,https://old.eppo.go.th/wp-content/uploads/2026/04/EnergyStatistics2025.pdf
+Thailand,2023,imported electricity (mainly Laos hydro),32.81,14.7,https://old.eppo.go.th/wp-content/uploads/2026/04/EnergyStatistics2025.pdf
+Thailand,2023,renewables (solar wind biomass biogas waste),23.17,10.4,https://old.eppo.go.th/wp-content/uploads/2026/04/EnergyStatistics2025.pdf
+Thailand,2023,domestic hydro,6.59,3.0,https://old.eppo.go.th/wp-content/uploads/2026/04/EnergyStatistics2025.pdf
+Thailand,2023,oil,0.89,0.4,https://old.eppo.go.th/wp-content/uploads/2026/04/EnergyStatistics2025.pdf
+Thailand,2024,natural gas,136.37,57.9,https://old.eppo.go.th/wp-content/uploads/2026/04/EnergyStatistics2025.pdf
+Thailand,2024,lignite (domestic),17.23,7.3,https://old.eppo.go.th/wp-content/uploads/2026/04/EnergyStatistics2025.pdf
+Thailand,2024,imported coal,16.03,6.8,https://old.eppo.go.th/wp-content/uploads/2026/04/EnergyStatistics2025.pdf
+Thailand,2024,imported electricity (mainly Laos hydro),35.99,15.3,https://old.eppo.go.th/wp-content/uploads/2026/04/EnergyStatistics2025.pdf
+Thailand,2024,renewables (solar wind biomass biogas waste),23.20,9.9,https://old.eppo.go.th/wp-content/uploads/2026/04/EnergyStatistics2025.pdf
+Thailand,2024,domestic hydro,6.41,2.7,https://old.eppo.go.th/wp-content/uploads/2026/04/EnergyStatistics2025.pdf
+Thailand,2024,oil,0.28,0.1,https://old.eppo.go.th/wp-content/uploads/2026/04/EnergyStatistics2025.pdf
+Thailand,2025,natural gas,123.33,54.2,https://www.eppo.go.th/images/Energy-Statistics/energyinformation/Forecast/ShorttermForecast/stiulation2568forecast2569.pdf
+Thailand,2025,oil,,0.1,https://www.eppo.go.th/images/Energy-Statistics/energyinformation/Forecast/ShorttermForecast/stiulation2568forecast2569.pdf
+Thailand,2025,coal (secondary source),,15,https://www.lowcarbonpower.org/region/Thailand
+Thailand,2025,net imports (secondary source),,16,https://www.lowcarbonpower.org/region/Thailand
+Thailand,2025,solar (secondary source),,4.5,https://www.lowcarbonpower.org/region/Thailand
+Thailand,2025,bioenergy (secondary source),,4.5,https://www.lowcarbonpower.org/region/Thailand
+Thailand,2025,domestic hydro (secondary source),,3.4,https://www.lowcarbonpower.org/region/Thailand
+Thailand,2025,wind (secondary source),,1.6,https://www.lowcarbonpower.org/region/Thailand
