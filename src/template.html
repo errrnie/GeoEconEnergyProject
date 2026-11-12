@@ -1,9 +1,9 @@
-<title>Malaysia's Compute Bet</title>
+<title>__TITLE__</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=Share+Tech+Mono&display=swap">
 <style>
-/* Control room: a grid operator's screen. Dark in both colour schemes; amber for power and Malaysia, blue and red for the US and China stacks. */
+/* Control room: a grid operator's screen. Dark in both colour schemes; amber for power and the featured country, blue and red for the US and China stacks. */
 :root{
   --bg:#0b0f14; --surface:#121a23; --fg:#dbe4ee; --muted:#8a9bad; --line:#243243;
   --accent:#f2a93b; --accent-soft:#33260f; --us:#4fa3ff; --cn:#ff6b6b; --other:#6f7f8f; --unk:#3b4756;
@@ -122,153 +122,20 @@ svg text{font-family:var(--mono)!important}
 .land{fill:#1a2430;stroke:#3b4b5e}.land.my{fill:#2a2215;stroke:var(--accent)}
 .seg button[aria-pressed="true"]{background:var(--accent);color:#0b0f14}
 .fbar .fill{color:#0b0f14}
+
+/* site nav */
+.nav{display:flex;flex-wrap:wrap;gap:4px 18px;align-items:center;padding:14px 0;border-bottom:1px solid var(--line);font-family:var(--mono);font-size:.8rem;letter-spacing:.08em;text-transform:uppercase}
+.nav a{color:var(--muted);text-decoration:none}.nav a[aria-current="page"]{color:var(--accent)}.nav a:hover{color:var(--fg)}
+.nav .brand{color:var(--fg);margin-right:auto}
 </style>
 
 <div class="wrap">
-<header class="hero">
-  <span class="banner">Draft v2 · sources linked throughout · figures marked "est." are my own estimates</span>
-  <span class="eyebrow">Middle power compute · Malaysia · 2017 to 2026</span>
-  <h1>Malaysia's Compute Bet</h1>
-  <p class="lede read">The US and China build most of the world's AI infrastructure at home. A handful of middle powers now host the overflow, and Malaysia has one of the largest data centre pipelines outside the US and China. This page follows how that happened, whose computing it serves, and what it asks of Malaysia's power and water.</p>
-  <div class="kpis">
-    <div class="kpi"><span>Power promised to data centres</span><b class="mono">8.3 GW</b><span>59 projects with supply deals, July 2026</span></div>
-    <div class="kpi"><span>Power actually drawn</span><b class="mono">1.37 GW</b><span>August 2026, 58.6% of contracted capacity</span></div>
-    <div class="kpi"><span>Data centres' share of Peninsular power demand</span><b class="mono">31%</b><span>by 2035 on the energy ministry's projection, up from 7% in 2026</span></div>
-  </div>
-</header>
-
-<section id="global">
-  <span class="eyebrow">1 · The global picture</span>
-  <h2>Outside the US, the pipeline is moving to Asia</h2>
-  <p class="read sub">Operational capacity runs today. Pipeline is under construction or planned. Sort by operational plus pipeline to see which markets leapfrog bigger ones on announcements alone.</p>
-  <div class="controls">
-    <div class="seg" role="group" aria-label="Sort">
-      <button id="sortOp" aria-pressed="false">Sort by operational</button>
-      <button id="sortTot" aria-pressed="true">Sort by operational + pipeline</button>
-    </div>
-    <div class="seg" role="group" aria-label="Units">
-      <button id="uGW" aria-pressed="true">GW</button>
-      <button id="uUSD" aria-pressed="false">US$ bn (est.)</button>
-    </div>
-    <div class="seg" role="group" aria-label="United States">
-      <button id="usOff" aria-pressed="true">Hide US and China</button>
-      <button id="usOn" aria-pressed="false">Show US and China</button>
-    </div>
-  </div>
-  <div class="figure"><svg id="gchart" role="img" aria-label="Bar chart of data centre capacity by country"></svg></div>
-  <div class="legend"><span><i style="background:var(--fg)"></i>Operational</span><span><i style="background:var(--muted);opacity:.35"></i>Pipeline</span><span><i style="background:var(--accent)"></i>Malaysia</span><span><i style="border:2px solid var(--accent);background:transparent"></i>Leapfrogs a market with more operational capacity</span><span>* lower-confidence or partial figure</span><span>‡ SemiAnalysis building-level count</span></div>
-  <p class="note" id="gnote"></p>
-</section>
-
-<section id="why">
-  <span class="eyebrow">2 · Why Malaysia</span>
-  <h2>Speed to power, not the cheapest build</h2>
-  <p class="read sub">Select a card to see the numbers behind it.</p>
-  <div class="drivers" id="drivers">
-    <button class="driver" data-p="sg" aria-expanded="false"><h3>Singapore ran out of room</h3><p>__WHY_SG__</p><span class="more">Show Johor vs Singapore</span></button>
-    <button class="driver" data-p="speed" aria-expanded="false"><h3>Speed to power</h3><p>__WHY_SPEED__</p><span class="more">Show months to power by market</span></button>
-    <button class="driver" data-p="cost" aria-expanded="false"><h3>Cost is middling</h3><p>__WHY_COST__</p><span class="more">Show build cost by country</span></button>
-    <button class="driver" data-p="stacks" aria-expanded="false"><h3>Two stacks needed a host</h3><p>US chip controls from October 2022 pushed Chinese firms to compute offshore, while the AI boom sent US hyperscalers looking for capacity they could get quickly.</p><span class="more">Show the chip access rules</span></button>
-  </div>
-  <div class="panel" id="whyPanel" hidden aria-live="polite"></div>
-</section>
-
-<section id="timeline">
-  <span class="eyebrow">3 · How it happened</span>
-  <h2>A slow decade, then a rush</h2>
-  <div class="controls">
-    <div class="seg" role="group" aria-label="Events shown">
-      <button id="keyOnly" aria-pressed="true">Key moments</button>
-      <button id="allEv" aria-pressed="false">All events</button>
-    </div>
-  </div>
-  <div class="chips" id="chips"></div>
-  <div class="tl" id="tl"></div>
-  <p class="note" id="tlnote"></p>
-</section>
-
-<section id="map">
-  <span class="eyebrow">4 · Where it lands</span>
-  <h2>Johor is Singapore's overflow, Selangor is the second front</h2>
-  <p class="read sub">Each dot is a campus. Colour shows whose stack it mainly serves, size shows megawatts where disclosed. Solid dots are operating, rings are under construction, dashed rings are announced. Select a dot for details.</p>
-  <div class="controls">
-    <div class="seg" role="group" aria-label="Map view">
-      <button id="vJohor" data-v="johor" aria-pressed="true">Johor</button>
-      <button id="vPen" data-v="pen" aria-pressed="false">Peninsular Malaysia</button>
-      <button id="vSwk" data-v="swk" aria-pressed="false">Sarawak</button>
-    </div>
-    <div class="chips" id="stackChips"></div>
-  </div>
-  <div class="mapgrid">
-    <div class="figure map"><svg id="mmap" role="img" aria-label="Map of data centre campuses in Malaysia"></svg></div>
-    <div class="card" id="siteCard" aria-live="polite"></div>
-  </div>
-  <p class="note" id="mapnote"></p>
-  <p class="undisc" id="undisc"></p>
-</section>
-
-<section id="stacks">
-  <span class="eyebrow">5 · Two stacks, one host</span>
-  <h2>Who owns the building is not who uses it</h2>
-  <p class="read sub">Sites are tagged by their known tenant first, then by the operator's home country. The owner's money is a separate layer, which is why the two can disagree.</p>
-  <div class="stackbar" id="stackbar" role="img" aria-label="Sites by stack"></div>
-  <div class="legend"><span><i style="background:var(--us)"></i>US-linked</span><span><i style="background:var(--cn)"></i>China-linked</span><span><i style="background:var(--other)"></i>Other or Malaysian</span><span><i style="background:var(--unk)"></i>Unknown or mixed</span></div>
-  <div class="two">
-    <div class="card"><h3>Bridge Data Centres MY06, Sedenak</h3><p class="sub">Owned by Bain Capital in the US, anchored by ByteDance from China. About 110 MW.</p></div>
-    <div class="card"><h3>DayOne</h3><p class="sub">The former international arm of China's GDS, now Singapore-based with GDS holding an estimated 24% and global investors behind it. Its Johor campuses are tagged China-linked here, which is a judgment call.</p></div>
-  </div>
-  <p class="read sub">Chai's ISEAS paper counts four US and three Chinese hyperscalers in Malaysia. Colocation, which hides who the tenant is, makes up about 59% of capacity, so the Chinese share is likely larger than the headline count.</p>
-</section>
-
-<section id="chipaccess">
-  <span class="eyebrow">6 · Chip access and security</span>
-  <h2>__CHIP_H2__</h2>
-  __CHIP_LEDE__
-  <div class="controls">
-    <div class="seg" role="group" aria-label="Rule shown">
-      <button id="tJan" aria-pressed="true">January 2025 rule</button>
-      <button id="tNow" aria-pressed="false">Now</button>
-    </div>
-  </div>
-  <div class="figure world"><svg id="wmap" role="img" aria-label="World map of US AI chip export tiers"></svg></div>
-  <div class="legend" id="tlegend"></div>
-  <p class="note" id="tnote"></p>
-  __CHIP_BODY__
-</section>
-
-<section id="energy">
-  <span class="eyebrow">7 · Energy security</span>
-  __ENERGY__
-</section>
-
-<section id="risk">
-  <span class="eyebrow">8 · Leverage and weak points</span>
-  <h2>Promises run far ahead of use, and water runs out first</h2>
-  <div class="funnel" id="funnel"></div>
-  <p class="note">Sources: RHB Research after meeting TNB, via Business Today, 11 Jul 2026; energy ministry via Malay Mail, 4 Nov 2026; water regulator SPAN via Free Malaysia Today, 10 Feb 2025.</p>
-  <div class="two">
-    <div class="risk"><h3>Weak points</h3><ul>
-      <li>Most Peninsular power comes from imported coal, and the coal exit runs through new gas plants that will not arrive before 2028.</li>
-      <li>In 2024 the water regulator approved only 18% of the water data centres asked for.</li>
-      <li>A typical data centre needs only 30 to 50 permanent staff, up to about 200 for the largest (US benchmark cited by ISEAS).</li>
-      <li>Chip enforcement is rising: a server fraud case in Singapore, a 72-server customs seizure at KLIA, and two US prosecutions involving shipments via Malaysia.</li>
-    </ul></div>
-    <div class="risk lev"><h3>Leverage</h3><ul>
-      <li>Both stacks need scarce power, water and land that Malaysia controls.</li>
-      <li>Ramp-or-pay rules and ten-year load plans now push bubble risk back onto developers.</li>
-      <li>Approvals now depend on surplus power and water, with water going to residents first (deputy minister, July 2026).</li>
-    </ul></div>
-  </div>
-</section>
-
-<section id="sources">
-  <span class="eyebrow">Sources and method</span>
-  <div class="sources" id="srcs"></div>
-</section>
+__NAV__
+__BODY__
 </div>
 
 <script>
-const GEO=__GEO__, CO=__COUNTRIES__, EV=__EVENTS__, SI=__SITES__, WORLD=__WORLD__, TIERS=__TIERS__, SPEED=__SPEED__, JOHOR=__JOHOR__, MIX=__MIX__;
+const M=__MARKET__, GEO=__GEO__, CO=__COUNTRIES__, EV=__EVENTS__, SI=__SITES__, WORLD=__WORLD__, TIERS=__TIERS__, SPEED=__SPEED__, CAP=__CAP__, MIX=__MIX__;
 const NS="http://www.w3.org/2000/svg";
 function el(t,a,p){const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);if(p)p.appendChild(e);return e}
 const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
@@ -290,7 +157,7 @@ function draw(){
   svg.setAttribute("viewBox",`0 0 ${W} ${H}`);svg.setAttribute("width",W);svg.setAttribute("height",H);
   const max=Math.max(...d.map(x=>val(x).t)),sx=v=>v/max*(W-left-right);
   d.forEach((x,i)=>{
-    const y=i*rowH+4,isM=x.n==="Malaysia",v=val(x),g=el("g",{},svg);
+    const y=i*rowH+4,isM=x.n===M.name,v=val(x),g=el("g",{},svg);
     el("text",{x:left-8,y:y+13,"text-anchor":"end","font-size":12,fill:isM?"var(--accent)":"var(--fg)","font-weight":isM?700:400,"font-family":"Inter,system-ui,sans-serif"},g).textContent=x.n+(x.big?" ‡":x.low?" *":"");
     el("rect",{x:left,y,width:Math.max(1,sx(v.t)),height:17,rx:3,fill:isM?"var(--accent)":"var(--muted)","fill-opacity":.28},g);
     el("rect",{x:left,y,width:Math.max(1,sx(v.o)),height:17,rx:3,fill:isM?"var(--accent)":"var(--fg)"},g);
@@ -312,7 +179,7 @@ function hbars(rows,{unit,fmt,colorOf,title}){
   const svg=el("svg",{role:"img","aria-label":title}),rowH=24,left=210,right=90,W=760,H=rows.length*rowH+30;
   svg.setAttribute("viewBox",`0 0 ${W} ${H}`);
   const max=Math.max(...rows.map(r=>r.hi??r.v)),sx=v=>v/max*(W-left-right);
-  rows.forEach((r,i)=>{const y=i*rowH+4,me=r.n.includes("Malaysia");
+  rows.forEach((r,i)=>{const y=i*rowH+4,me=r.n===M.name||(M.speedHighlight&&r.n.includes(M.speedHighlight));
     T(svg,left-8,y+13,r.n,{a:"end",mono:false,fill:me?"var(--accent)":"var(--fg)",w:me?700:400,fs:12});
     if(r.hi!=null&&r.lo!=null&&r.hi!==r.lo){el("rect",{x:left+sx(r.lo),y:y+2,width:Math.max(2,sx(r.hi)-sx(r.lo)),height:13,rx:3,fill:colorOf(r),"fill-opacity":.85},svg)}
     else el("rect",{x:left,y,width:Math.max(2,sx(r.hi??r.v)),height:17,rx:3,fill:colorOf(r)},svg);
@@ -333,17 +200,17 @@ function lines(series,periods,{unit,title}){
     const last=pts[pts.length-1],off=series.length>1?(s===series[0]?-8:12):4;T(svg,last[0]+8,last[1]+off,`${s.name} ${s.pts[s.pts.length-1].v.toLocaleString()} ${unit}`,{fill:s.c,w:600});});
   return svg}
 const PANELS={
-  sg(){const geos=[...new Set(JOHOR.map(r=>r.geography))],periods=[...new Set(JOHOR.map(r=>r.period))];
-    const col={Johor:"var(--accent)",Singapore:"var(--us)"};
-    const series=geos.filter(g=>col[g]||/kuala|klang|greater kl/i.test(g)).map(g=>({name:g,c:col[g]||"var(--other)",pts:JOHOR.filter(r=>r.geography===g&&r.operational_mw).map(r=>({p:r.period,v:+r.operational_mw}))})).filter(s=>s.pts.length);
-    return [`<h3>Operating data centre capacity, MW</h3>`,lines(series,periods,{unit:"MW",title:"Johor and Singapore operating capacity over time"}),`<p class="note">${esc([...new Set(JOHOR.map(r=>r.source_name))].join("; "))}. __SG_NOTE__</p>`]},
+  sg(){const geos=[...new Set(CAP.map(r=>r.geography))],periods=[...new Set(CAP.map(r=>r.period))];
+    const col=M.capColors||{};
+    const series=geos.filter(g=>col[g]||/kuala|klang|greater kl/i.test(g)).map(g=>({name:g,c:col[g]||"var(--other)",pts:CAP.filter(r=>r.geography===g&&r.operational_mw).map(r=>({p:r.period,v:+r.operational_mw}))})).filter(s=>s.pts.length);
+    return [`<h3>Operating data centre capacity, MW</h3>`,lines(series,periods,{unit:"MW",title:"Operating capacity over time"}),`<p class="note">${esc([...new Set(CAP.map(r=>r.source_name))].join("; "))}. __SG_NOTE__</p>`]},
   speed(){const rows=SPEED.filter(r=>r.months_low||r.months_high).map(r=>({n:r.market,lo:+(r.months_low||r.months_high),hi:+(r.months_high||r.months_low),note:r.metric_note})).sort((a,b)=>a.hi-b.hi);
     const qual=SPEED.filter(r=>!r.months_low&&!r.months_high);
-    return [`<h3>Typical wait for a large grid connection, months</h3>`,hbars(rows,{unit:"months",title:"Months to power by market",fmt:r=>r.lo===r.hi?`${r.hi}`:`${r.lo} to ${r.hi}`,colorOf:r=>r.n.includes("Green Lane")?"var(--accent)":"var(--other)"}),
+    return [`<h3>Typical wait for a large grid connection, months</h3>`,hbars(rows,{unit:"months",title:"Months to power by market",fmt:r=>r.lo===r.hi?`${r.hi}`:`${r.lo} to ${r.hi}`,colorOf:r=>(M.speedHighlight&&r.n.includes(M.speedHighlight))?"var(--accent)":"var(--other)"}),
       qual.length?`<p class="note">No comparable number: ${qual.map(r=>`${esc(r.market)} (${esc(r.metric_note)})`).join("; ")}.</p>`:"",`<p class="note">Estimates come from different studies and years, so treat the order as rough. Sources: ${esc([...new Set(SPEED.map(r=>r.source_name))].join("; "))}.</p>`]},
   cost(){const rows=C.filter(x=>x.cost).map(x=>({n:x.n,v:x.cost})).sort((a,b)=>b.v-a.v);
-    return [`<h3>Cost to build a mid-spec data centre, US$ million per MW</h3>`,hbars(rows,{unit:"US$m/MW",title:"Build cost per MW by country",fmt:r=>r.v.toFixed(1),colorOf:r=>r.n==="Malaysia"?"var(--accent)":"var(--other)"}),`<p class="note">Building shell, power and cooling only, chips excluded. Asia-Pacific, US, UAE and Saudi figures are national averages; the European and Brazilian figures are for the main city. Sources: Cushman &amp; Wakefield Data Center Development Cost Guide 2026 and Turner &amp; Townsend Data Centre Cost Index.</p>`]},
-  stacks(){return [`<h3>Two stacks, one host</h3>`,`<div class="stat"><div class="box"><b class="mono">~75%</b><span>US share of the world's GPU cluster performance, May 2025 (Epoch AI)</span></div><div class="box"><b class="mono">~15%</b><span>China's share, same measure</span></div><div class="box"><b class="mono">~4 GW</b><span>Overseas capacity Chinese cloud firms are set to lease by 2029, about double 2026 (SemiAnalysis)</span></div></div>`,`<p><a href="#chipaccess">See where Malaysia sits in the US chip rules ↓</a></p>`]}
+    return [`<h3>Cost to build a mid-spec data centre, US$ million per MW</h3>`,hbars(rows,{unit:"US$m/MW",title:"Build cost per MW by country",fmt:r=>r.v.toFixed(1),colorOf:r=>r.n===M.name?"var(--accent)":"var(--other)"}),`<p class="note">Building shell, power and cooling only, chips excluded. Asia-Pacific, US, UAE and Saudi figures are national averages; the European and Brazilian figures are for the main city. Sources: Cushman &amp; Wakefield Data Center Development Cost Guide 2026 and Turner &amp; Townsend Data Centre Cost Index.</p>`]},
+  stacks(){return [`<h3>Two stacks, one host</h3>`,`<div class="stat"><div class="box"><b class="mono">~75%</b><span>US share of the world's GPU cluster performance, May 2025 (Epoch AI)</span></div><div class="box"><b class="mono">~15%</b><span>China's share, same measure</span></div><div class="box"><b class="mono">~4 GW</b><span>Overseas capacity Chinese cloud firms are set to lease by 2029, about double 2026 (SemiAnalysis)</span></div></div>`,`<p><a href="#chipaccess">See where ${M.name} sits in the US chip rules ↓</a></p>`]}
 };
 document.querySelectorAll("button.driver").forEach(b=>b.onclick=()=>{
   const pnl=document.getElementById("whyPanel"),open=b.getAttribute("aria-expanded")==="true";
@@ -362,10 +229,10 @@ function drawTiers(){
   WORLD.paths.forEach(p=>{const r=tierBy.get(String(p.id).padStart(3,"0"));
     const cat=tmode==="jan"?(r?.diffusion_tier_2025||"Tier 2"):(r?.current_status_2026||"__NOWDEFAULT__");
     const fill=tmode==="jan"?TCOL[cat]||"var(--t0)":NOWCOL[cat]||"var(--t0)";
-    const e=el("path",{d:p.d,fill,class:p.name==="Malaysia"?"my":""},m);
+    const e=el("path",{d:p.d,fill,class:p.name===M.name?"my":""},m);
     el("title",{},e).textContent=`${p.name}: ${cat}${tmode==="now"&&r?.current_status_note?" · "+r.current_status_note:""}`});
-  const [mx,my]=WORLD.my;el("line",{x1:mx,y1:my,x2:mx+40,y2:my+46,stroke:"var(--fg)"},m);
-  T(m,mx+42,my+58,"Malaysia",{fill:"var(--fg)",w:700,fs:13,mono:false});
+  const [mx,my]=WORLD.pts[M.name];el("line",{x1:mx,y1:my,x2:mx+40,y2:my+46,stroke:"var(--fg)"},m);
+  T(m,mx+42,my+58,M.name,{fill:"var(--fg)",w:700,fs:13,mono:false});
   const cats=tmode==="jan"?TCOL:NOWCOL;
   document.getElementById("tlegend").innerHTML=Object.entries(cats).map(([k,c])=>`<span><i style="background:${c}"></i>${esc(k)}</span>`).join("");
   document.getElementById("tnote").innerHTML=tmode==="jan"?`__TNOTE_JAN__`:`__TNOTE_NOW__`;
@@ -376,12 +243,12 @@ drawTiers();
 /* 7. energy */
 (function(){
   const svg=document.getElementById("mixchart"),FC={coal:"var(--coal)",gas:"var(--gas)",solar:"var(--solar)","hydro and other":"var(--hydro)","solar, hydro and other":"var(--hydro)"};
-  const rows=MIX.filter(r=>r.geography==="Peninsular Malaysia"),yrs=[...new Set(rows.map(r=>r.year))];
+  const rows=MIX.filter(r=>r.geography===M.mixGeo),yrs=[...new Set(rows.map(r=>r.year))];
   const W=760,rowH=40,left=110,H=yrs.length*rowH+6;svg.setAttribute("viewBox",`0 0 ${W} ${H}`);
   yrs.forEach((y,i)=>{let x=left;const yy=i*rowH+4;T(svg,left-8,yy+20,y.replace("2026-04 (month)","Apr 2026"),{a:"end",mono:false,fill:"var(--fg)",fs:12});
     rows.filter(r=>r.year===y).forEach(r=>{const w=+r.share_pct/100*(W-left-10);const rc=el("rect",{x,y:yy,width:Math.max(0,w-1),height:28,fill:FC[r.fuel]||"var(--oth)"},svg);
       el("title",{},rc).textContent=`${r.fuel}: ${r.share_pct}%`;if(w>44)T(svg,x+6,yy+18,`${Math.round(+r.share_pct)}%`,{fill:"#0b0f14",fs:11});x+=w;});});
-  const S=[["Low",26.3,14,3.07,2.26],["Mid",39.3,21,5.61,4.12],["High",61.8,33,10.0,7.35]];
+  const S=M.scen;
   document.getElementById("scenrows").innerHTML=S.map(s=>`<tr><td>${s[0]}</td><td>${s[1]}</td><td>${s[2]}%</td><td>${s[3].toFixed(1)}</td><td>${s[4].toFixed(2)}</td></tr>`).join("");
   const sc=document.getElementById("scenchart"),W2=760,H2=200,l=110,r=30,max=8;sc.setAttribute("viewBox",`0 0 ${W2} ${H2}`);
   const sx=v=>l+v/max*(W2-l-r);
@@ -391,8 +258,8 @@ drawTiers();
 })();
 
 /* 3. timeline */
-const TR={"Investment":"var(--us)","Malaysia policy":"var(--accent)","Geopolitics":"var(--cn)","Energy and water":"var(--other)"};
-const KEY=new Set(["2019-01-01","2022-10-07","2023-08-09","2023-12-08","2024-05-02","2025-07-14","2025-11-26","2026-06-30","2026-11-04","2025-12-22","2026-05-31"]);
+const TR={"Investment":"var(--us)",[M.policyTrack]:"var(--accent)","Geopolitics":"var(--cn)","Energy and water":"var(--other)"};
+const KEY=new Set(M.keyDates);
 const MON=["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
 const fmt=(d,p)=>{const [y,m,dd]=d.split("-");if(p==="year")return y;if(p==="month")return `${MON[+m-1]} ${y}`;return `${+dd} ${MON[+m-1]} ${y}`};
 const on=new Set(Object.keys(TR));let keyOnly=true;
@@ -414,8 +281,8 @@ drawTL();
 
 /* 4. map */
 const SC={"US":"var(--us)","China":"var(--cn)","Other":"var(--other)","Unknown":"var(--unk)","Mixed":"var(--unk)"};
-const SL={"US":"US-linked","China":"China-linked","Other":"Other or Malaysian","Unknown":"Unknown","Mixed":"Mixed"};
-const sOn=new Set(["US","China","Other","Unknown","Mixed"]);let view="johor";
+const SL={"US":"US-linked","China":"China-linked","Other":M.otherLabel,"Unknown":"Unknown","Mixed":"Mixed"};
+const sOn=new Set(["US","China","Other","Unknown","Mixed"]);let view=M.views[0].id;
 const card=document.getElementById("siteCard");
 function show(x){card.innerHTML=`<span class="eyebrow">${esc(x.town||x.state)}</span><h3>${esc(x.site_name)}</h3><dl>
  <dt>Operator</dt><dd>${esc(x.operator)}</dd><dt>Owners</dt><dd>${esc(x.owner_investors||"Not disclosed")}</dd>
@@ -425,16 +292,16 @@ function show(x){card.innerHTML=`<span class="eyebrow">${esc(x.town||x.state)}</
 function drawMap(){
   const g=GEO[view],[x0,y0,x1,y1]=g.bbox,s=Math.min(g.W/(x1-x0),g.H/(y1-y0));
   const m=document.getElementById("mmap");m.innerHTML="";m.setAttribute("viewBox",`0 0 ${g.W} ${g.H}`);
-  g.paths.forEach(p=>el("path",{d:p.d,class:"land"+(p.name==="Malaysia"?" my":"")},m));
+  g.paths.forEach(p=>el("path",{d:p.d,class:"land"+(p.name===M.name?" my":"")},m));
   const P=(lon,lat)=>[(lon-x0)*s,(y1-lat)*s];
-  const lab=(lon,lat,t)=>{const [x,y]=P(lon,lat);el("text",{x,y,"font-size":view==="pen"?12:13,fill:"var(--muted)","font-family":"JetBrains Mono,monospace","text-anchor":"middle"},m).textContent=t};
-  if(view==="johor"){lab(104.05,1.97,"JOHOR");lab(103.82,1.33,"SINGAPORE")}else if(view==="swk"){lab(110.35,1.62,"Kuching");lab(111.0,1.05,"SARAWAK")}else{lab(102.3,4.3,"PENINSULAR MALAYSIA");lab(100.75,3.3,"Klang Valley");lab(103.85,1.85,"Johor")}
+  const lab=(lon,lat,t)=>{const [x,y]=P(lon,lat);el("text",{x,y,"font-size":g.wide?12:13,fill:"var(--muted)","font-family":"JetBrains Mono,monospace","text-anchor":"middle"},m).textContent=t};
+  (g.labels||[]).forEach(([lo,la,tx])=>lab(lo,la,tx));
   const pts=SI.filter(x=>x.lat&&x.lon&&sOn.has(x.stack)).filter(x=>+x.lon>=x0&&+x.lon<=x1&&+x.lat>=y0&&+x.lat<=y1);
   const groups={};pts.forEach(x=>{const k=x.lat+","+x.lon;(groups[k]=groups[k]||[]).push(x)});
   Object.values(groups).forEach(gr=>{gr.forEach((x,i)=>{
     let [cx,cy]=P(+x.lon,+x.lat);
-    if(gr.length>1){const ring=view==="pen"?9:16,a=i/gr.length*2*Math.PI;cx+=Math.cos(a)*ring*(1+Math.floor(i/8)*.6);cy+=Math.sin(a)*ring*(1+Math.floor(i/8)*.6)}
-    const r=(view==="pen"?3:4)+Math.sqrt(+x.it_mw||40)*(view==="pen"?.35:.55);
+    if(gr.length>1){const ring=GEO[view].wide?9:16,a=i/gr.length*2*Math.PI;cx+=Math.cos(a)*ring*(1+Math.floor(i/8)*.6);cy+=Math.sin(a)*ring*(1+Math.floor(i/8)*.6)}
+    const r=(GEO[view].wide?3:4)+Math.sqrt(+x.it_mw||40)*(GEO[view].wide?.35:.55);
     const solid=x.status==="Operational",paused=x.status==="Paused/Cancelled";
     const c=el("circle",{cx,cy,r,fill:solid?SC[x.stack]:"var(--surface)","fill-opacity":solid?.85:.6,stroke:paused?"var(--muted)":SC[x.stack],"stroke-dasharray":x.status==="Announced"||paused?"3 2":"",class:"site",tabindex:0,role:"button","aria-label":x.site_name},m);
     el("title",{},c).textContent=`${x.site_name} · ${x.status}`;
@@ -465,5 +332,5 @@ const w=document.createElement("div");w.className="fbar water";w.innerHTML=`<spa
 /* sources */
 const urls=new Map();
 [...EV.map(e=>[e.source_name,e.source_url]),...CO.map(c=>[c.capacity_source,c.capacity_source_url]),...SI.map(x=>[x.site_name,x.source_url])].forEach(([n,u])=>{if(u&&!urls.has(u))urls.set(u,n)});
-document.getElementById("srcs").innerHTML=`<span>Datasets: ${EV.length} timeline events, ${SI.length} Malaysian campuses and ${CO.length} countries, each row tied to a source and a confidence rating. Main secondary source: James Chai, <a href="https://www.iseas.edu.sg/wp-content/uploads/2026/08/TRS22_26.pdf" target="_blank" rel="noopener">Behind Malaysia's Data Centre Boom</a>, ISEAS Trends 22/2026.</span><details><summary>All ${urls.size} source links</summary>${[...urls].map(([u,n])=>`<div><a href="${esc(u)}" target="_blank" rel="noopener">${esc(n)}</a></div>`).join("")}</details>`;
+document.getElementById("srcs").innerHTML=`<span>Datasets: ${EV.length} timeline events, ${SI.length} ${M.adj} campuses and ${CO.length} countries, each row tied to a source and a confidence rating. ${M.srcNote||""}</span><details><summary>All ${urls.size} source links</summary>${[...urls].map(([u,n])=>`<div><a href="${esc(u)}" target="_blank" rel="noopener">${esc(n)}</a></div>`).join("")}</details>`;
 </script>

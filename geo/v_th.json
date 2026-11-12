@@ -1,0 +1,2 @@
+[{"id":"eec","label":"Bangkok and the EEC","bbox":[100.0,12.4,101.8,14.4],"W":720,"H":800,"labels":[[100.30,13.95,"BANGKOK"],[101.35,13.55,"CHACHOENGSAO"],[101.25,13.05,"CHONBURI"],[101.45,12.55,"RAYONG"],[100.6,12.75,"Gulf of Thailand"]]},
+{"id":"nat","label":"All of Thailand","bbox":[97.3,5.6,105.7,20.5],"W":500,"H":880,"wide":true,"labels":[[101.0,16.5,"THAILAND"],[100.6,13.2,"Bangkok"],[104.5,18.6,"LAOS"],[103.5,12.6,"CAMBODIA"]]}]

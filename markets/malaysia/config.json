@@ -1,0 +1,7 @@
+{"name":"Malaysia","adj":"Malaysian","slug":"malaysia","title":"Malaysia's Compute Bet","geo":"my.json",
+ "views":[{"id":"johor","label":"Johor"},{"id":"pen","label":"Peninsular Malaysia"},{"id":"swk","label":"Sarawak"}],
+ "policyTrack":"Malaysia policy","otherLabel":"Other or Malaysian",
+ "keyDates":["2019-01-01","2022-10-07","2023-08-09","2023-12-08","2024-05-02","2025-07-14","2025-11-26","2026-06-30","2026-11-04","2025-12-22","2026-05-31"],
+ "capColors":{"Johor":"var(--accent)","Singapore":"var(--us)"},"speedHighlight":"Green Lane","mixGeo":"Peninsular Malaysia",
+ "scen":[["Low",26.3,14,3.07,2.26],["Mid",39.3,21,5.61,4.12],["High",61.8,33,10.0,7.35]],
+ "srcNote":"Main secondary source: James Chai, <a href=\"https://www.iseas.edu.sg/wp-content/uploads/2026/08/TRS22_26.pdf\" target=\"_blank\" rel=\"noopener\">Behind Malaysia's Data Centre Boom</a>, ISEAS Trends 22/2026."}

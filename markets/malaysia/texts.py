@@ -89,3 +89,8 @@ TX['__ENERGY__'] = '''
       <p class="sub">The fuel is imported and burned in Malaysia, the emissions and water use stay in Malaysia, and the computing largely goes to foreign-owned clouds, American and Chinese. Malaysia is in effect exporting its electricity as compute. Whether that is a good deal depends on what it keeps: tariffs that cover the gas, local jobs, and a say over who uses the chips.</p></div>
   </div>
 '''
+
+SKIP_SECURITY_DATES = ['2026-06-05']
+EVSIG = {'2024-05-02': 'Kicked off a run of more than US$12 billion in new hyperscaler pledges over the next five months.',
+         '2025-12-22': 'Showed the scale of Nvidia hardware flowing to one firm under US scrutiny, though Bloomberg found no clear evidence of smuggling.',
+         '2026-05-31': 'Confirmed that ownership, not location, decides chip access for Chinese-parented firms in Malaysia.'}

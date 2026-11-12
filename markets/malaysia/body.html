@@ -1,0 +1,138 @@
+<header class="hero">
+  <span class="banner">Draft v2 · sources linked throughout · figures marked "est." are my own estimates</span>
+  <span class="eyebrow">Middle power compute · Malaysia · 2017 to 2026</span>
+  <h1>Malaysia's Compute Bet</h1>
+  <p class="lede read">The US and China build most of the world's AI infrastructure at home. A handful of middle powers now host the overflow, and Malaysia has one of the largest data centre pipelines outside the US and China. This page follows how that happened, whose computing it serves, and what it asks of Malaysia's power and water.</p>
+  <div class="kpis">
+    <div class="kpi"><span>Power promised to data centres</span><b class="mono">8.3 GW</b><span>59 projects with supply deals, July 2026</span></div>
+    <div class="kpi"><span>Power actually drawn</span><b class="mono">1.37 GW</b><span>August 2026, 58.6% of contracted capacity</span></div>
+    <div class="kpi"><span>Data centres' share of Peninsular power demand</span><b class="mono">31%</b><span>by 2035 on the energy ministry's projection, up from 7% in 2026</span></div>
+  </div>
+</header>
+
+<section id="global">
+  <span class="eyebrow">1 · The global picture</span>
+  <h2>Outside the US, the pipeline is moving to Asia</h2>
+  <p class="read sub">Operational capacity runs today. Pipeline is under construction or planned. Sort by operational plus pipeline to see which markets leapfrog bigger ones on announcements alone.</p>
+  <div class="controls">
+    <div class="seg" role="group" aria-label="Sort">
+      <button id="sortOp" aria-pressed="false">Sort by operational</button>
+      <button id="sortTot" aria-pressed="true">Sort by operational + pipeline</button>
+    </div>
+    <div class="seg" role="group" aria-label="Units">
+      <button id="uGW" aria-pressed="true">GW</button>
+      <button id="uUSD" aria-pressed="false">US$ bn (est.)</button>
+    </div>
+    <div class="seg" role="group" aria-label="United States">
+      <button id="usOff" aria-pressed="true">Hide US and China</button>
+      <button id="usOn" aria-pressed="false">Show US and China</button>
+    </div>
+  </div>
+  <div class="figure"><svg id="gchart" role="img" aria-label="Bar chart of data centre capacity by country"></svg></div>
+  <div class="legend"><span><i style="background:var(--fg)"></i>Operational</span><span><i style="background:var(--muted);opacity:.35"></i>Pipeline</span><span><i style="background:var(--accent)"></i>Malaysia</span><span><i style="border:2px solid var(--accent);background:transparent"></i>Leapfrogs a market with more operational capacity</span><span>* lower-confidence or partial figure</span><span>‡ SemiAnalysis building-level count</span></div>
+  <p class="note" id="gnote"></p>
+</section>
+
+<section id="why">
+  <span class="eyebrow">2 · Why Malaysia</span>
+  <h2>Speed to power, not the cheapest build</h2>
+  <p class="read sub">Select a card to see the numbers behind it.</p>
+  <div class="drivers" id="drivers">
+    <button class="driver" data-p="sg" aria-expanded="false"><h3>Singapore ran out of room</h3><p>__WHY_SG__</p><span class="more">Show Johor vs Singapore</span></button>
+    <button class="driver" data-p="speed" aria-expanded="false"><h3>Speed to power</h3><p>__WHY_SPEED__</p><span class="more">Show months to power by market</span></button>
+    <button class="driver" data-p="cost" aria-expanded="false"><h3>Cost is middling</h3><p>__WHY_COST__</p><span class="more">Show build cost by country</span></button>
+    <button class="driver" data-p="stacks" aria-expanded="false"><h3>Two stacks needed a host</h3><p>US chip controls from October 2022 pushed Chinese firms to compute offshore, while the AI boom sent US hyperscalers looking for capacity they could get quickly.</p><span class="more">Show the chip access rules</span></button>
+  </div>
+  <div class="panel" id="whyPanel" hidden aria-live="polite"></div>
+</section>
+
+<section id="timeline">
+  <span class="eyebrow">3 · How it happened</span>
+  <h2>A slow decade, then a rush</h2>
+  <div class="controls">
+    <div class="seg" role="group" aria-label="Events shown">
+      <button id="keyOnly" aria-pressed="true">Key moments</button>
+      <button id="allEv" aria-pressed="false">All events</button>
+    </div>
+  </div>
+  <div class="chips" id="chips"></div>
+  <div class="tl" id="tl"></div>
+  <p class="note" id="tlnote"></p>
+</section>
+
+<section id="map">
+  <span class="eyebrow">4 · Where it lands</span>
+  <h2>Johor is Singapore's overflow, Selangor is the second front</h2>
+  <p class="read sub">Each dot is a campus. Colour shows whose stack it mainly serves, size shows megawatts where disclosed. Solid dots are operating, rings are under construction, dashed rings are announced. Select a dot for details.</p>
+  <div class="controls">
+    <div class="seg" role="group" aria-label="Map view">
+__VIEWBTNS__
+    </div>
+    <div class="chips" id="stackChips"></div>
+  </div>
+  <div class="mapgrid">
+    <div class="figure map"><svg id="mmap" role="img" aria-label="Map of data centre campuses in Malaysia"></svg></div>
+    <div class="card" id="siteCard" aria-live="polite"></div>
+  </div>
+  <p class="note" id="mapnote"></p>
+  <p class="undisc" id="undisc"></p>
+</section>
+
+<section id="stacks">
+  <span class="eyebrow">5 · Two stacks, one host</span>
+  <h2>Who owns the building is not who uses it</h2>
+  <p class="read sub">Sites are tagged by their known tenant first, then by the operator's home country. The owner's money is a separate layer, which is why the two can disagree.</p>
+  <div class="stackbar" id="stackbar" role="img" aria-label="Sites by stack"></div>
+  <div class="legend"><span><i style="background:var(--us)"></i>US-linked</span><span><i style="background:var(--cn)"></i>China-linked</span><span><i style="background:var(--other)"></i>Other or Malaysian</span><span><i style="background:var(--unk)"></i>Unknown or mixed</span></div>
+  <div class="two">
+    <div class="card"><h3>Bridge Data Centres MY06, Sedenak</h3><p class="sub">Owned by Bain Capital in the US, anchored by ByteDance from China. About 110 MW.</p></div>
+    <div class="card"><h3>DayOne</h3><p class="sub">The former international arm of China's GDS, now Singapore-based with GDS holding an estimated 24% and global investors behind it. Its Johor campuses are tagged China-linked here, which is a judgment call.</p></div>
+  </div>
+  <p class="read sub">Chai's ISEAS paper counts four US and three Chinese hyperscalers in Malaysia. Colocation, which hides who the tenant is, makes up about 59% of capacity, so the Chinese share is likely larger than the headline count.</p>
+</section>
+
+<section id="chipaccess">
+  <span class="eyebrow">6 · Chip access and security</span>
+  <h2>__CHIP_H2__</h2>
+  __CHIP_LEDE__
+  <div class="controls">
+    <div class="seg" role="group" aria-label="Rule shown">
+      <button id="tJan" aria-pressed="true">January 2025 rule</button>
+      <button id="tNow" aria-pressed="false">Now</button>
+    </div>
+  </div>
+  <div class="figure world"><svg id="wmap" role="img" aria-label="World map of US AI chip export tiers"></svg></div>
+  <div class="legend" id="tlegend"></div>
+  <p class="note" id="tnote"></p>
+  __CHIP_BODY__
+</section>
+
+<section id="energy">
+  <span class="eyebrow">7 · Energy security</span>
+  __ENERGY__
+</section>
+
+<section id="risk">
+  <span class="eyebrow">8 · Leverage and weak points</span>
+  <h2>Promises run far ahead of use, and water runs out first</h2>
+  <div class="funnel" id="funnel"></div>
+  <p class="note">Sources: RHB Research after meeting TNB, via Business Today, 11 Jul 2026; energy ministry via Malay Mail, 4 Nov 2026; water regulator SPAN via Free Malaysia Today, 10 Feb 2025.</p>
+  <div class="two">
+    <div class="risk"><h3>Weak points</h3><ul>
+      <li>Most Peninsular power comes from imported coal, and the coal exit runs through new gas plants that will not arrive before 2028.</li>
+      <li>In 2024 the water regulator approved only 18% of the water data centres asked for.</li>
+      <li>A typical data centre needs only 30 to 50 permanent staff, up to about 200 for the largest (US benchmark cited by ISEAS).</li>
+      <li>Chip enforcement is rising: a server fraud case in Singapore, a 72-server customs seizure at KLIA, and two US prosecutions involving shipments via Malaysia.</li>
+    </ul></div>
+    <div class="risk lev"><h3>Leverage</h3><ul>
+      <li>Both stacks need scarce power, water and land that Malaysia controls.</li>
+      <li>Ramp-or-pay rules and ten-year load plans now push bubble risk back onto developers.</li>
+      <li>Approvals now depend on surplus power and water, with water going to residents first (deputy minister, July 2026).</li>
+    </ul></div>
+  </div>
+</section>
+
+<section id="sources">
+  <span class="eyebrow">Sources and method</span>
+  <div class="sources" id="srcs"></div>
+</section>
