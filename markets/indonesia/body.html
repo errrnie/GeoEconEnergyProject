@@ -1,0 +1,137 @@
+<header class="hero">
+  <span class="banner">Draft · sources linked throughout · figures marked "est." are my own estimates</span>
+  <span class="eyebrow">Middle power compute · Indonesia · 2018 to 2026</span>
+  <h1>Indonesia's Two Fronts</h1>
+  <p class="lede read">Indonesia is two data centre markets. Greater Jakarta serves the region's largest population, with US and Chinese cloud regions and rules that keep public data at home, and runs on a coal-heavy grid. Batam, 20 km from Singapore, became Singapore's other overflow after Johor, on a small island grid where water is now the tighter limit. This page follows both.</p>
+  <div class="kpis">
+    <div class="kpi"><span>Data centre IT capacity installed</span><b class="mono">~0.58 GW</b><span>PLN, 2026</span></div>
+    <div class="kpi"><span>Power requests to PLN by 2034</span><b class="mono">25 GW</b><span>PLN tally, Sep 2026, against 5.2 GW in the energy ministry's forecast</span></div>
+    <div class="kpi"><span>Data centre load on the Java-Bali grid</span><b class="mono">99%</b><span>a grid that runs about 60% on coal (2025)</span></div>
+  </div>
+</header>
+
+<section id="global">
+  <span class="eyebrow">1 · The global picture</span>
+  <h2>Outside the Americas, Asia Pacific has the largest pipeline</h2>
+  <p class="read sub">Operational capacity runs today. Pipeline is under construction or planned. Indonesia's bar is the Jakarta broker market.</p>
+  <div class="controls">
+    <div class="seg" role="group" aria-label="Sort">
+      <button id="sortOp" aria-pressed="false">Sort by operational</button>
+      <button id="sortTot" aria-pressed="true">Sort by operational + pipeline</button>
+    </div>
+    <div class="seg" role="group" aria-label="Units">
+      <button id="uGW" aria-pressed="true">GW</button>
+      <button id="uUSD" aria-pressed="false">US$ bn (est.)</button>
+    </div>
+    <div class="seg" role="group" aria-label="United States">
+      <button id="usOff" aria-pressed="true">Hide US and China</button>
+      <button id="usOn" aria-pressed="false">Show US and China</button>
+    </div>
+  </div>
+  <div class="figure"><svg id="gchart" role="img" aria-label="Bar chart of data centre capacity by country"></svg></div>
+  <div class="legend"><span><i style="background:var(--fg)"></i>Operational</span><span><i style="background:var(--muted);opacity:.35"></i>Pipeline</span><span><i style="background:var(--accent)"></i>Indonesia</span><span><i style="border:2px solid var(--accent);background:transparent"></i>Leapfrogs a market with more operational capacity</span><span>* lower-confidence or partial figure</span><span>‡ SemiAnalysis building-level count</span></div>
+  <p class="note" id="gnote"></p>
+</section>
+
+<section id="why">
+  <span class="eyebrow">2 · Why Indonesia</span>
+  <h2>A huge home market and a back door to Singapore</h2>
+  <p class="read sub">Select a card with a link to see the numbers behind it.</p>
+  <div class="drivers" id="drivers">
+    <button class="driver" data-p="stacks" aria-expanded="false"><h3>The home market came first</h3><p>Google opened a Jakarta cloud region in 2020, AWS in 2021 and Microsoft in 2025, and Alibaba, Tencent and Huawei run local data centres. Public-sector and financial data must stay onshore, which keeps demand local.</p><span class="more">Show the two-stack numbers</span></button>
+    <div class="driver"><h3>Batam, Singapore's other overflow</h3><p>Nongsa Digital Park opened in 2018, 20 km from Singapore with its own utility and new subsea cables. In April 2026 DayOne signed a 450 MW power deal with PLN Batam, and Firmus and Nvidia followed with plans for a 360 MW AI factory.</p></div>
+    <button class="driver" data-p="cost" aria-expanded="false"><h3>Cheap to build and power</h3><p>Build costs are among the lowest in the region, and a broker estimate puts power at about 6.3 US cents per kWh against 10.6 in Malaysia.</p><span class="more">Show build cost by country</span></button>
+    <div class="driver"><h3>Slow to connect</h3><p>A 100 MW grid connection takes about 36 months, against about 12 under Malaysia's Green Lane. Java's reserve margin is shrinking, and Java had rolling blackouts in June 2026.</p></div>
+  </div>
+  <div class="panel" id="whyPanel" hidden aria-live="polite"></div>
+</section>
+
+<section id="timeline">
+  <span class="eyebrow">3 · How it happened</span>
+  <h2>From local banks to AI factories</h2>
+  <div class="controls">
+    <div class="seg" role="group" aria-label="Events shown">
+      <button id="keyOnly" aria-pressed="true">Key moments</button>
+      <button id="allEv" aria-pressed="false">All events</button>
+    </div>
+  </div>
+  <div class="chips" id="chips"></div>
+  <div class="tl" id="tl"></div>
+  <p class="note" id="tlnote"></p>
+</section>
+
+<section id="map">
+  <span class="eyebrow">4 · Where it lands</span>
+  <h2>East of Jakarta, and across the strait from Singapore</h2>
+  <p class="read sub">Each dot is a campus. Colour shows whose stack it mainly serves, size shows megawatts where disclosed. Solid dots are operating, rings are under construction, dashed rings are announced. No Indonesian site has an exact public location here; all are placed at their district or city. Select a dot for details.</p>
+  <div class="controls">
+    <div class="seg" role="group" aria-label="Map view">
+__VIEWBTNS__
+    </div>
+    <div class="chips" id="stackChips"></div>
+  </div>
+  <div class="mapgrid">
+    <div class="figure map"><svg id="mmap" role="img" aria-label="Map of data centre campuses in Indonesia"></svg></div>
+    <div class="card" id="siteCard" aria-live="polite"></div>
+  </div>
+  <p class="note" id="mapnote"></p>
+  <p class="undisc" id="undisc"></p>
+</section>
+
+<section id="stacks">
+  <span class="eyebrow">5 · Two stacks, one host</span>
+  <h2>Mostly local and regional operators, with US clouds ahead of Chinese ones</h2>
+  <p class="read sub">Sites are tagged by their known tenant first, then by the operator's home country. Hyperscalers disclose no sites or megawatts in Indonesia, so the count understates them.</p>
+  <div class="stackbar" id="stackbar" role="img" aria-label="Sites by stack"></div>
+  <div class="legend"><span><i style="background:var(--us)"></i>US-linked</span><span><i style="background:var(--cn)"></i>China-linked</span><span><i style="background:var(--other)"></i>Other or Indonesian</span><span><i style="background:var(--unk)"></i>Unknown or mixed</span></div>
+  <div class="two">
+    <div class="card"><h3>DayOne in Batam</h3><p class="sub">The former international arm of China's GDS, now headquartered in Singapore, signed a 450 MW power deal with PLN Batam in April 2026. That one contract is more than half of the island grid's 844 MW capability.</p></div>
+    <div class="card"><h3>Chinese capital beyond data centres</h3><p class="sub">Chinese firms control about three quarters of Indonesia's nickel refining, and CATL broke ground in 2025 on a US$6 billion battery chain ending in a cell plant in Karawang, the same corridor as Jakarta's data centres.</p></div>
+  </div>
+</section>
+
+<section id="chipaccess">
+  <span class="eyebrow">6 · Chip access and security</span>
+  <h2>__CHIP_H2__</h2>
+  __CHIP_LEDE__
+  <div class="controls">
+    <div class="seg" role="group" aria-label="Rule shown">
+      <button id="tJan" aria-pressed="true">January 2025 rule</button>
+      <button id="tNow" aria-pressed="false">Now</button>
+    </div>
+  </div>
+  <div class="figure world"><svg id="wmap" role="img" aria-label="World map of US AI chip export tiers"></svg></div>
+  <div class="legend" id="tlegend"></div>
+  <p class="note" id="tnote"></p>
+  __CHIP_BODY__
+</section>
+
+<section id="energy">
+  <span class="eyebrow">7 · Energy security</span>
+  __ENERGY__
+</section>
+
+<section id="risk">
+  <span class="eyebrow">8 · Leverage and weak points</span>
+  <h2>Requests run far ahead of the grid, and Batam runs short of water</h2>
+  <div class="funnel" id="funnel"></div>
+  <p class="note">Sources: PLN and the energy ministry via Indonesian press, 2025 to 2026; IDPRO industry association; BP Batam and local water data. The forecasts measure different things and are shown for scale.</p>
+  <div class="two">
+    <div class="risk"><h3>Weak points</h3><ul>
+      <li>On Java the marginal fuel is coal, which makes data centres here the most carbon-heavy in the region and hard to sell to buyers with clean-power targets.</li>
+      <li>Grid connections take about three years, and Java's spare capacity is shrinking.</li>
+      <li>In Batam one 450 MW deal takes more than half of the island grid, and one reservoir supplies 80% of the island's water.</li>
+      <li>The national data centre was crippled by ransomware in June 2024.</li>
+    </ul></div>
+    <div class="risk lev"><h3>Leverage</h3><ul>
+      <li>The largest home market in Southeast Asia, with rules that keep public and financial data onshore.</li>
+      <li>Its own coal and gas, so it is the least exposed of the region's hosts to imported fuel prices.</li>
+      <li>A new sovereign fund, Danantara, says it is pushing more than US$1.7 billion into data centres.</li>
+    </ul></div>
+  </div>
+</section>
+
+<section id="sources">
+  <span class="eyebrow">Sources and method</span>
+  <div class="sources" id="srcs"></div>
+</section>

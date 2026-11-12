@@ -1,0 +1,17 @@
+site_name,lat,lon,latlon_precision,source_url,notes
+AWS Asia Pacific (Jakarta) Region,-6.2088,106.8456,town,,Placed at the city centre; exact site not disclosed
+Google Cloud Jakarta region (asia-southeast2),-6.2088,106.8456,town,,Placed at the city centre; exact site not disclosed
+Microsoft Indonesia Central cloud region,-6.2088,106.8456,town,,Placed at the city centre; exact site not disclosed
+Alibaba Cloud Indonesia region (3 data centres),-6.2088,106.8456,town,,Placed at the city centre; exact site not disclosed
+Tencent Cloud Jakarta region (3 data centres),-6.2088,106.8456,town,,Placed at the city centre; exact site not disclosed
+"Huawei Cloud Indonesia region (Jakarta, 3 AZ)",-6.2088,106.8456,town,,Placed at the city centre; exact site not disclosed
+"Firmus Nvidia DGX AI Factory, Batam (built by DayOne)",1.1301,104.0529,town,,Placed at the city centre; exact site not disclosed
+DCI Indonesia H2 campus Karawang (Pertiwi Lestari),-6.3227,107.3376,town,,Placed at the city centre; exact site not disclosed
+Equinix JK1 Jakarta (Equinix-Astra JV),-6.2088,106.8456,town,,Placed at the city centre; exact site not disclosed
+Digital Edge EDGE1 Jakarta (Indonet),-6.2088,106.8456,town,,Placed at the city centre; exact site not disclosed
+Digital Edge EDGE2 Jakarta (Kuningan),-6.2088,106.8456,town,,Placed at the city centre; exact site not disclosed
+Oracle Cloud Indonesia North (Batam) region,1.1301,104.0529,town,,Placed at the city centre; exact site not disclosed
+SM+ SMX01 Jakarta CBD data centre,-6.2088,106.8456,town,,Placed at the city centre; exact site not disclosed
+Pusat Data Nasional (PDN) Batam,1.1301,104.0529,town,,Placed at the city centre; exact site not disclosed
+"Indosat GPU cloud / AI factory, Jakarta (GB200 racks)",-6.2088,106.8456,town,,Placed at the city centre; exact site not disclosed
+"Golden Digital Gateway data centre, Batam",1.1301,104.0529,town,,Placed at the city centre; exact site not disclosed

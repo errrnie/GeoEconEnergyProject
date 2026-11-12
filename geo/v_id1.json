@@ -1,0 +1,2 @@
+[{"id":"jkt","label":"Greater Jakarta","bbox":[106.55,-6.75,107.6,-6.0],"W":820,"H":586,"labels":[[106.82,-6.12,"JAKARTA"],[107.15,-6.42,"CIKARANG"],[107.33,-6.25,"KARAWANG"],[106.8,-6.6,"BOGOR"]]},
+{"id":"batam","label":"Batam","bbox":[103.75,0.85,104.35,1.42],"W":700,"H":665,"labels":[[103.85,1.36,"SINGAPORE"],[104.03,1.1,"BATAM"],[104.15,1.05,"Nongsa"],[104.25,0.95,"BINTAN"]]}]
