@@ -2,18 +2,18 @@
   <span class="banner">Draft · sources linked throughout · figures marked "est." are my own estimates</span>
   <span class="eyebrow">Middle power compute · Thailand · 2016 to 2026</span>
   <h1>Thailand's Compute Pause</h1>
-  <p class="lede read">Thailand drew some of the region's largest cloud pledges after Malaysia, then hit the brakes. In September 2026 it paused 166 data centre projects while it wrote new rules, and it now plans to charge data centres more for power. This page follows who came, what they asked for, and why Thailand chose to slow down.</p>
+  <p class="lede read">Thailand drew some of the region's largest cloud pledges, then hit the brakes. In September 2026 it paused 166 data centre projects while it wrote new rules, and it is moving to charge data centres more for power. This page follows who came, what they asked for, and why Thailand chose to slow down.</p>
   <div class="kpis">
     <div class="kpi"><span>Power requested by data centre investors</span><b class="mono">35 GW</b><span>Energy ministry, Sep 2026, which called much of it phantom demand</span></div>
     <div class="kpi"><span>Projects paused</span><b class="mono">166</b><span>49 under construction and 117 awaiting permits, 4 Sep 2026</span></div>
-    <div class="kpi"><span>Data centre load today</span><b class="mono">0.12 to 0.2 GW</b><span>against 8.8 GW pencilled into the draft 2026 power plan</span></div>
+    <div class="kpi"><span>Data centre load today</span><b class="mono">~0.1 to 0.2 GW</b><span>live today (The Nation; BMI 216 MW), against 8.8 GW in the draft power plan's high-growth case</span></div>
   </div>
 </header>
 
 <section id="global">
   <span class="eyebrow">1 · The global picture</span>
-  <h2>Outside the US, the pipeline is moving to Asia</h2>
-  <p class="read sub">Operational capacity runs today. Pipeline is under construction or planned. Thailand's broker figure covers Bangkok, which in practice is the national market.</p>
+  <h2>Outside the Americas, Asia Pacific has the largest pipeline</h2>
+  <p class="read sub">Operational capacity runs today. Pipeline is under construction or planned. Thailand's bar is Cushman &amp; Wakefield's Bangkok market at end-2025, which appears to include the Eastern Seaboard; its pipeline has roughly doubled since.</p>
   <div class="controls">
     <div class="seg" role="group" aria-label="Sort">
       <button id="sortOp" aria-pressed="false">Sort by operational</button>
@@ -40,7 +40,7 @@
   <div class="drivers" id="drivers">
     <button class="driver" data-p="stacks" aria-expanded="false"><h3>Cloud regions came first</h3><p>AWS opened a Thai region in January 2025 with more than US$5 billion committed, and Google opened Bangkok in January 2026. Alibaba, Tencent and Huawei all run local cloud zones, and Microsoft has pledged more than US$1 billion.</p><span class="more">Show the two-stack numbers</span></button>
     <button class="driver" data-p="cost" aria-expanded="false"><h3>Cheaper to build</h3><p>A mid-spec build costs about US$8.8 million per MW in Thailand, below Malaysia's 9.6 and well below Singapore's 14.4.</p><span class="more">Show build cost by country</span></button>
-    <div class="driver"><h3>Spare power on paper</h3><p>Thailand has 55.7 GW of contracted capacity against a record peak of 36.8 GW, a reserve margin near 55%. The real bottleneck is transmission into the Eastern Seaboard, where EGAT plans to roughly double transfer capacity from 600 to 1,150 MW.</p></div>
+    <div class="driver"><h3>Spare power on paper</h3><p>Thailand has 55.7 GW of contracted capacity against a record peak of 36.8 GW, a reserve margin of about 51% (IEEFA puts it near 55%). The real bottleneck is transmission into the Eastern Seaboard, where EGAT plans to roughly double transfer capacity from 600 to 1,150 MW.</p></div>
     <div class="driver"><h3>Incentives and land</h3><p>The Board of Investment offers up to eight years of tax holiday for high-efficiency data centres, and received more than 728 billion baht of data centre investment applications in 2025. Industrial land in Chonburi now tops out near 9.5 million baht per rai.</p></div>
   </div>
   <div class="panel" id="whyPanel" hidden aria-live="polite"></div>
@@ -80,13 +80,13 @@ __VIEWBTNS__
 
 <section id="stacks">
   <span class="eyebrow">5 · Two stacks, one host</span>
-  <h2>Chinese clouds outnumber American ones on the map</h2>
-  <p class="read sub">Sites are tagged by their known tenant first, then by the operator's home country. Colocation operators such as Bridge, STT and True IDC are tagged Other because their tenants are not disclosed; DayOne, the former international arm of China's GDS, is tagged China-linked, which is a judgment call.</p>
+  <h2>China-linked sites outnumber US-linked ones, mostly on paper</h2>
+  <p class="read sub">Sites are tagged by their known tenant first, then by the operator's home country. China-linked sites outnumber US-linked ones 10 to 5, mostly through approved but unbuilt projects. Colocation operators such as Bridge and True IDC are tagged Other because their tenants are not disclosed; DayOne, the former international arm of China's GDS, is tagged China-linked, which is a judgment call.</p>
   <div class="stackbar" id="stackbar" role="img" aria-label="Sites by stack"></div>
   <div class="legend"><span><i style="background:var(--us)"></i>US-linked</span><span><i style="background:var(--cn)"></i>China-linked</span><span><i style="background:var(--other)"></i>Other or Thai</span><span><i style="background:var(--unk)"></i>Unknown or mixed</span></div>
   <div class="two">
-    <div class="card"><h3>TikTok</h3><p class="sub">Pledged US$8.8 billion for Thai data centres in February 2025, then won Board of Investment approval for 842 billion baht across three sites in May 2026,.</p></div>
-    <div class="card"><h3>OBON and Siam AI</h3><p class="sub">US prosecutors allege about US$2.5 billion of Nvidia servers moved through a Bangkok intermediary that Bloomberg's sources name as OBON. Siam AI, Thailand's first Nvidia cloud partner, was created by OBON. OBON has not been charged, and Siam AI denies exporting to China and says it is independent.</p></div>
+    <div class="card"><h3>TikTok</h3><p class="sub">Pledged US$8.8 billion for Thai data centres in February 2025, then won Board of Investment approval for 842 billion baht across three provinces in May 2026.</p></div>
+    <div class="card"><h3>OBON and Siam AI</h3><p class="sub">US prosecutors allege about US$2.5 billion of servers went through a Southeast Asian "Company-1"; Bloomberg's sources say it is Bangkok's OBON. OBON said in 2024 that it created Siam AI, Thailand's first Nvidia cloud partner, which was incorporated separately. OBON has not been charged. Siam AI says it imports GPUs for its own use and has separate headquarters from OBON.</p></div>
   </div>
 </section>
 
@@ -115,18 +115,18 @@ __VIEWBTNS__
   <span class="eyebrow">8 · Leverage and weak points</span>
   <h2>Requests ran far ahead of the grid, so Thailand stopped the clock</h2>
   <div class="funnel" id="funnel"></div>
-  <p class="note">Sources: Energy ministry via The Nation and Asia News Network, Sep 2026; draft Power Development Plan 2026; Cushman &amp; Wakefield and EGAT for pipeline and current load. Bars are drawn to scale, so today's load is barely visible.</p>
+  <p class="note">Sources: Energy ministry via The Nation and Asia News Network, Sep 2026; draft Power Development Plan 2026 (high-growth case); The Nation and Asia News Network, Aug 2026, for pipeline and current load. Bars are drawn to scale, so today's load is barely visible.</p>
   <div class="two">
     <div class="risk"><h3>Weak points</h3><ul>
-      <li>About 58% of power comes from gas, and new gas means imported LNG as Gulf of Thailand and Myanmar supply decline.</li>
+      <li>Gas makes 54 to 60% of power (EPPO, 2024 to 2026), and new gas means imported LNG as Myanmar supply fades and Gulf of Thailand reserves run down.</li>
       <li>The March 2026 Hormuz disruption showed how quickly LNG prices hit Thai power costs.</li>
       <li>Eastern Seaboard reservoirs stood at 39 to 52% in June 2026, and operators do not disclose water use.</li>
       <li>Three prime ministers since 2024 make policy continuity a real question for long-lived investments.</li>
     </ul></div>
     <div class="risk lev"><h3>Leverage</h3><ul>
       <li>A large power surplus on paper, so Thailand can choose which projects to connect.</li>
-      <li>A seven-tier licensing scheme endorsed by Cabinet on 10 Nov 2026 lets it sort serious projects from speculative ones.</li>
-      <li>A separate data centre tariff and a proposed grid bond of 4.5 million baht per MW push costs back onto developers.</li>
+      <li>A seven-tier licensing framework endorsed by Cabinet on 10 Nov 2026 lets it sort serious projects from speculative ones.</li>
+      <li>A separate data centre tariff category and a grid bond of 4.5 million baht per MW, both approved by the energy policy council on 15 Jul 2026, push costs back onto developers.</li>
     </ul></div>
   </div>
 </section>
