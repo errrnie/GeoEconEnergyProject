@@ -104,7 +104,7 @@ function draw(){{const yr=+document.getElementById("yr").value;document.getEleme
   D.hubs.filter(h=>!D.deep[h.country]&&h.lat&&h.lon).forEach(h=>{{const [x,y]=P(+h.lon,+h.lat);const mw=(+h.operational_mw||0)+(+h.pipeline_mw||0);const r=4+Math.sqrt(mw||50)*.25;
     const c=el("circle",{{cx:x,cy:y,r,fill:"none",stroke:"var(--accent)","stroke-dasharray":"3 2","stroke-width":1.4}},m);
     el("title",{{}},c).textContent=`${{h.hub}}, ${{h.country}}: ${{h.operational_mw||"?"}} MW operating, ${{h.pipeline_mw||"?"}} MW pipeline (${{h.source_name}}). Deep dive coming.`;
-    const t=el("text",{{x:x+r+3,y:y+4,"font-size":11,fill:"var(--fg)"}},m);t.textContent=h.hub.replace(/\s*\(.*\)/,"")}});
+    const t=el("text",{{x:x+r+3,y:y+4,"font-size":11,fill:"var(--fg)"}},m);t.textContent=h.hub.replace(/\\s*\\(.*\\)/,"")}});
   document.getElementById("yrn").textContent=`${{shown.length}} of ${{D.sites.length}} mapped campuses announced by ${{yr}} (campuses with no announcement year always show)`;}}
 document.getElementById("yr").oninput=draw;draw();
 (function(){{const svg=document.getElementById("hist"),ys=[];for(let y=2012;y<=2026;y++)ys.push(y);
