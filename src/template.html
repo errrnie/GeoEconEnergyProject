@@ -242,7 +242,7 @@ drawTiers();
 
 /* 7. energy */
 (function(){
-  const svg=document.getElementById("mixchart"),FC={coal:"var(--coal)",gas:"var(--gas)",solar:"var(--solar)","hydro and other":"var(--hydro)","solar, hydro and other":"var(--hydro)"};
+  const svg=document.getElementById("mixchart"),FC={coal:"var(--coal)",gas:"var(--gas)",solar:"var(--solar)","hydro and other":"var(--hydro)","solar, hydro and other":"var(--hydro)","imported power":"var(--us)","renewables and hydro":"var(--solar)",oil:"var(--oth)"};
   const rows=MIX.filter(r=>r.geography===M.mixGeo),yrs=[...new Set(rows.map(r=>r.year))];
   const W=760,rowH=40,left=110,H=yrs.length*rowH+6;svg.setAttribute("viewBox",`0 0 ${W} ${H}`);
   yrs.forEach((y,i)=>{let x=left;const yy=i*rowH+4;T(svg,left-8,yy+20,y.replace("2026-04 (month)","Apr 2026"),{a:"end",mono:false,fill:"var(--fg)",fs:12});
@@ -250,11 +250,11 @@ drawTiers();
       el("title",{},rc).textContent=`${r.fuel}: ${r.share_pct}%`;if(w>44)T(svg,x+6,yy+18,`${Math.round(+r.share_pct)}%`,{fill:"#0b0f14",fs:11});x+=w;});});
   const S=M.scen;
   document.getElementById("scenrows").innerHTML=S.map(s=>`<tr><td>${s[0]}</td><td>${s[1]}</td><td>${s[2]}%</td><td>${s[3].toFixed(1)}</td><td>${s[4].toFixed(2)}</td></tr>`).join("");
-  const sc=document.getElementById("scenchart"),W2=760,H2=200,l=110,r=30,max=8;sc.setAttribute("viewBox",`0 0 ${W2} ${H2}`);
+  const sc=document.getElementById("scenchart"),W2=760,H2=200,l=110,r=30,max=M.scenMax||8;sc.setAttribute("viewBox",`0 0 ${W2} ${H2}`);
   const sx=v=>l+v/max*(W2-l-r);
   S.forEach((s,i)=>{const y=20+i*44;T(sc,l-8,y+18,`${s[0]} case`,{a:"end",mono:false,fill:"var(--fg)",fs:12});
     el("rect",{x:l,y,width:sx(s[4])-l,height:26,rx:3,fill:"var(--gas)"},sc);T(sc,sx(s[4])+6,y+18,`${s[4].toFixed(2)} Mt`,{fill:"var(--fg)"});});
-  [[2.26,"2025 imports"],[3.2,"2024 imports"]].forEach(([v,lab],k)=>{el("line",{x1:sx(v),x2:sx(v),y1:12,y2:H2-18,stroke:"var(--fg)","stroke-dasharray":"4 3"},sc);T(sc,sx(v)+(k?4:-4),H2-4,lab,{a:k?"start":"end",fs:10})});
+  (M.scenRefs||[]).forEach(([v,lab],k)=>{el("line",{x1:sx(v),x2:sx(v),y1:12,y2:H2-18,stroke:"var(--fg)","stroke-dasharray":"4 3"},sc);T(sc,sx(v)+(k?4:-4),H2-4,lab,{a:k?"start":"end",fs:10})});
 })();
 
 /* 3. timeline */
@@ -324,10 +324,10 @@ const sb=document.getElementById("stackbar");
 ["US","China","Other","Unknown"].forEach(k=>{if(!cnt[k])return;const d=document.createElement("div");d.style.flex=cnt[k];d.style.background=SC[k];d.textContent=cnt[k];d.title=`${SL[k]}: ${cnt[k]} sites`;sb.appendChild(d)});
 
 /* 6. funnel */
-const F=[["Promised: 59 projects with supply deals",8300,"8.3 GW",""],["Contracted capacity (Aug 2026)",2346,"2.35 GW",""],["Actually drawn (Aug 2026)",1374,"1.37 GW",""]];
+const F=M.funnel.bars,FMAX=Math.max(...F.map(f=>f[1]));
 const fu=document.getElementById("funnel");
-F.forEach(([l,v,t])=>{const r=document.createElement("div");r.className="fbar";r.innerHTML=`<span class="lab">${l}</span><div class="track"><div class="fill" style="width:${v/8300*100}%">${t}</div></div>`;fu.appendChild(r)});
-const w=document.createElement("div");w.className="fbar water";w.innerHTML=`<span class="lab">Water: approved vs requested, 2024</span><div class="track"><div class="fill" style="width:18%">142 of 808 ML/day</div></div>`;fu.appendChild(w);
+F.forEach(([l,v,t])=>{const r=document.createElement("div");r.className="fbar";r.innerHTML=`<span class="lab">${l}</span><div class="track"><div class="fill" style="width:${Math.max(v/FMAX*100,.6)}%">${t}</div></div>`;fu.appendChild(r)});
+if(M.funnel.water){const [wl,wp,wt]=M.funnel.water;const w=document.createElement("div");w.className="fbar water";w.innerHTML=`<span class="lab">${wl}</span><div class="track"><div class="fill" style="width:${wp}%">${wt}</div></div>`;fu.appendChild(w)}
 
 /* sources */
 const urls=new Map();

@@ -1,0 +1,16 @@
+geography,year,fuel,twh,share_pct,source_url
+Thailand,2022,gas,114.6,53.1,https://old.eppo.go.th/wp-content/uploads/2026/04/EnergyStatistics2025.pdf
+Thailand,2022,coal,35.5,16.5,https://old.eppo.go.th/wp-content/uploads/2026/04/EnergyStatistics2025.pdf
+Thailand,2022,imported power,35.5,16.4,https://old.eppo.go.th/wp-content/uploads/2026/04/EnergyStatistics2025.pdf
+Thailand,2022,renewables and hydro,28.5,13.2,https://old.eppo.go.th/wp-content/uploads/2026/04/EnergyStatistics2025.pdf
+Thailand,2022,oil,1.7,0.8,https://old.eppo.go.th/wp-content/uploads/2026/04/EnergyStatistics2025.pdf
+Thailand,2023,gas,129.4,58.0,https://old.eppo.go.th/wp-content/uploads/2026/04/EnergyStatistics2025.pdf
+Thailand,2023,coal,30.4,13.6,https://old.eppo.go.th/wp-content/uploads/2026/04/EnergyStatistics2025.pdf
+Thailand,2023,imported power,32.8,14.7,https://old.eppo.go.th/wp-content/uploads/2026/04/EnergyStatistics2025.pdf
+Thailand,2023,renewables and hydro,29.8,13.3,https://old.eppo.go.th/wp-content/uploads/2026/04/EnergyStatistics2025.pdf
+Thailand,2023,oil,0.9,0.4,https://old.eppo.go.th/wp-content/uploads/2026/04/EnergyStatistics2025.pdf
+Thailand,2024,gas,136.4,57.9,https://old.eppo.go.th/wp-content/uploads/2026/04/EnergyStatistics2025.pdf
+Thailand,2024,coal,33.3,14.1,https://old.eppo.go.th/wp-content/uploads/2026/04/EnergyStatistics2025.pdf
+Thailand,2024,imported power,36.0,15.3,https://old.eppo.go.th/wp-content/uploads/2026/04/EnergyStatistics2025.pdf
+Thailand,2024,renewables and hydro,29.6,12.6,https://old.eppo.go.th/wp-content/uploads/2026/04/EnergyStatistics2025.pdf
+Thailand,2024,oil,0.3,0.1,https://old.eppo.go.th/wp-content/uploads/2026/04/EnergyStatistics2025.pdf

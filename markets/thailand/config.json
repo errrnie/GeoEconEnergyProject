@@ -1,0 +1,9 @@
+{"name":"Thailand","adj":"Thai","slug":"thailand","title":"Thailand's Compute Pause","geo":"th.json",
+ "views":[{"id":"eec","label":"Bangkok and the EEC"},{"id":"nat","label":"All of Thailand"}],
+ "policyTrack":"Thailand policy","otherLabel":"Other or Thai",
+ "keyDates":["2022-10-17","2025-01-13","2025-02-28","2026-03-01","2026-05-06","2026-07-15","2026-09-04","2026-11-10"],
+ "capColors":{},"speedHighlight":"","mixGeo":"Thailand",
+ "scen":[["Low",6.0,2.5,0.97,0.71],["Mid",21.4,9.1,3.90,2.86],["High",65.5,27.8,12.30,9.04]],
+ "scenMax":12,"scenRefs":[[10.6,"2024 imports"]],
+ "funnel":{"bars":[["Requested by investors (Sep 2026)",35000,"35 GW"],["Pencilled into draft 2026 power plan",8800,"8.8 GW"],["Pipeline with dates",2870,"2.87 GW"],["Running today",200,"0.12 to 0.2 GW"]]},
+ "srcNote":"Main data: Thailand's Board of Investment, the Energy Policy and Planning Office (EPPO) and EGAT, with company releases and press."}

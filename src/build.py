@@ -96,7 +96,7 @@ def build_market(slug):
         '__TIERS__': js(tiers),
         '__SPEED__': js(rd('data/shared/speed_chart.csv')),
         '__CAP__': js(rd(f'{d}/capacity_chart.csv')),
-        '__MIX__': js(rd(f'{d}/energy_mix.csv')),
+        '__MIX__': js(rd(f'{d}/mix_chart.csv') or rd(f'{d}/energy_mix.csv')),
     }
     for k, v in tx.TX.items():  # text first, data last
         t = t.replace(k, v)
