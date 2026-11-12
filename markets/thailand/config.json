@@ -72,17 +72,22 @@
     "8.8 GW"
    ],
    [
-    "Planned pipeline",
+    "Pipeline (The Nation, Aug 2026)",
     2870,
     "2.87 GW"
    ],
    [
-    "Running today",
+    "Operating today",
     200,
     "~0.1 to 0.2 GW"
    ]
   ]
  },
  "srcNote": "Main data: Thailand's Board of Investment, the Energy Policy and Planning Office (EPPO) and EGAT, with company releases and press.",
- "tagline": "Big cloud pledges, 35 GW of requests, then a pause on 166 projects and a move to charge data centres more for power."
+ "tagline": "Big cloud pledges, 35 GW of requests, then a pause on 166 projects and a move to charge data centres more for power.",
+ "next": {
+  "text": "With Thailand paused and Johor short of water, the region's next large pipeline is Indonesia's, in Jakarta and on Batam across the strait from Singapore.",
+  "slug": "indonesia",
+  "label": "Open Indonesia"
+ }
 }

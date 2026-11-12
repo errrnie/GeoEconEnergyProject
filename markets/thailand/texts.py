@@ -9,11 +9,11 @@ TX['__TNOTE_NOW__'] = _my.TX['__TNOTE_NOW__'].replace(', including Johor', ', in
 TX['__CHIP_H2__'] = "Thailand sits in the same middle tier, under the same suspicion"
 TX['__CHIP_LEDE__'] = (
     '<p class="read sub">In January 2025 the US sorted the world into three tiers for advanced AI chips, and Thailand landed in the middle tier with Malaysia. '
-    'The rule was scrapped four months later, but a US draft aimed specifically at Malaysia and Thailand followed in July 2025, and the worry behind it, chips leaking to China, now runs through Bangkok too.</p>')
+    'The rule was rescinded four months later. Commerce then said it would add licence requirements for Malaysia and Thailand, and Bloomberg reported a draft in July 2025 that was reportedly shelved in August 2026, and the worry behind it, chips leaking to China, now runs through Bangkok too.</p>')
 TX['__CHIP_BODY__'] = '''
   <div class="two">
     <div class="callout"><h3>Thailand's position today</h3>
-      <p class="sub">No US licence or cap applies to Thailand as a country. The July 2025 draft rule for Malaysia and Thailand was reportedly shelved in August 2026. Thailand has tightened its own checks instead: from May 2026 the Board of Investment and Customs cut incentives for "pass-through" assembly and aimed to check all electronics trade, and a joint watch list with US customs grew to 67 items in June. As in Malaysia, a Chinese-parented buyer needs a US licence for top chips wherever it operates.</p></div>
+      <p class="sub">No US licence or cap applies to Thailand as a country. The July 2025 draft for Malaysia and Thailand was reportedly shelved in August 2026, and no rule was published. A November 2025 US case also charged four men with routing Nvidia A100s to China via Malaysia and Thailand. Thailand has tightened its own checks instead: from May 2026 the Board of Investment and Customs cut incentives for "pass-through" assembly and aimed to check all electronics trade, and a joint watch list with US customs grew to 67 items in June. As in Malaysia, a Chinese-parented buyer needs a US licence for top chips wherever it operates.</p></div>
     <div class="callout"><h3>The OBON and Siam AI case</h3>
       <p class="sub">In March 2026 US prosecutors charged a Supermicro co-founder and two others, alleging about US$2.5 billion of servers moved through a Southeast Asian "Company-1" in 2024 and 2025. Bloomberg's sources say Company-1 is OBON, a Bangkok firm that said in 2024 it created Siam AI, Thailand's first Nvidia cloud partner. People familiar told Bloomberg some servers allegedly went to Alibaba, which denies involvement. OBON has not been charged, and Siam AI says it imports GPUs for its own use and has separate headquarters from OBON.</p></div>
   </div>
@@ -28,7 +28,7 @@ TX['__ENERGY__'] = '''
   <p class="read sub">Gas makes most of Thailand's power, and the gas is running short at home. Gulf of Thailand output dipped around the 2022 Erawan handover and has partly recovered, Myanmar's pipeline supply is fading, and proved reserves would last under five years at current output. New data centre load therefore lands on an LNG import bill that is already large.</p>
   <div class="stat">
     <div class="box"><b class="mono">54 to 60%</b><span>Power from gas, 2024 to 2026 (EPPO); IEEFA's 65% counts gas in fuel terms</span></div>
-    <div class="box"><b class="mono">~10.6 Mt</b><span>LNG imported in 2024 (EPPO-derived; trade data suggest about 11.5), about three times Malaysia's</span></div>
+    <div class="box"><b class="mono">~10.6 Mt</b><span>LNG imported in 2024 (EPPO-derived; trade data suggest about 11.5), about three times Malaysia's 3.2 Mt that year</span></div>
     <div class="box"><b class="mono">4.6 yrs</b><span>Life of proved gas reserves at end-2025 output</span></div>
     <div class="box"><b class="mono">~51 to 55%</b><span>Reserve margin (EPPO-derived and IEEFA), against a 15% standard</span></div>
   </div>
@@ -42,7 +42,7 @@ TX['__ENERGY__'] = '''
     <div class="callout"><h3>Who pays</h3>
       <p class="sub">Thailand has chosen to bill data centres directly. In July 2026 the national energy policy council approved a separate tariff category for data centres, with a rate of about 5 to 6 baht per kWh expected against an average tariff of about 3.95, and the same day approved a grid-access bond of 4.5 million baht per MW. EGAT still carries about 31 billion baht of fuel costs it was not allowed to pass on to consumers.</p></div>
     <div class="callout"><h3>Compared with Malaysia</h3>
-      <p class="sub">Malaysia's exposure today is mostly imported coal, and its data centre boom is pushing it toward LNG from a small base. Thailand already imports about three times as much LNG, so data centres add to a bill that is large and swings with world prices. Malaysia promised 8.3 GW and kept building; Thailand paused 166 projects and moved to charge them more for power. Thailand is trading speed for protection of households.</p></div>
+      <p class="sub">Malaysia's exposure today is mostly imported coal, and its data centre boom is pushing it toward LNG from a small base. Thailand imported about three times as much LNG as Malaysia in 2024, and about four and a half times as much in 2025, when Malaysia's imports fell to 2.26 Mt, so data centres add to a bill that is large and swings with world prices. Malaysia braked selectively, with water rules in Johor and a halt on non-AI projects, while honouring 8.3 GW of supply deals. Thailand stopped the clock on 166 projects and moved to charge data centres more for power. Thailand is trading speed for protection of households.</p></div>
   </div>
 '''
 TX['__SG_NOTE__'] = ''

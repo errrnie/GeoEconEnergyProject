@@ -16,7 +16,7 @@ TX['__CHIP_BODY__'] = '''
     <div class="callout"><h3>Indonesia's position today</h3>
       <p class="sub">Indonesia is outside the US country groups that need licences for advanced chips, and no Indonesian enforcement case on AI chips was found. As everywhere, supplying a Chinese-parented buyer requires a US licence. Indonesia joined BRICS as a full member in January 2025, and its February 2026 trade deal with Washington is signed but not in force; Indonesian goods now pay a 10% US duty.</p></div>
     <div class="callout"><h3>Megaspeed's Indonesian unit</h3>
-      <p class="sub">Bloomberg's analysis of customs records says Singapore-based Megaspeed's affiliates in Malaysia and Indonesia imported at least US$4.6 billion of Nvidia hardware in 2023 to 2025, without splitting the figure between the two. US and Singapore investigations are reported as ongoing. These are allegations. Megaspeed denies any diversion, and no Indonesian case has been reported.</p></div>
+      <p class="sub">Bloomberg's analysis of customs records found that Megaspeed's Malaysian and Indonesian units imported at least US$4.6 billion of Nvidia hardware (about 136,000 GPUs) from 2023 to November 2025, without splitting the figure between the two. US and Singapore authorities are reported to be investigating. These are allegations. Nobody has been charged, Megaspeed denies wrongdoing, and no Indonesian case has been reported. The Malaysia page has the full story.</p></div>
   </div>
   <div class="stat">
     <div class="box"><b class="mono">Jan 2025</b><span>Indonesia joins BRICS as a full member</span></div>
@@ -43,6 +43,6 @@ TX['__ENERGY__'] = '''
     <div class="callout"><h3>Cheap power, slow connections</h3>
       <p class="sub">Capped coal keeps power cheap, about 6.3 US cents per kWh by one broker estimate. The constraint is time: about 36 months for a large connection, and a planning reserve on Java that falls toward 33% by 2027. The national power plan adds no fossil capacity on Java after 2029, and of US$21.4 billion pledged under the clean-energy transition partnership, only about US$3.1 billion has been approved.</p></div>
     <div class="callout"><h3>Compared with its neighbours</h3>
-      <p class="sub">Malaysia and Thailand will meet extra data centre load mostly with imported LNG. Indonesia meets it with its own coal, and in Batam with gas held back from export. That makes Indonesia the most fuel-secure of the region's hosts and the most carbon-heavy, and its bottleneck is connecting to the grid rather than paying for fuel.</p></div>
+      <p class="sub">Malaysia and Thailand will meet extra data centre load mostly with imported LNG. Indonesia meets it with its own coal, and in Batam with gas held back from export. The two grids are already linked by fuel: about three quarters of Malaysia's 2025 coal imports came from Indonesia. That makes Indonesia the most fuel-secure of the region's hosts and the most carbon-heavy, and its bottleneck is connecting to the grid rather than paying for fuel.</p></div>
   </div>
 '''

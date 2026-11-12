@@ -93,6 +93,7 @@ button:focus-visible,.site:focus-visible{outline:2px solid var(--accent);outline
 button.driver{font:inherit;text-align:left;background:transparent;border:0;border-top:3px solid var(--line);color:var(--fg);cursor:pointer;padding:10px 0 0}
 button.driver[aria-expanded="true"]{border-top-color:var(--accent)}
 button.driver .more{font-family:var(--mono);font-size:.74rem;color:var(--accent)}
+.nextpage{border-top:1px solid var(--line);padding-top:18px}.nextpage .more{font-family:var(--mono);color:var(--accent);text-decoration:none}.nextpage .more:hover{text-decoration:underline}
 .panel{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:16px;display:grid;gap:10px}
 .panel[hidden]{display:none}
 .panel svg{width:100%;height:auto;display:block}
@@ -303,7 +304,7 @@ function drawMap(){
     if(gr.length>1){const ring=GEO[view].wide?9:16,a=i/gr.length*2*Math.PI;cx+=Math.cos(a)*ring*(1+Math.floor(i/8)*.6);cy+=Math.sin(a)*ring*(1+Math.floor(i/8)*.6)}
     const r=(GEO[view].wide?3:4)+Math.sqrt(+x.it_mw||40)*(GEO[view].wide?.35:.55);
     const solid=x.status==="Operational",paused=x.status==="Paused/Cancelled";
-    const c=el("circle",{cx,cy,r,fill:solid?SC[x.stack]:"var(--surface)","fill-opacity":solid?.85:.6,stroke:paused?"var(--muted)":SC[x.stack],"stroke-dasharray":x.status==="Announced"||paused?"3 2":"",class:"site",tabindex:0,role:"button","aria-label":x.site_name},m);
+    const c=el("circle",{cx,cy,r,fill:solid?SC[x.stack]:"var(--surface)","fill-opacity":solid?.85:.6,stroke:paused?"var(--muted)":SC[x.stack],"stroke-dasharray":["Announced","Proposed","Approved"].includes(x.status)||paused?"3 2":"",class:"site",tabindex:0,role:"button","aria-label":x.site_name},m);
     el("title",{},c).textContent=`${x.site_name} · ${x.status}`;
     c.onclick=()=>show(x);c.onkeydown=e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();show(x)}};
   })});

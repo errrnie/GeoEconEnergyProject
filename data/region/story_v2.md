@@ -20,7 +20,7 @@ Johor's operating capacity more than doubled in 2025, from 401MW to 897MW [20]. 
 
 The US AI Diffusion Rule of January 2025 put the whole region in a capped Tier 2 [22]. It was rescinded in May 2025, and enforcement against chip diversion took its place [23]. Malaysia began requiring permits to export US AI chips in July 2025 [24].
 
-Then hosts braked. Malaysia revised electricity tariffs in July 2025, which AMRO expects to raise data centre bills by 10 to 14% [4]. Johor stopped approving water-heavy Tier 1 and 2 data centres in November 2025 [25]. Thailand paused 49 projects under construction in September 2026, more than the 35 it had running [26]. Singapore kept rationing, awarding 200MW in 2026 to operators who each committed to over half green power [27]. Google added US$15bn for Malaysia in November 2026 [28].
+Then hosts braked. Malaysia revised electricity tariffs in July 2025, which AMRO expects to raise data centre bills by 10 to 14% [4]. Johor stopped approving water-heavy Tier 1 and 2 data centres in November 2025 [25], and in February 2026 Malaysia stopped approving data centres not linked to AI [38]. Thailand froze 49 data centres under construction in September 2026, more than the 35 it had running [26], as part of a pause on 166 projects. Singapore kept rationing, awarding 200MW in 2026 to operators who each committed to over half green power [27]. Google added US$15bn for Malaysia in November 2026 [28].
 
 ## Where things stand
 
@@ -30,11 +30,13 @@ By mid-2026 Johor had 1,110MW operating, about level with Singapore, which sourc
 
 **Thailand** drew AWS and Google cloud regions and power requests far beyond its grid plan before its September 2026 pause [26]. The [Thailand deep dive](thailand/index.html) follows why it braked.
 
-**Indonesia** has the strongest case for growth. Greater Jakarta had 356MW operating and a 1,699MW pipeline in H1 2026 [20][29], and all three big US clouds now run regions there [32]. DayOne's 450MW Batam power deal could make Batam a second Johor [31]. About 82% of Indonesia's power comes from fossil fuels [30]. See the [Indonesia deep dive](indonesia/index.html).
+**Indonesia** has the strongest case for growth. Greater Jakarta had 356MW operating and a 1,699MW pipeline in H1 2026 [20][29], and all three big US clouds now run regions there [32]. DayOne's 450MW Batam power deal could make Batam a second Johor [31]. Coal made about two thirds of Indonesia's power in 2025, and about 60% on the Java grid where almost all its data centres sit. See the [Indonesia deep dive](indonesia/index.html).
 
 **Vietnam** has let foreign firms fully own data centres since January 2025 [33]. It has about 73MW operating and reported waits of 2 to 3 years for large grid connections [35]. See the [Vietnam deep dive](vietnam/index.html).
 
-**The Philippines** has about 140MW live, with power the main constraint [36], and a plan for 1.5GW by 2033 [37].
+**The Philippines** has about 140MW operating, with power the main constraint [36], and a plan for 1.5GW by 2033 [37].
+
+The country pages follow that path in order. Start with [Singapore](singapore/index.html), where the story begins, then follow the overflow to [Johor](malaysia/index.html), the pause in [Thailand](thailand/index.html) and the next fronts in [Indonesia](indonesia/index.html) and [Vietnam](vietnam/index.html).
 
 ## Five takeaways
 
@@ -83,3 +85,4 @@ By mid-2026 Johor had 1,110MW operating, about level with Singapore, which sourc
 35. Cushman & Wakefield Vietnam, 7 Apr 2026. https://www.cushmanwakefield.com/en/vietnam/news/2026/03/vietnam-emerges-as-a-data-centre-growth-market
 36. TNGlobal (BMI), 28 Sep 2026. https://technode.global/2026/09/28/philippines-data-center-pipeline-expands-as-ai-demand-drives-larger-campuses-bmi/
 37. MLex, 8 Sep 2026. https://www.mlex.com/mlex/artificial-intelligence/articles/2522312/philippines-unveils-34-4bn-ai-infrastructure-plan
+38. The Sun (Malaysia), 24 Feb 2026. https://thesun.my/news/malaysia-news/govt-halts-non-ai-data-centre-approvals-over-energy-water-concerns-says-pm-anwar

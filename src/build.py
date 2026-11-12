@@ -25,6 +25,9 @@ def load_texts(slug):
     return mod
 
 
+# map research statuses onto the four the map draws
+STATUS = {'Cancelled': 'Paused/Cancelled', 'Paused': 'Paused/Cancelled'}
+
 KEEP_EV = ['date', 'date_precision', 'track', 'title', 'description', 'amount_usd_m', 'significance', 'source_url', 'source_name']
 KEEP_SI = ['site_name', 'operator', 'owner_investors', 'anchor_tenant', 'stack', 'state', 'town', 'lat', 'lon',
            'latlon_precision', 'it_mw', 'mw_type', 'status', 'source_url', 'confidence']
@@ -61,6 +64,7 @@ def build_market(slug):
     si = rd(f'{d}/sites.csv')
     fix = {r['site_name']: r for r in rd(f'{d}/sites_coords.csv')}
     for r in si:
+        r['status'] = STATUS.get(r['status'], r['status'])
         f = fix.get(r['site_name'])
         if f and f.get('lat'):
             r['lat'], r['lon'], r['latlon_precision'] = f['lat'], f['lon'], f['latlon_precision']
@@ -84,6 +88,10 @@ def build_market(slug):
         f'<button data-v="{v["id"]}" aria-pressed="{"true" if i == 0 else "false"}">{v["label"]}</button>'
         for i, v in enumerate(cfg['views']))
     body = open(f'markets/{slug}/body.html').read().replace('__VIEWBTNS__', viewbtns)
+    nx = cfg.get('next')
+    if nx:
+        href = f'../{nx["slug"]}/index.html' if nx['slug'] else '../index.html'
+        body = body.replace('<section id="sources">', f'<section id="next" class="nextpage"><span class="eyebrow">Where the story goes next</span><p class="read">{nx["text"]}</p><a class="more" href="{href}">{nx["label"]} →</a></section>\n\n<section id="sources">', 1)
     t = open('src/template.html').read()
     t = t.replace('__BODY__', body).replace('__NAV__', nav(slug)).replace('__TITLE__', cfg['title'])
     rep = {

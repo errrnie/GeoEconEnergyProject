@@ -100,19 +100,19 @@ def build(nav, configs, markets):
 <div class="wrap">
 {nav(None)}
 <header class="hero">
-  <span class="banner">Draft · regional overview · sources linked on each country page</span>
+  <span class="banner">Draft · regional overview · sources below and on each country page</span>
   <span class="eyebrow">Southeast Asia compute · 2010 to 2026</span>
   <h1>How compute came to Southeast Asia</h1>
-  <p class="lede read">The US and China hold about 90% of the world's tracked AI computing power. Outside them, Southeast Asia has become one of the busiest places to build it, and by mid-2026 it held about half of the data centre capacity under construction in Asia Pacific. It started in Singapore, crossed the causeway to Johor, and is now reaching Bangkok, Jakarta, Batam and Ho Chi Minh City. This site follows where the campuses went, why, and what each host is trading for them.</p>
+  <p class="lede read">The US and China hold about 90% of the world's tracked AI computing power. Outside them, Southeast Asia has become one of the busiest places to build it, and by mid-2026 it held about half of the data centre capacity under construction in Asia Pacific. It started in Singapore, crossed the causeway to Johor, stalled in Bangkok, and is now building in Jakarta and Batam, with Vietnam just opening. This site follows where the campuses went, why, and what each host is trading for them.</p>
 </header>
 
 <section id="map">
   <span class="eyebrow">1 · Where the campuses are</span>
   <h2>A map that fills in year by year</h2>
-  <p class="read sub">Each dot is a data centre campus from the country deep dives, coloured by whose stack it mainly serves. Drag the slider to see campuses appear by the year they were announced. Highlighted countries open their deep dive.</p>
+  <p class="read sub">Each dot is a data centre campus from the country deep dives, coloured by whose stack it mainly serves. Drag the slider to see campuses appear by the year they were announced. Highlighted countries open their deep dive. "Operating" means built and running; "pipeline" means under construction or planned. DayOne, the former international arm of China's GDS, is tagged China-linked or mixed depending on its tenants, a judgment call.</p>
   <div class="yr"><b id="yrv">2026</b><input type="range" id="yr" min="2012" max="2026" value="2026" aria-label="Show campuses announced up to this year"><span class="note" id="yrn"></span></div>
   <div class="figure seamap"><svg id="sea" role="img" aria-label="Map of Southeast Asia data centre campuses"></svg></div>
-  <div class="legend"><span><i style="background:var(--us)"></i>US-linked</span><span><i style="background:var(--cn)"></i>China-linked</span><span><i style="background:var(--other)"></i>Other or local</span><span><i style="background:var(--unk)"></i>Unknown</span><span><i style="border:2px solid var(--accent);background:transparent"></i>Deep dive available</span><span><i style="border:2px dashed var(--accent);background:transparent;border-radius:50%"></i>Other hubs (operating plus pipeline MW)</span></div>
+  <div class="legend"><span><i style="background:var(--us)"></i>US-linked</span><span><i style="background:var(--cn)"></i>China-linked</span><span><i style="background:var(--other)"></i>Other or local</span><span><i style="background:var(--unk)"></i>Unknown or mixed</span><span><i style="border:2px solid var(--accent);background:transparent"></i>Deep dive available</span><span><i style="border:2px dashed var(--accent);background:transparent;border-radius:50%"></i>Other hubs (operating plus pipeline MW)</span></div>
   <div class="figure hist"><h3>Campuses announced per year</h3><svg id="hist" role="img" aria-label="Campuses announced per year by country"></svg></div>
 </section>
 
@@ -152,7 +152,7 @@ function draw(){{const yr=+document.getElementById("yr").value;document.getEleme
   document.getElementById("yrn").textContent=`${{shown.length}} of ${{D.sites.length}} mapped campuses announced by ${{yr}} (campuses with no announcement year always show)`;}}
 document.getElementById("yr").oninput=draw;draw();
 (function(){{const svg=document.getElementById("hist"),ys=[];for(let y=2012;y<=2026;y++)ys.push(y);
-  const cs=[...new Set(D.sites.map(x=>x.c))],col={{Singapore:"#c792ea",Malaysia:"var(--accent)",Thailand:"var(--t1)",Indonesia:"var(--cn)",Vietnam:"var(--us)"}};
+  const cs=[...new Set(D.sites.map(x=>x.c))],col={{Singapore:"#c792ea",Malaysia:"var(--accent)",Thailand:"#4ecdc4",Indonesia:"#e8e3d3",Vietnam:"#8fa8c8",Philippines:"#d98e73"}};
   const W=760,H=220,l=30,b=24,bw=(W-l)/ys.length-6;svg.setAttribute("viewBox",`0 0 ${{W}} ${{H}}`);
   const cnt=ys.map(y=>cs.map(c=>D.sites.filter(x=>+x.y===y&&x.c===c).length));const max=Math.max(1,...cnt.map(a=>a.reduce((p,q)=>p+q,0)));
   ys.forEach((y,i)=>{{let acc=0;const x=l+i*(bw+6);cs.forEach((c,k)=>{{const v=cnt[i][k];if(!v)return;const h=v/max*(H-b-14);const r=el("rect",{{x,y:H-b-acc-h,width:bw,height:h,fill:col[c]||"var(--other)"}},svg);el("title",{{}},r).textContent=`${{c}} ${{y}}: ${{v}}`;acc+=h}});

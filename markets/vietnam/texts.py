@@ -10,8 +10,8 @@ TX['__SG_NOTE__'] = ''
 TX['__CHIP_H2__'] = "Already licensed before the AI rules, and named in a diversion report"
 TX['__CHIP_LEDE__'] = (
     '<p class="read sub">Vietnam sat in the middle tier of the January 2025 US chip rule, like its neighbours. '
-    'Unlike them, it already needed a US licence for advanced AI chips from October 2023, because the US lists it in a group of countries with arms-related controls. '
-    'Those licences are usually approved, and the rule\'s repeal in May 2025 did not change that.</p>')
+    'Unlike them, it already needed a US licence for advanced AI chips under rules issued in October 2023 (in force 17 November 2023), because the US lists it in a group of countries with arms-related controls. '
+    'Those licences are usually approved, and the rule\'s rescission in May 2025 did not change that.</p>')
 TX['__CHIP_BODY__'] = '''
   <div class="two">
     <div class="callout"><h3>US chips through local champions</h3>

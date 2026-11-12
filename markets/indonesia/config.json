@@ -1,10 +1,97 @@
-{"name":"Indonesia","adj":"Indonesian","slug":"indonesia","title":"Indonesia's Two Fronts","geo":"id.json",
- "views":[{"id":"jkt","label":"Greater Jakarta"},{"id":"batam","label":"Batam"},{"id":"nat","label":"Java, Sumatra and Batam"}],
- "policyTrack":"Indonesia policy","otherLabel":"Other or Indonesian",
- "keyDates":["2018-03-20","2019-10-01","2020-06-24","2024-06-20","2025-01-13","2025-07-22","2026-04-17","2026-10-05"],
- "capColors":{},"speedHighlight":"","mixGeo":"Indonesia",
- "scen":[["Low",20.1,4.1,177,9.4],["Mid",26.1,5.3,244,13.0],["High",81.9,16.6,871,46.2]],
- "scenMax":50,"scenRefs":[],
- "funnel":{"bars":[["Power requests to PLN by 2034",25000,"25 GW"],["Industry forecast for 2030 (IDPRO, Sep 2026)",11000,"11 GW"],["Energy ministry demand forecast, 2034",5200,"5.2 GW"],["IT capacity installed today (PLN)",580,"~0.58 GW"]],"water":["Batam water: projected data centre need by 2032 vs total supply",8.4,"32 of 382 ML/day"]},
- "tagline":"A big home market on coal-heavy Java, plus Batam, Singapore's other overflow, on a small gas grid with water protests.",
- "srcNote":"Main data: PLN and its RUPTL 2025-2034, the energy ministry's statistics handbook, BP Batam and company releases, with press."}
+{
+ "name": "Indonesia",
+ "adj": "Indonesian",
+ "slug": "indonesia",
+ "title": "Indonesia's Two Fronts",
+ "geo": "id.json",
+ "views": [
+  {
+   "id": "jkt",
+   "label": "Greater Jakarta"
+  },
+  {
+   "id": "batam",
+   "label": "Batam"
+  },
+  {
+   "id": "nat",
+   "label": "Java, Sumatra and Batam"
+  }
+ ],
+ "policyTrack": "Indonesia policy",
+ "otherLabel": "Other or Indonesian",
+ "keyDates": [
+  "2018-03-20",
+  "2019-10-01",
+  "2020-06-24",
+  "2024-06-20",
+  "2025-01-13",
+  "2025-07-22",
+  "2026-04-17",
+  "2026-10-05"
+ ],
+ "capColors": {},
+ "speedHighlight": "",
+ "mixGeo": "Indonesia",
+ "scen": [
+  [
+   "Low",
+   20.1,
+   4.1,
+   177,
+   9.4
+  ],
+  [
+   "Mid",
+   26.1,
+   5.3,
+   244,
+   13.0
+  ],
+  [
+   "High",
+   81.9,
+   16.6,
+   871,
+   46.2
+  ]
+ ],
+ "scenMax": 50,
+ "scenRefs": [],
+ "funnel": {
+  "bars": [
+   [
+    "Power requests to PLN by 2034",
+    25000,
+    "25 GW"
+   ],
+   [
+    "Industry forecast for 2030 (IDPRO, Sep 2026)",
+    11000,
+    "11 GW"
+   ],
+   [
+    "Energy ministry demand forecast, 2034",
+    5200,
+    "5.2 GW"
+   ],
+   [
+    "IT capacity installed today (PLN)",
+    580,
+    "~0.58 GW"
+   ]
+  ],
+  "water": [
+   "Batam water: projected data centre need by 2032 vs total supply",
+   8.4,
+   "32 of 382 ML/day"
+  ]
+ },
+ "tagline": "A big home market on coal-heavy Java, plus Batam, Singapore's other overflow, on a small gas grid with water protests.",
+ "srcNote": "Main data: PLN and its RUPTL 2025-2034, the energy ministry's statistics handbook, BP Batam and company releases, with press.",
+ "next": {
+  "text": "Vietnam, the last page, has opened its doors in law, but its operating capacity is still small, and it is the only host here that already needs a US licence for top chips.",
+  "slug": "vietnam",
+  "label": "Open Vietnam"
+ }
+}

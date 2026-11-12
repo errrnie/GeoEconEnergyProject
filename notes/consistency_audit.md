@@ -2,17 +2,22 @@
 
 Audited 12 Nov 2026. I read the source files listed below and changed nothing else. I compared every figure against the other pages, the shared and regional data, and the three fact-check reports. I did not re-open outside sources. Where two project files disagree, the proposed wording follows the fact-check reports or the better-sourced row, and says "verify" where neither settles it.
 
-Scope: `src/landing.py`, `notes/story_v2.md`, `data/region/*` (including the old `story.md`), `markets/{singapore,malaysia,thailand}/*`, the shared data, and the timeline CSVs that feed each page. I also checked the **new draft `markets/indonesia/`** (created 19:01 today, during this audit) and the Indonesia and Vietnam notes.
+Scope: `src/landing.py`, `notes/story_v2.md` and `data/region/story_v2.md`, `data/region/*` (including the old `story.md`), `markets/{singapore,malaysia,thailand}/*`, the shared data, and the timeline CSVs that feed each page. I also checked the Indonesia and Vietnam notes.
+
+**The files changed while I was auditing.** Between 19:01 and 19:07 these appeared or changed: draft pages `markets/indonesia/` and `markets/vietnam/`, a new `data/philippines/`, a rewritten `src/landing.py`, and `data/region/story_v2.md`. I re-checked the landing, both story copies and the main Vietnam text against the issues below. The `docs/` build still predates all of this.
 
 ---
 
-## 0. Blocker: the landing page has no story
+## 0. Landing story: fixed during the audit, with leftovers
 
-| | |
-|---|---|
-| File | `src/landing.py`, line `story = open('data/region/landing_text.html').read() if os.path.exists(...) else ''` |
-| Problem | `data/region/landing_text.html` does not exist. The built `docs/index.html` has the lede, map, cards and sources, but **no narrative**. None of the story_v2 text, phases or takeaways is published. The folder also still holds the **old, uncorrected** `data/region/story.md`, with "more than Singapore's 1,068MW", "the most in Asia Pacific", "neutral host for both stacks", "Speed to power, more than tax breaks" and "Demand did not wait". |
-| Fix | Build `data/region/landing_text.html` from `notes/story_v2.md` after the fixes below. Then archive or delete `data/region/story.md` so nobody converts the wrong version. |
+When I started, `src/landing.py` read a missing `data/region/landing_text.html`, so the built landing had **no narrative**. The updated `landing.py` now renders `data/region/story_v2.md` between the map and the cards and builds the cards heading from the page count. Both changes are good. What remains:
+
+| # | File | Issue | Fix |
+|---|---|---|---|
+| 0a | `notes/story_v2.md` vs `data/region/story_v2.md` | There are now **two different copies**. The `data/region` one adds deep-dive links and a "Beyond Johor and Singapore" section; the `notes` one does not. | Keep only `data/region/story_v2.md` and delete or clearly mark the copy in `notes/`. Apply the story fixes in this audit to the `data/region` copy. |
+| 0b | `data/region/story.md` | The **old, uncorrected** story is still next to v2 ("more than Singapore's 1,068MW", "the most in Asia Pacific", "neutral host for both stacks", "Speed to power, more than tax breaks", "Demand did not wait"). | Delete or archive it. |
+| 0c | `data/region/story_v2.md` | It links to `indonesia/index.html` and `vietnam/index.html`. These work only if both drafts build. If either is held back, the link is a 404. | Publish both pages or remove the links. |
+| 0d | `src/landing.py` banner | "Draft · regional overview · sources linked on each country page". The story now has its own source list. | "Draft · regional overview · sources below and on each country page". |
 
 ---
 
@@ -163,7 +168,15 @@ Dates and sizes match across `markets/malaysia/texts.py` (`__WHY_SG__`, `__SG_NO
 **Proposed:**
 - Indonesia global-chart note: "Indonesia's bar (0.39 GW operating) is Cushman & Wakefield's tracked market, which is mostly Greater Jakarta (356 MW in H1 2026). PLN counts about 580 MW of data centre IT capacity nationally."
 - story_v2 Indonesia: replace the 82% fossil line with "Coal made about two thirds of Indonesia's power in 2025, and about 60% on the Java grid where almost all data centres sit." This matches the Indonesia page.
-- story_v2 Vietnam: "It has roughly 70 to 150 MW operating, depending on the source." Update the AWS Hanoi line in `data/region/countries.csv`.
+- Vietnam: the new draft page uses "~73 MW (C&W, Apr 2026); other estimates run from 60 to 148 MW", which matches the landing's 73 MW. Keep that and update the AWS Hanoi line in `data/region/countries.csv` (it went live on 19 Jun 2026, per the Vietnam page).
+
+### 1.11b New Vietnam draft (`markets/vietnam/`, 19:06) checked against the issues above
+- Its chip lede says Vietnam needed a licence "from October 2023". Malaysia's note says "since November 2023". Both mean the October 2023 rules, which took effect on 17 Nov 2023. Use "rules issued in October 2023 (in force 17 Nov 2023)" on every page.
+- Chip lede "the rule's repeal in May 2025" should read "rescission", to match the other pages. `data/vietnam/events.csv` still says the Diffusion framework "took effect" (1.6).
+- The tariff stat (12.5% Section 301 since July 2026, after the earlier 20%) matches 1.7.
+- The C4ADS allegation (GPUs routed "through Vietnam, India and Malaysia") does not appear on the Malaysia page. Add one clause to Malaysia's enforcement list, or drop "Malaysia" from Vietnam's sentence.
+- The energy callout's LNG comparisons (Malaysia high case about 7 Mt, Thailand about 9 Mt) match the configs (7.35, 9.04).
+- It uses the "Middle power compute" eyebrow and the "Proposed" and "Approved" site statuses (2.3).
 
 ### 1.12 Smaller number and status mismatches
 
@@ -183,7 +196,7 @@ Dates and sizes match across `markets/malaysia/texts.py` (`__WHY_SG__`, `__SG_NO
 
 | # | File | Current text (old version) | Proposed |
 |---|---|---|---|
-| A | `src/landing.py` hero lede | "The US and China build most AI infrastructure at home. The overflow is landing in Southeast Asia, first in Singapore, then across the causeway in Johor, and now in Bangkok, Jakarta and beyond." | "The US and China hold about 90% of the world's tracked AI computing power. Outside them, Southeast Asia is one of the fastest-growing hosts. Capacity started in Singapore, spilled across the causeway to Johor, stalled in Bangkok, and is now building in Jakarta and Batam. This site follows where it went, why, and what each host gives up in power, water and chip politics to get it." |
+| A | `src/landing.py` hero lede | **Mostly fixed during the audit.** The old "The overflow is landing in Southeast Asia" is gone. The new line still says capacity "is now reaching Bangkok, Jakarta, Batam and Ho Chi Minh City", but Bangkok is paused and Ho Chi Minh City has about 33 MW. | "...It started in Singapore, crossed the causeway to Johor, stalled in Bangkok, and is now building in Jakarta and Batam, with Vietnam just opening." |
 | B | `markets/singapore/body.html` why-card | "Everyone's neutral ground ... That neutrality is now under strain from chip diversion cases." | "**Both stacks, under US rules.** American, Chinese and local operators all run sites here, and many firms book Asian revenue through Singapore. Hosting both now means policing US chip rules, as the 2025 server fraud case showed." |
 | B | `markets/singapore/body.html` weak points | "Its neutral-hub reputation is being tested..." | "Its reputation as a trusted hub is being tested..." |
 | C | `markets/malaysia/body.html` why-card | "US chip controls from October 2022 pushed Chinese firms to compute offshore, while the AI boom sent US hyperscalers looking for capacity they could get quickly." | "Chinese clouds arrived first (Alibaba in 2017). US chip controls later added a new reason, since Chinese firms can legally rent Nvidia capacity here that they cannot import at home. Meanwhile the AI boom sent US hyperscalers looking for fast capacity." |
@@ -226,14 +239,14 @@ The Singapore, Thailand and Indonesia pages already use "These are allegations .
 ## 3. Story flow
 
 ### 3.1 How it reads now
-- **Landing** has a lede, the map, cards and sources. It has **no narrative** (section 0). Its h2 "Three hosts, three bargains" is hard-coded and will be wrong once Indonesia builds as a fourth deep dive. The lede still frames the whole region as "overflow" and says capacity is "now in Bangkok" just as Thailand paused.
+- **Landing** (as of 19:07) runs lede → map → story → cards, with deep-dive links in the story. That is the right order. Leftovers are in section 0 and 2.1-A.
 - **Country pages** all open with a self-contained hero, and **none ends with a link onward**. Every page ends on a risk list and then sources. Malaysia's lede opens with the global US/China framing, not Singapore. Thailand never mentions Singapore or Johor spillover. Only Singapore's lede points to Johor and Batam.
 - **Contradictions between pages:** Thailand's callout says "Malaysia promised 8.3 GW and kept building". The landing (story_v2) says hosts braked region-wide, and Malaysia's own timeline shows Johor's water rule (Nov 2025) and the non-AI halt (Feb 2026). Indonesia's draft says Batam "became" Singapore's other overflow, while the landing says the deal "could make Batam a second Johor" and Batam had 8 MW operating in 2025.
 - **Eyebrow date spans** do not line up with the story. Singapore's is "2014 to 2026" while the landing story starts with AWS Singapore in April 2010, and the Singapore page itself says AWS has been there "for over a decade". **Proposed:** Singapore "2010 to 2026", and add the AWS 2010 row to `data/singapore/events.csv` (it is already in the regional timeline).
 
 ### 3.2 Proposed "how the pages connect" outline
 
-1. **Landing: the regional arc.** US/China hold about 90% → Singapore decade (2010 to 2018) → pause and land grab (2019 to 2022) → AI build-out (2022 to 2024) → brakes and chip rules (2025 to 2026) → who is next. Put the narrative **before** the country cards, and end it with a "read in this order" line. The global capacity chart, January 2025 tier map and US/China compute shares live **here only**.
+1. **Landing: the regional arc.** US/China hold about 90% → Singapore decade (2010 to 2018) → pause and land grab (2019 to 2022) → AI build-out (2022 to 2024) → brakes and chip rules (2025 to 2026) → beyond Johor and Singapore. The narrative now sits before the cards. End it with a "read in this order" line. The global capacity chart, January 2025 tier map and US/China compute shares live **here only**.
 2. **Singapore: the hub that chose scarcity.** Cables, trust and booking centre; pause and rationing; gas imports. It **hands off** to Johor (Malaysia) and Batam (Indonesia).
 3. **Malaysia: the main winner.** Johor took Singapore's overflow, then AI demand from both stacks. 8.3 GW promised, 1.37 GW drawn, LNG bet, Megaspeed. It **hands off** to Thailand as the contrast.
 4. **Thailand: the pause.** Cheaper builds and cloud regions, then 166 projects paused and a data centre tariff. It **hands off** to the next big pipeline.
@@ -245,7 +258,7 @@ The Singapore, Thailand and Indonesia pages already use "These are allegations .
 **Landing, end of narrative (before the cards):**
 > "The country pages follow that path in order. Start with Singapore, where the story begins, then follow the overflow to Johor, the pause in Thailand and the next fronts in Indonesia and Vietnam."
 
-**Landing h2 for cards** (replacing "Three hosts, three bargains"): "One region, different bargains". Or build the h2 from `len(markets)`.
+**Landing cards h2:** this is now built from the page count ("Five hosts, five bargains"), so no change is needed.
 
 **Singapore**
 - Lede, final sentence (replaces "This page follows how the hub chose scarcity and what that did to the region."): "This page follows how the hub chose scarcity. The capacity it turned away crossed the causeway to Johor, which the Malaysia page picks up, and more slowly the strait to Batam."
@@ -284,19 +297,19 @@ The Singapore, Thailand and Indonesia pages already use "These are allegations .
 
 ## 4. Top 10 fixes, in priority order
 
-1. **Publish the landing story.** Create `data/region/landing_text.html` from a corrected `story_v2.md` and retire the old `data/region/story.md` (section 0). Without it the site has no regional story and no handoffs.
-2. **Rewrite the landing lede** to drop the old "overflow" Claim A and the "now in Bangkok" line (2.1-A). Replace the hard-coded "Three hosts, three bargains" heading.
+1. **Clean up the story sources.** The landing now renders `data/region/story_v2.md`. Delete the old `story.md` and the out-of-sync `notes/story_v2.md`. Confirm the Indonesia and Vietnam links resolve, then rebuild `docs/` (section 0).
+2. **Landing lede and story text.** Drop "reaching Bangkok" (2.1-A). In the story, use 166 paused with 49 under construction (1.9), Indonesia's coal share (1.11), and add the federal halt (2.1-D).
 3. **Singapore capacity.** Use one series (Knight Frank about 1.1 GW, level with Johor) in the hero, funnel and lede. Remove "most operating capacity in Southeast Asia", which the page's own chart contradicts (1.1).
 4. **Chip-rule dating.** Change "31 May 2026 / closed the gap" to "since Nov 2023, reaffirmed 31 May 2026" in the Singapore and Indonesia timelines and in `chip_tiers.csv` hover text on every page. Use 13 Jan 2025 for the Diffusion Rule everywhere. Fix Vietnam's "took effect". Align the Malaysia/Thailand draft-rule sentence (1.6).
 5. **Malaysia "Proven diversion, like the two US prosecutions"**: reword to allegations framing (2.2). This is a legal-risk sentence.
 6. **Megaspeed.** Use one shared box that separates US$4.6bn (customs, 2023 to Nov 2025) from US$7.5bn (The Information, 11 Nov 2026), drop or footnote US$4.8bn, add the Singapore probe and Nvidia board review, and fix the "bought" vs "set to buy" US$2bn rows (1.5).
 7. **US tariffs.** Add one shared, dated line per country. The Malaysia timeline still says 19% while the Thailand page says Malaysia pays 10%. Verify Malaysia's legal basis and Singapore's rate (1.7).
 8. **Cross-page contradictions in the Thailand material.** Fix the LNG "three times" year basis (1.3), "Malaysia ... kept building" (3.3), 49 vs 166 on the landing (1.9), and the "proposed" grid bond row against the approved bond (1.12).
-9. **Bridges and order.** Add the lede and ending bridge lines (3.3). Move the narrative above the country cards. Change Indonesia's "became" to "is becoming". Fix the Singapore eyebrow to 2010.
+9. **Bridges.** Add the lede and ending bridge lines (3.3). Change Indonesia's "became" to "is becoming". Fix the Singapore eyebrow to 2010.
 10. **De-duplicate and standardise.** Move the global chart, tier map and US/China panel to the landing (3.4). Replace the "Middle power compute" eyebrows. Standardise operating/pipeline/China-parented and DayOne tagging. Map the Indonesia and Vietnam site statuses before those pages build (2.3). Also fix Malaysia's "31% national" timeline row (1.10) and the "cut" vs "aimed to cut" Green Lane wording (1.12).
 
 ---
 
 ## Summary
 
-The site is close, but it is not ready to publish. The biggest problem is structural. The landing page builds without its story, because `landing_text.html` is missing, and its lede still uses the overflow claim the macro check rejected. Singapore's page gives four capacity figures (1.46, 1.12, 1.07, 1.04 GW) and claims a lead its own chart contradicts. The 2023 China-parent rule is still dated to May 2026 in timeline and map data on several pages. Malaysia calls two prosecutions "proven diversion". Megaspeed totals (4.6, 4.8, 7.5bn), tariffs (19% vs 10%) and the LNG "three times" ratio need one dated wording each. For flow, each page needs a lede that picks up the previous page and an ending that hands off: Singapore, Johor, Thailand's pause, then Indonesia and Vietnam. Shared global modules belong on the landing only.
+The site is close, but it is not ready to publish. The landing story now renders (fixed mid-audit), but an old uncorrected story file and a second, out-of-sync v2 copy remain. Singapore's page gives four capacity figures (1.46, 1.12, 1.07, 1.04 GW) and claims a lead its own chart contradicts. The 2023 China-parent rule is still dated to May 2026 in timeline and map data on several pages. Malaysia calls two prosecutions "proven diversion". Megaspeed totals (4.6, 4.8, 7.5bn), tariffs (19% vs 10%) and the LNG "three times" ratio need one dated wording each. For flow, each page needs a lede that picks up the previous page and an ending that hands off: Singapore, Johor, Thailand's pause, then Indonesia and Vietnam. Shared global modules belong on the landing only.
