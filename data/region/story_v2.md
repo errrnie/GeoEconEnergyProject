@@ -34,9 +34,9 @@ By mid-2026 Johor had 1,110MW operating, about level with Singapore, which sourc
 
 **Vietnam** has let foreign firms fully own data centres since January 2025 [33]. It has about 73MW operating and reported waits of 2 to 3 years for large grid connections [35]. See the [Vietnam deep dive](vietnam/index.html).
 
-**The Philippines** has about 140MW operating, with power the main constraint [36], and a plan for 1.5GW by 2033 [37].
+**The Philippines** has about 140MW operating, with power the main constraint [36], and a plan for 1.5GW by 2033 [37]. See the [Philippines deep dive](philippines/index.html).
 
-The country pages follow that path in order. Start with [Singapore](singapore/index.html), where the story begins, then follow the overflow to [Johor](malaysia/index.html), the pause in [Thailand](thailand/index.html) and the next fronts in [Indonesia](indonesia/index.html) and [Vietnam](vietnam/index.html).
+The country pages follow that path in order. Start with [Singapore](singapore/index.html), where the story begins, then follow the overflow to [Johor](malaysia/index.html), the pause in [Thailand](thailand/index.html) and the next fronts in [Indonesia](indonesia/index.html), [Vietnam](vietnam/index.html) and [the Philippines](philippines/index.html).
 
 ## Five takeaways
 
