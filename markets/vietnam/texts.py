@@ -15,19 +15,19 @@ TX['__CHIP_LEDE__'] = (
 TX['__CHIP_BODY__'] = '''
   <div class="two">
     <div class="callout"><h3>US chips through local champions</h3>
-      <p class="sub">Nvidia signed an agreement with the government in December 2024 to set up an AI research centre and an AI data centre, and FPT readied an AI factory with thousands of H100s the same month. Viettel put Vietnam's first Nvidia DGX B200 into service in February 2026. In the October 2025 trade framework, Vietnam asked to be taken off the US control lists that make these licences necessary.</p></div>
+      <p class="sub">Nvidia signed an agreement with the government in December 2024 to set up an AI research centre and an AI data centre, and FPT readied an AI factory with thousands of H100s the same month. Viettel put Vietnam's first Nvidia DGX B200 into service in February 2026. When the October 2025 trade framework was announced, Vietnam's prime minister asked to be taken off the US control lists that make these licences necessary, and in February 2026 Trump said US agencies would consider it.</p></div>
     <div class="callout"><h3>The diversion allegation</h3>
       <p class="sub">A September 2026 C4ADS report alleged that 50 shipments of restricted Nvidia GPUs, worth about US$13.4 million, were routed through Vietnam, India and Malaysia to Hong Kong and China in 2023 to 2025. These are allegations, and no Vietnamese firm was named. In August 2026, Chinese speakers at a forum in Hanoi offered to build AI factories with Chinese GPUs and capital; no government commitment was reported.</p></div>
   </div>
   <div class="stat">
     <div class="box"><b class="mono">Oct 2023</b><span>US licence needed for advanced AI chips, usually approved</span></div>
-    <div class="box"><b class="mono">12.5%</b><span>US Section 301 tariff since July 2026, after the Supreme Court struck the earlier 20% rate</span></div>
-    <div class="box"><b class="mono">40%</b><span>US tariff announced in July 2025 on goods transshipped through Vietnam</span></div>
+    <div class="box"><b class="mono">12.5%</b><span>US Section 301 tariff since July 2026, after the Supreme Court struck down the earlier 20% rate in February 2026</span></div>
+    <div class="box"><b class="mono">40%</b><span>US tariff announced in July 2025 on goods transshipped through Vietnam, an emergency tariff later struck down</span></div>
   </div>
 '''
 TX['__ENERGY__'] = '''
   <h2>Vietnam's limit is the wire to the north, more than the fuel</h2>
-  <p class="read sub">Vietnam runs on coal and water. In 2024 coal made about half its electricity and hydro more than a quarter, so a dry year hits hard. In May and June 2023 drought cut hydro, coal deliveries fell short and the north could not draw on surplus power in the south, leaving 900 GWh unmet. The government answered with a 591 km, 500 kV line built in six months. Data centres sit at both ends of that line, in Hanoi and Ho Chi Minh City.</p>
+  <p class="read sub">Vietnam runs on coal and water. In 2024 coal made about half its electricity and hydro more than a quarter, so a dry year hits hard. In May and June 2023 drought cut hydro, coal deliveries fell short and the north could not draw on surplus power in the south, leaving 900 GWh unmet. The government answered with a 519 km, 500 kV line built in just over seven months. Data centres sit at both ends of that line, in Hanoi and Ho Chi Minh City.</p>
   <div class="stat">
     <div class="box"><b class="mono">49.5%</b><span>Power from coal in 2024, up from 46.2% in 2023 (EVN)</span></div>
     <div class="box"><b class="mono">28.7%</b><span>Power from hydro in 2024, the share a drought can take away</span></div>
@@ -39,11 +39,11 @@ TX['__ENERGY__'] = '''
     <p class="note">EVN annual reports, power produced and bought by source. Hydro was 28.7% in both years; solar, wind and biomass were about 13%. No full-year fuel split for 2022 was found.</p></div>
   <div class="figure"><h3>What data centres could add by 2030, in LNG</h3><svg id="scenchart" role="img" aria-label="Extra LNG needed in 2030 under three data centre scenarios"></svg>
     <div style="overflow-x:auto"><table class="sc"><thead><tr><th>Scenario (est.)</th><th>Data centre use, TWh</th><th>Share of 2024 generation</th><th>Extra gas, bcm</th><th>Extra LNG, Mt</th></tr></thead><tbody id="scenrows"></tbody></table></div>
-    <p class="note">Student estimates, same method as the other country pages. Demand above today's roughly 73 MW is assumed met by imported LNG, the fuel the revised power plan grows fastest (22.5 GW of LNG plants by 2030, with coal held at about 31 GW), at a 7.3 GJ/MWh heat rate. In 2024 coal met most new demand, so the real mix may be dirtier. Low: Cushman &amp; Wakefield's 73 MW operating plus 137 MW pipeline to 2030. Mid: the government's 870 MW aim. High: Savills' 950 MW forecast. Even the high case is about 2% of 2024 generation.</p></div>
+    <p class="note">Student estimates, same method as the other country pages. Demand above today's roughly 73 MW is assumed met by imported LNG, the fossil fuel the revised power plan grows fastest (22.5 GW of LNG plants by 2030, with coal held at about 31 GW), at a 7.3 GJ/MWh heat rate. In 2024 coal met most new demand, so the real mix may be dirtier. Low: Cushman &amp; Wakefield's 73 MW operating plus 137 MW pipeline to 2030. Mid: the government's 870 MW aim. High: Savills' 950 MW forecast. Even the high case is about 2% of 2024 generation.</p></div>
   <div class="two">
     <div class="callout"><h3>Small load, weak links</h3>
-      <p class="sub">Electricity sales grew 9% in 2024, about 23 TWh in one year. Every scenario above adds less than a third of that by 2030. The risk is where the load lands and when: a dry season, a coal shortfall or a congested line, plus a reported two to three years to connect 100 MW in the main clusters. A 2024 decree lets large users buy renewable power directly, and the first LNG plants, 1,624 MW at Nhon Trach, came online in 2025.</p></div>
+      <p class="sub">Electricity sales grew 9% in 2024, about 23 TWh in one year. Every scenario above adds less than a third of that by 2030. The risk is where the load lands and when: a dry season, a coal shortfall or a congested line, plus a reported two to three years to connect 100 MW in the main clusters. A 2024 decree lets large users buy renewable power directly, and the first LNG plants, 1,624 MW at Nhon Trach, joined the grid in 2025 and began commercial operation in January 2026.</p></div>
     <div class="callout"><h3>Compared with its neighbours</h3>
-      <p class="sub">Malaysia's high case needs about 7 Mt of extra LNG a year, Thailand's about 9 Mt. Vietnam's needs under 1 Mt because its data centre market is still small. Indonesia burns its own coal. If Vietnam's pipeline grows the way Johor's did, it will add LNG import exposure just as the country starts importing LNG for the first time.</p></div>
+      <p class="sub">Malaysia's high case needs about 7 Mt of extra LNG a year, Thailand's about 9 Mt. Vietnam's needs under 1 Mt because its data centre market is still small. Indonesia burns its own coal. If Vietnam's pipeline grows the way Johor's did, it will add LNG import exposure just as the country's first LNG power plants start running.</p></div>
   </div>
 '''

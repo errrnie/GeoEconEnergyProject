@@ -10,14 +10,14 @@ Every row cites a page opened during the build. Primary sources first (EVN, AWS,
 4. 2024-12-05: Nvidia signs an AI research and data centre deal with the government.
 5. 2025-04-15: revised PDP8 (Decision 768) lifts 2030 capacity to 183 to 236GW.
 6. 2025-04-23: Viettel breaks ground on a 140MW campus, Vietnam's first above 100MW.
-7. April 2026: first fully foreign hyperscale licences in Saigon Hi-Tech Park (Evolution 52MW, Sembcorp-BB Starmason 60MW).
-8. 2026-06-19: AWS Local Zone Hanoi goes live, the first US hyperscaler infrastructure in Vietnam.
+7. April 2026: Singapore-led hyperscale licences in Saigon Hi-Tech Park (Evolution 52MW, Sembcorp-BB Starmason 60MW).
+8. 2026-06-19: AWS Local Zone Hanoi goes live, the first US hyperscaler cloud zone in Vietnam (AWS edge sites date from 2022).
 
 ## Short history
 Vietnam's data centre market grew up inside its big telecom and IT groups. Viettel, VNPT, FPT and CMC built small facilities in Hanoi's Hoa Lac and Ho Chi Minh City's Tan Thuan zone. Foreign operators such as NTT and STT GDC entered through local partners. The 2018 Cybersecurity Law and 2022's Decree 53 pushed user data to stay onshore. The 2023 Telecommunications Law changed the rules by allowing 100% foreign ownership of data centre and cloud services from 2025. Since then the pipeline has jumped, led by Viettel's 140MW build, the US$2.1bn SGI-HCM campus and Singaporean hyperscale licences. Delivery lags announcements, and STT GDC quit a 60MW project in 2026 over a short land lease.
 
 ## Energy security takeaways
-In 2023 drought cut hydro, coal deliveries fell short and the north could not draw on southern surplus, leaving 900 GWh unmet. The government answered with a 591km 500kV line, built in six months, that doubled central-to-north transfer to 5,000MW. Coal then rose to 49.5% of supply in 2024, with hydro at 28.7% and gas 7.1% (EVN). LNG is just starting with the 1,624MW Nhon Trach 3 and 4 plants in 2025, which adds import-price exposure as gas grows. The 2024 DPPA decree lets large users buy renewables directly, but a new 100MW grid connection in the main clusters reportedly takes two to three years.
+In 2023 drought cut hydro, coal deliveries fell short and the north could not draw on southern surplus, leaving 900 GWh unmet. The government answered with a 519km 500kV line, built in just over seven months, that doubled central-to-north transfer to 5,000MW. Coal then rose to 49.5% of supply in 2024, with hydro at 28.7% and gas 7.1% (EVN). LNG is just starting with the 1,624MW Nhon Trach 3 and 4 plants in 2025, which adds import-price exposure as gas grows. The 2024 DPPA decree lets large users buy renewables directly, but a new 100MW grid connection in the main clusters reportedly takes two to three years.
 
 ## 4 Gs draft
 **Geology.** Vietnam runs on coal and water. In 2024 coal made about half of its electricity and hydro more than a quarter, so a dry year hits supply hard, as 2023 proved. LNG only arrived in 2025, and the revised power plan adds nuclear in the 2030s and large solar, wind and battery targets.
