@@ -44,7 +44,7 @@ WORLD = open('geo/world.json').read()
 
 markets = sorted(d for d in os.listdir('markets') if os.path.exists(f'markets/{d}/config.json'))
 configs = {m: json.load(open(f'markets/{m}/config.json')) for m in markets}
-ORDER = ['singapore', 'malaysia', 'thailand']
+ORDER = ['singapore', 'malaysia', 'thailand', 'indonesia', 'vietnam', 'philippines']
 markets = [m for m in ORDER if m in markets] + [m for m in markets if m not in ORDER]
 
 

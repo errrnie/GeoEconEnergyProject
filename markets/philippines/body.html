@@ -1,0 +1,137 @@
+<header class="hero">
+  <span class="banner">Draft · sources linked throughout · figures marked "est." are my own estimates</span>
+  <span class="eyebrow">Southeast Asia compute · Philippines · 2015 to 2026</span>
+  <h1>The Philippines' Allied Bet</h1>
+  <p class="lede read">The Philippines is the US treaty ally among Southeast Asia's data centre hosts, and since 2024 it has openly chosen Washington's side on chips and AI. Its market grew out of the PLDT and Globe telecom groups around Manila and opened to full foreign ownership in 2022. Yet a Chinese cloud built the first full local region, a Chinese state firm co-owns the grid, and power costs close to Singapore's keep the big hyperscalers in Malaysia for now.</p>
+  <div class="kpis">
+    <div class="kpi"><span>Operating data centre capacity</span><b class="mono">~140 MW</b><span>BMI, Sep 2026; other estimates run from 74 MW (JLL, Manila) to "nearly 500 MW" (DICT)</span></div>
+    <div class="kpi"><span>AI data centre target for 2033</span><b class="mono">1.5 GW</b><span>national AI masterplan, Sep 2026, about ten times today's base</span></div>
+    <div class="kpi"><span>Residential power price</span><b class="mono">US$0.21/kWh</b><span>second only to Singapore in the region (World Bank)</span></div>
+  </div>
+</header>
+
+<section id="global">
+  <span class="eyebrow">1 · The global picture</span>
+  <h2>Outside the Americas, Asia Pacific has the largest pipeline</h2>
+  <p class="read sub">Operational capacity runs today. Pipeline is under construction or planned. The Philippine bar is BMI's national count, since Cushman &amp; Wakefield publishes no Philippine pipeline.</p>
+  <div class="controls">
+    <div class="seg" role="group" aria-label="Sort">
+      <button id="sortOp" aria-pressed="false">Sort by operational</button>
+      <button id="sortTot" aria-pressed="true">Sort by operational + pipeline</button>
+    </div>
+    <div class="seg" role="group" aria-label="Units">
+      <button id="uGW" aria-pressed="true">GW</button>
+      <button id="uUSD" aria-pressed="false">US$ bn (est.)</button>
+    </div>
+    <div class="seg" role="group" aria-label="United States">
+      <button id="usOff" aria-pressed="true">Hide US and China</button>
+      <button id="usOn" aria-pressed="false">Show US and China</button>
+    </div>
+  </div>
+  <div class="figure"><svg id="gchart" role="img" aria-label="Bar chart of data centre capacity by country"></svg></div>
+  <div class="legend"><span><i style="background:var(--fg)"></i>Operational</span><span><i style="background:var(--muted);opacity:.35"></i>Pipeline</span><span><i style="background:var(--accent)"></i>Philippines</span><span><i style="border:2px solid var(--accent);background:transparent"></i>Leapfrogs a market with more operational capacity</span><span>* lower-confidence or partial figure</span><span>‡ SemiAnalysis building-level count</span></div>
+  <p class="note" id="gnote"></p>
+</section>
+
+<section id="why">
+  <span class="eyebrow">2 · Why the Philippines</span>
+  <h2>Open to foreign owners, backed by Washington, held back by power</h2>
+  <p class="read sub">Select a card with a link to see the numbers behind it.</p>
+  <div class="drivers" id="drivers">
+    <div class="driver"><h3>Opened in 2022</h3><p>Congress let foreigners fully own telecoms in March 2022, and renewable power followed in November. Globe put its data centres into a joint venture with Singapore's STT GDC and Ayala, and Singaporean builders such as Digital Edge and Digital Halo followed.</p></div>
+    <button class="driver" data-p="cost" aria-expanded="false"><h3>Cheap to build, costly to run</h3><p>Cushman &amp; Wakefield puts a mid-spec build at about US$8.2 million per MW, below Malaysia's 9.6. Power is the problem: at about US$0.21 per kWh for households, it is the second most expensive in the region.</p><span class="more">Show build cost by country</span></button>
+    <div class="driver"><h3>The ally's corridor</h3><p>The Luzon Economic Corridor (2024), the Pax Silica declaration (2026) and a proposed US-backed AI hub at New Clark City point US-aligned money north of Manila, toward Clark and Bataan.</p></div>
+    <button class="driver" data-p="stacks" aria-expanded="false"><h3>A Chinese cloud came first</h3><p>Huawei Cloud opened a three-zone Philippines region in December 2024. AWS runs only a Manila Local Zone, opened in 2023, and no US hyperscaler had a full region here by late 2026.</p><span class="more">Show the two-stack numbers</span></button>
+  </div>
+  <div class="panel" id="whyPanel" hidden aria-live="polite"></div>
+</section>
+
+<section id="timeline">
+  <span class="eyebrow">3 · How it happened</span>
+  <h2>From telecom server rooms to an AI masterplan</h2>
+  <div class="controls">
+    <div class="seg" role="group" aria-label="Events shown">
+      <button id="keyOnly" aria-pressed="true">Key moments</button>
+      <button id="allEv" aria-pressed="false">All events</button>
+    </div>
+  </div>
+  <div class="chips" id="chips"></div>
+  <div class="tl" id="tl"></div>
+  <p class="note" id="tlnote"></p>
+</section>
+
+<section id="map">
+  <span class="eyebrow">4 · Where it lands</span>
+  <h2>South of Manila, with a new push north to Clark</h2>
+  <p class="read sub">Each dot is a campus. Colour shows whose stack it mainly serves, size shows megawatts where disclosed. Solid dots are operating, rings are under construction, dashed rings are announced, proposed or under study. No Philippine site has a public exact location; all are placed at their town. Select a dot for details.</p>
+  <div class="controls">
+    <div class="seg" role="group" aria-label="Map view">
+__VIEWBTNS__
+    </div>
+    <div class="chips" id="stackChips"></div>
+  </div>
+  <div class="mapgrid">
+    <div class="figure map"><svg id="mmap" role="img" aria-label="Map of data centre campuses in the Philippines"></svg></div>
+    <div class="card" id="siteCard" aria-live="polite"></div>
+  </div>
+  <p class="note" id="mapnote"></p>
+  <p class="undisc" id="undisc"></p>
+</section>
+
+<section id="stacks">
+  <span class="eyebrow">5 · Two stacks, one host</span>
+  <h2>Local telecoms and Singaporean builders lead, and the cloud race is uneven</h2>
+  <p class="read sub">Sites are tagged by their known tenant first, then by the operator's home country. Most operators name no tenant, so a large share is unknown.</p>
+  <div class="stackbar" id="stackbar" role="img" aria-label="Sites by stack"></div>
+  <div class="legend"><span><i style="background:var(--us)"></i>US-linked</span><span><i style="background:var(--cn)"></i>China-linked</span><span><i style="background:var(--other)"></i>Other or Filipino</span><span><i style="background:var(--unk)"></i>Unknown or mixed</span></div>
+  <div class="two">
+    <div class="card"><h3>US firms, mostly through partners</h3><p class="sub">PLDT's 50 MW VITRO Santa Rosa, opened in July 2025, hosts the country's first Nvidia GPU servers. Equinix bought three Manila data centres in 2025. AWS runs a Local Zone, and a full AWS region was discussed in July 2026 but not launched.</p></div>
+    <div class="card"><h3>Chinese clouds and a Chinese grid partner</h3><p class="sub">Huawei Cloud runs a three-zone region and Alibaba Cloud a Manila zone. State Grid of China owns 40% of NGCP, the grid operator, and the sovereign fund Maharlika has said it wants that stake if it becomes available.</p></div>
+  </div>
+</section>
+
+<section id="chipaccess">
+  <span class="eyebrow">6 · Chip access and security</span>
+  <h2>__CHIP_H2__</h2>
+  __CHIP_LEDE__
+  <div class="controls">
+    <div class="seg" role="group" aria-label="Rule shown">
+      <button id="tJan" aria-pressed="true">January 2025 rule</button>
+      <button id="tNow" aria-pressed="false">Now</button>
+    </div>
+  </div>
+  <div class="figure world"><svg id="wmap" role="img" aria-label="World map of US AI chip export tiers"></svg></div>
+  <div class="legend" id="tlegend"></div>
+  <p class="note" id="tnote"></p>
+  __CHIP_BODY__
+</section>
+
+<section id="energy">
+  <span class="eyebrow">7 · Energy security</span>
+  __ENERGY__
+</section>
+
+<section id="risk">
+  <span class="eyebrow">8 · Leverage and weak points</span>
+  <h2>Targets run far ahead of what is built</h2>
+  <div class="funnel" id="funnel"></div>
+  <p class="note">Sources: DICT via Philippine press, Feb 2026; AI+ Infrastructure Masterplan 2026-2033 (W.Media); Meralco, May 2024; BMI via TNGlobal, Sep 2026. The figures measure different things and are shown for scale.</p>
+  <div class="two">
+    <div class="risk"><h3>Weak points</h3><ul>
+      <li>Power is among the most expensive in the region, and a major local investor cited it when it said it would exit a data centre firm in 2025.</li>
+      <li>The Luzon grid is tight, with red alerts and brownouts in April 2024, and domestic gas is running out.</li>
+      <li>The country ranks first on the 2025 WorldRiskIndex for disaster risk, which buyers weigh.</li>
+      <li>A Chinese state firm co-owns the grid operator while the government courts US-aligned AI investment.</li>
+    </ul></div>
+    <div class="risk lev"><h3>Leverage</h3><ul>
+      <li>Open ownership rules since 2022 and a large home market served by its own telecom groups.</li>
+      <li>Clear political backing from Washington and Tokyo, from the Luzon corridor to Pax Silica.</li>
+      <li>A 10.2 GW green energy auction and geothermal and hydro of its own to build on.</li>
+    </ul></div>
+  </div>
+</section>
+
+<section id="sources">
+  <span class="eyebrow">Sources and method</span>
+  <div class="sources" id="srcs"></div>
+</section>

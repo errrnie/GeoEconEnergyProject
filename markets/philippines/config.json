@@ -1,0 +1,98 @@
+{
+ "name": "Philippines",
+ "adj": "Philippine",
+ "slug": "philippines",
+ "title": "The Philippines' Allied Bet",
+ "geo": "ph.json",
+ "views": [
+  {
+   "id": "mnl",
+   "label": "Greater Manila"
+  },
+  {
+   "id": "luz",
+   "label": "Luzon corridor"
+  }
+ ],
+ "policyTrack": "Philippines policy",
+ "otherLabel": "Other or Filipino",
+ "keyDates": [
+  "2022-03-02",
+  "2022-03-21",
+  "2022-11-15",
+  "2024-04-12",
+  "2024-12-03",
+  "2025-07-28",
+  "2026-04-17",
+  "2026-09-15"
+ ],
+ "capColors": {},
+ "speedHighlight": "",
+ "mixGeo": "Philippines",
+ "scen": [
+  [
+   "Low",
+   3.0,
+   2.3,
+   0.35,
+   0.26
+  ],
+  [
+   "Mid",
+   8.9,
+   7.0,
+   1.44,
+   1.06
+  ],
+  [
+   "High",
+   11.2,
+   8.8,
+   1.85,
+   1.36
+  ]
+ ],
+ "scenMax": 1.6,
+ "scenRefs": [
+  [
+   1.17,
+   "2024 LNG imports"
+  ]
+ ],
+ "funnel": {
+  "bars": [
+   [
+    "DICT ambition for the next decade",
+    18000,
+    "18 GW"
+   ],
+   [
+    "AI masterplan target, 2033",
+    1500,
+    "1.5 GW"
+   ],
+   [
+    "Data centre applications to Meralco, 2024",
+    1200,
+    "1.2 GW"
+   ],
+   [
+    "Operating, industry association members (DICT, Feb 2026)",
+    500,
+    "~0.5 GW"
+   ],
+   [
+    "Operating, BMI (Sep 2026)",
+    140,
+    "~0.14 GW"
+   ]
+  ]
+ },
+ "tagline": "A US treaty ally that chose a side, with some of the region's costliest power and a Chinese cloud region that came first.",
+ "srcNote": "Main data: the Department of Energy's power statistics, DICT and the AI masterplan, Meralco, PLDT, STT GDC and other company releases, with BusinessWorld, Inquirer, Manila Bulletin and PNA.",
+ "next": {
+  "text": "Back to the regional map to compare all six hosts.",
+  "slug": "",
+  "label": "Open the regional overview"
+ }
+}
