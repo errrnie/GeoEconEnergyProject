@@ -9,12 +9,12 @@ TX['__SG_NOTE__'] = "Mid-2026 uses Knight Frank so both markets share a source; 
 
 TX['__CHIP_H2__'] = "The trusted hub is where the chip money is booked"
 TX['__CHIP_LEDE__'] = (
-    '<p class="read sub">Singapore was in the middle tier of the January 2025 US chip rule, alongside Malaysia and Thailand. '
+    '<p class="read sub">Singapore was in the middle tier of the January 2025 US chip rule, alongside Malaysia and Thailand, until the rule was rescinded in May 2025. '
     'It needs no US country licence today, but as the place where much of the region\'s chip trade is booked, it sits at the centre of Washington\'s diversion worries.</p>')
 TX['__CHIP_BODY__'] = '''
   <div class="two">
     <div class="callout"><h3>Singapore's position today</h3>
-      <p class="sub">Singapore is not in the US groups of countries of concern (it sits in A:6), so it needs no country licence for advanced chips. A Commerce draft on Chinese remote access to compute abroad, reported in August 2026, names Singapore as an example; nothing has been published. As elsewhere, supplying a Chinese-parented buyer requires a US licence wherever it operates. In February 2025 Singapore charged three men in a server fraud case reportedly linked to Nvidia chips; prosecutors later cited US$390 million of transactions. More people and companies were charged in 2026, and all charges are pending.</p></div>
+      <p class="sub">Singapore is not in the US groups of countries of concern (it sits in A:6), so it needs no country licence for advanced chips. A Commerce draft on Chinese remote access to compute abroad, reported in August 2026, names Singapore as an example; nothing has been published. As elsewhere, supplying a Chinese-parented buyer has required a US licence wherever it operates since November 2023, a rule reaffirmed on 31 May 2026. In February 2025 Singapore charged three men in a server fraud case reportedly linked to Nvidia chips; prosecutors later cited US$390 million of transactions. More people and companies were charged in 2026, and all charges are pending.</p></div>
     <div class="callout"><h3>Megaspeed</h3>
       <p class="sub">Megaspeed is registered in Singapore, and its Malaysian affiliate, Speedmatrix, made most of the reported chip purchases. Customs records analysed by Bloomberg show its Malaysian and Indonesian units imported at least US$4.6 billion of Nvidia hardware from 2023 to November 2025, and in November 2026 The Information alleged at least US$7.5 billion moved through Megaspeed and Speedmatrix, a wider measure. Singapore police are investigating suspected breaches of domestic law. These are allegations. As of 11 November 2026 nobody had been charged, and Megaspeed denies wrongdoing. The Malaysia page has the full story.</p></div>
   </div>
@@ -26,7 +26,7 @@ TX['__CHIP_BODY__'] = '''
 '''
 TX['__ENERGY__'] = '''
   <h2>An island that imports almost all of its power fuel</h2>
-  <p class="read sub">Singapore has no oil, no gas, no rivers for hydro and little room for solar. Gas makes 93% of its electricity, about half by pipeline from Indonesia and Malaysia and half as LNG. The Indonesian pipeline contracts run out by 2028, and Qatar's cargoes stopped in April 2026 when war hit the Gulf. Rationing data centres is partly an energy security decision.</p>
+  <p class="read sub">Singapore has no oil, no gas, no rivers for hydro and little room for solar. Gas makes 93% of its electricity, about half by pipeline from Indonesia and Malaysia and half as LNG. The Indonesian pipeline contracts run out by 2028, and after the March 2026 Hormuz disruption Qatar's cargoes stopped in April. Rationing data centres is partly an energy security decision.</p>
   <div class="stat">
     <div class="box"><b class="mono">93%</b><span>Power from gas, 2025 (EMA)</span></div>
     <div class="box"><b class="mono">~7%</b><span>Data centres' share of electricity use in 2020, the last official share; recent estimates for 2024 are above 10%</span></div>

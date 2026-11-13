@@ -9,18 +9,18 @@ TX['__TNOTE_NOW__'] = _my.TX['__TNOTE_NOW__'].replace(', including Johor', ', in
 TX['__CHIP_H2__'] = "Thailand sits in the same middle tier, under the same suspicion"
 TX['__CHIP_LEDE__'] = (
     '<p class="read sub">In January 2025 the US sorted the world into three tiers for advanced AI chips, and Thailand landed in the middle tier with Malaysia. '
-    'The rule was rescinded four months later. Commerce then said it would add licence requirements for Malaysia and Thailand, and Bloomberg reported a draft in July 2025 that was reportedly shelved in August 2026, and the worry behind it, chips leaking to China, now runs through Bangkok too.</p>')
+    'The rule was rescinded four months later. Commerce then said it would add licence requirements for Malaysia and Thailand, and Bloomberg reported a draft in July 2025 that was reportedly shelved in August 2026. The worry behind it, chips leaking to China, now runs through Bangkok too.</p>')
 TX['__CHIP_BODY__'] = '''
   <div class="two">
     <div class="callout"><h3>Thailand's position today</h3>
       <p class="sub">No US licence or cap applies to Thailand as a country. The July 2025 draft for Malaysia and Thailand was reportedly shelved in August 2026, and no rule was published. A November 2025 US case also charged four men with routing Nvidia A100s to China via Malaysia and Thailand. Thailand has tightened its own checks instead: from May 2026 the Board of Investment and Customs cut incentives for "pass-through" assembly and aimed to check all electronics trade, and a joint watch list with US customs grew to 67 items in June. As in Malaysia, a Chinese-parented buyer needs a US licence for top chips wherever it operates.</p></div>
     <div class="callout"><h3>The OBON and Siam AI case</h3>
-      <p class="sub">In March 2026 US prosecutors charged a Supermicro co-founder and two others, alleging about US$2.5 billion of servers moved through a Southeast Asian "Company-1" in 2024 and 2025. Bloomberg's sources say Company-1 is OBON, a Bangkok firm that said in 2024 it created Siam AI, Thailand's first Nvidia cloud partner. People familiar told Bloomberg some servers allegedly went to Alibaba, which denies involvement. OBON has not been charged, and Siam AI says it imports GPUs for its own use and has separate headquarters from OBON.</p></div>
+      <p class="sub">In March 2026 US prosecutors charged a Supermicro co-founder and two others, alleging about US$2.5 billion of servers moved through a Southeast Asian "Company-1" in 2024 and 2025. Bloomberg's sources say Company-1 is OBON, a Bangkok firm that said in 2024 it created Siam AI, Thailand's first Nvidia cloud partner. People familiar with the matter told Bloomberg some servers allegedly went to Alibaba, which denies involvement. OBON has not been charged, and Siam AI says it imports GPUs for its own use and has separate headquarters from OBON.</p></div>
   </div>
   <div class="stat">
     <div class="box"><b class="mono">~US$2.5bn</b><span>Servers allegedly routed via a Southeast Asian intermediary, 2024 to 2025 (US indictment); Bloomberg's sources name a Bangkok firm</span></div>
     <div class="box"><b class="mono">67</b><span>Items on the joint Thai-US customs watch list from June 2026</span></div>
-    <div class="box"><b class="mono">12.5%</b><span>US tariff on most Thai goods since July 2026, against Malaysia's 10%</span></div>
+    <div class="box"><b class="mono">12.5%</b><span>US Section 301 tariff on most Thai goods since 24 July 2026, against 10% for Malaysia and Indonesia</span></div>
   </div>
 '''
 TX['__ENERGY__'] = '''

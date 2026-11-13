@@ -4,7 +4,7 @@ Southeast Asia's cloud story starts in Singapore. AWS opened its first Asia Paci
 
 ## 2. The pause and the land grab (2019 to 2022)
 
-In 2019 Singapore stopped approving new data centres over their carbon footprint and heavy use of land, water and energy. It lifted the pause in January 2022 and has rationed new capacity since [6]. Developers looked across the causeway to Johor, close enough to Singapore's cables to keep latency low. AMRO says Singapore's ban helped boost investment there [4]. GDS, now DayOne, announced its first 54MW in Johor in 2021, and ByteDance moved into a Bridge Data Centres facility in 2022 [5]. Building took longer. Johor's capacity was almost zero in 2020 and about 400MW in 2024 [4]. Batam opened Nongsa Digital Park with Singapore's backing in 2018 [7] but had only about 8MW live in 2025 [8].
+In 2019 Singapore stopped approving new data centres over their carbon footprint and heavy use of land, water and energy. It lifted the pause in January 2022 and has rationed new capacity since [6]. Developers looked across the causeway to Johor, close enough to Singapore's cables to keep latency low. AMRO says Singapore's ban helped boost investment there [4]. GDS, now DayOne, announced its first 54MW in Johor in 2021, and ByteDance moved into a Bridge Data Centres facility in 2022 [5]. Building took longer. Johor's capacity was almost zero in 2020 and about 400MW in 2024 [4]. Batam opened Nongsa Digital Park with Singapore's backing in 2018 [7] but had only about 8MW operating in 2025 [8].
 
 US clouds also went to the region's biggest market. Indonesia loosened its data localisation rule for private firms in 2019 while keeping it for public bodies [9]. Google opened a Jakarta region in 2020 and AWS followed in 2021 [10][11].
 
@@ -20,7 +20,7 @@ Johor's operating capacity more than doubled in 2025, from 401MW to 897MW [20]. 
 
 The US AI Diffusion Rule of January 2025 put the whole region in a capped Tier 2 [22]. It was rescinded in May 2025, and enforcement against chip diversion took its place [23]. Malaysia began requiring permits to export US AI chips in July 2025 [24].
 
-Then hosts braked. Malaysia revised electricity tariffs in July 2025, which AMRO expects to raise data centre bills by 10 to 14% [4]. Johor stopped approving water-heavy Tier 1 and 2 data centres in November 2025 [25], and in February 2026 Malaysia stopped approving data centres not linked to AI [38]. Thailand froze 49 data centres under construction in September 2026, more than the 35 it had running [26], as part of a pause on 166 projects. Singapore kept rationing, awarding 200MW in 2026 to operators who each committed to over half green power [27]. Google added US$15bn for Malaysia in November 2026 [28].
+Then hosts braked. Malaysia revised electricity tariffs in July 2025, which AMRO expects to raise data centre bills by 10 to 14% [4]. Johor stopped approving water-heavy Tier 1 and 2 data centres in November 2025 [25], and in February 2026 Malaysia stopped approving data centres not linked to AI [38]. In September 2026 Thailand paused 166 data centre projects, including 49 under construction, more than the 35 it had operating [26]. Singapore kept rationing, awarding 200MW in 2026 to operators who each committed to over half green power [27]. Google added US$15bn for Malaysia in November 2026 [28].
 
 ## Where things stand
 
