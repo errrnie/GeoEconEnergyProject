@@ -128,10 +128,23 @@ svg text{font-family:var(--mono)!important}
 .nav{display:flex;flex-wrap:wrap;gap:4px 18px;align-items:center;padding:14px 0;border-bottom:1px solid var(--line);font-family:var(--mono);font-size:.8rem;letter-spacing:.08em;text-transform:uppercase}
 .nav a{color:var(--muted);text-decoration:none}.nav a[aria-current="page"]{color:var(--accent)}.nav a:hover{color:var(--fg)}
 .nav .brand{color:var(--fg);margin-right:auto}
+.jump{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:blur(6px);border-bottom:1px solid var(--line);display:flex;gap:6px;overflow-x:auto;padding:8px 0;scrollbar-width:none;font-family:var(--mono);font-size:.72rem;letter-spacing:.06em;text-transform:uppercase}
+.jump::-webkit-scrollbar{display:none}
+.jump a{flex:none;color:var(--muted);text-decoration:none;padding:5px 10px;border:1px solid var(--line);border-radius:2px;white-space:nowrap}
+.jump a:hover{color:var(--fg);border-color:var(--muted)}.jump a.on{color:#0b0f14;background:var(--accent);border-color:var(--accent)}
+.pager{display:flex;flex-wrap:wrap;gap:6px 14px;align-items:center;padding-top:14px;font-family:var(--mono);font-size:.75rem;color:var(--muted);letter-spacing:.04em}
+.pager a{color:var(--accent);text-decoration:none}.pager a:hover{text-decoration:underline}
+.pager .steps{display:flex;gap:4px}.pager .steps a,.pager .steps span{display:inline-block;width:22px;height:22px;line-height:22px;text-align:center;border:1px solid var(--line);border-radius:2px;color:var(--muted)}
+.pager .steps span{background:var(--accent);color:#0b0f14;border-color:var(--accent)}
+.nav .num{color:var(--accent);opacity:.7;margin-right:4px}
+@media (max-width:640px){.nav{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;gap:14px}.nav::-webkit-scrollbar{display:none}.nav a{flex:none}.nav .brand{margin-right:8px}}
+.nextpage .nav2{display:flex;flex-wrap:wrap;gap:10px 24px;font-family:var(--mono)}.nextpage .nav2 a{color:var(--accent);text-decoration:none}.nextpage .nav2 a.dim{color:var(--muted)}
+section{scroll-margin-top:52px}
 </style>
 
 <div class="wrap">
-<nav class="nav" aria-label="Markets"><a class="brand" href="../index.html">Southeast Asia Compute</a><a href="../singapore/index.html">Singapore</a><a href="../malaysia/index.html" aria-current="page">Malaysia</a><a href="../thailand/index.html">Thailand</a><a href="../indonesia/index.html">Indonesia</a><a href="../vietnam/index.html">Vietnam</a><a href="../philippines/index.html">Philippines</a></nav>
+<nav class="nav" aria-label="Markets"><a class="brand" href="../index.html">Southeast Asia Compute</a><a href="../singapore/index.html"><span class="num">1</span>Singapore</a><a href="../malaysia/index.html" aria-current="page"><span class="num">2</span>Malaysia</a><a href="../thailand/index.html"><span class="num">3</span>Thailand</a><a href="../indonesia/index.html"><span class="num">4</span>Indonesia</a><a href="../vietnam/index.html"><span class="num">5</span>Vietnam</a><a href="../philippines/index.html"><span class="num">6</span>Philippines</a></nav>
+<div class="pager"><span>Country 2 of 6 in reading order</span><span class="steps"><a href="../singapore/index.html" title="Singapore">1</a><span title="Malaysia">2</span><a href="../thailand/index.html" title="Thailand">3</a><a href="../indonesia/index.html" title="Indonesia">4</a><a href="../vietnam/index.html" title="Vietnam">5</a><a href="../philippines/index.html" title="Philippines">6</a></span><a href="../singapore/index.html">← Singapore</a><a href="../thailand/index.html">Thailand →</a></div>
 <header class="hero">
   <span class="banner">Updated November 2026 · sources linked throughout · figures marked "est." are my own estimates</span>
   <span class="eyebrow">Southeast Asia compute · Malaysia · 2017 to 2026</span>
@@ -144,31 +157,10 @@ svg text{font-family:var(--mono)!important}
   </div>
 </header>
 
-<section id="global">
-  <span class="eyebrow">1 · The global picture</span>
-  <h2>Outside the Americas, Asia Pacific has the largest pipeline</h2>
-  <p class="read sub">Operational capacity is built and operating today. Pipeline is under construction or planned. Sort by operational plus pipeline to see which markets leapfrog bigger ones on announcements alone.</p>
-  <div class="controls">
-    <div class="seg" role="group" aria-label="Sort">
-      <button id="sortOp" aria-pressed="false">Sort by operational</button>
-      <button id="sortTot" aria-pressed="true">Sort by operational + pipeline</button>
-    </div>
-    <div class="seg" role="group" aria-label="Units">
-      <button id="uGW" aria-pressed="true">GW</button>
-      <button id="uUSD" aria-pressed="false">US$ bn (est.)</button>
-    </div>
-    <div class="seg" role="group" aria-label="United States">
-      <button id="usOff" aria-pressed="true">Hide US and China</button>
-      <button id="usOn" aria-pressed="false">Show US and China</button>
-    </div>
-  </div>
-  <div class="figure"><svg id="gchart" role="img" aria-label="Bar chart of data centre capacity by country"></svg></div>
-  <div class="legend"><span><i style="background:var(--fg)"></i>Operational</span><span><i style="background:var(--muted);opacity:.35"></i>Pipeline</span><span><i style="background:var(--accent)"></i>Malaysia</span><span><i style="border:2px solid var(--accent);background:transparent"></i>Leapfrogs a market with more operational capacity</span><span>* lower-confidence or partial figure</span><span>‡ SemiAnalysis building-level count</span></div>
-  <p class="note" id="gnote"></p>
-</section>
+
 
 <section id="why">
-  <span class="eyebrow">2 · Why Malaysia</span>
+  <span class="eyebrow">1 · Why Malaysia</span>
   <h2>Speed to power, not the cheapest build</h2>
   <p class="read sub">Select a card to see the numbers behind it.</p>
   <div class="drivers" id="drivers">
@@ -181,7 +173,7 @@ svg text{font-family:var(--mono)!important}
 </section>
 
 <section id="timeline">
-  <span class="eyebrow">3 · How it happened</span>
+  <span class="eyebrow">2 · How it happened</span>
   <h2>A slow decade, then a rush</h2>
   <div class="controls">
     <div class="seg" role="group" aria-label="Events shown">
@@ -195,7 +187,7 @@ svg text{font-family:var(--mono)!important}
 </section>
 
 <section id="map">
-  <span class="eyebrow">4 · Where it lands</span>
+  <span class="eyebrow">3 · Where it lands</span>
   <h2>Johor is Singapore's overflow, Selangor is the second front</h2>
   <p class="read sub">Each dot is a campus. Colour shows whose stack it mainly serves, size shows megawatts where disclosed. Solid dots are operating, rings are under construction, dashed rings are announced. Select a dot for details.</p>
   <div class="controls">
@@ -213,7 +205,7 @@ svg text{font-family:var(--mono)!important}
 </section>
 
 <section id="stacks">
-  <span class="eyebrow">5 · Two stacks, one host</span>
+  <span class="eyebrow">4 · Two stacks, one host</span>
   <h2>Who owns the building is not who uses it</h2>
   <p class="read sub">Sites are tagged by their known tenant first, then by the operator's home country. The owner's money is a separate layer, which is why the two can disagree.</p>
   <div class="stackbar" id="stackbar" role="img" aria-label="Sites by stack"></div>
@@ -226,7 +218,7 @@ svg text{font-family:var(--mono)!important}
 </section>
 
 <section id="chipaccess">
-  <span class="eyebrow">6 · Chip access and security</span>
+  <span class="eyebrow">5 · Chip access and security</span>
   <h2>Malaysia was put in the middle tier, and the US is still watching</h2>
   <p class="read sub">In January 2025 the US sorted the world into three tiers for advanced AI chips. Close allies could buy freely, embargoed countries like China could not buy at all, and everyone in between, Malaysia included, faced a national cap. The rule was rescinded four months later, but the worry behind it, chips leaking to China through third countries, did not go away.</p>
   <div class="controls">
@@ -256,7 +248,7 @@ svg text{font-family:var(--mono)!important}
 </section>
 
 <section id="energy">
-  <span class="eyebrow">7 · Energy security</span>
+  <span class="eyebrow">6 · Energy security</span>
   
   <h2>The data centre bet is turning into a fuel import bet</h2>
   <p class="read sub">Peninsular Malaysia, where almost all the data centres sit, already makes most of its power from imported coal. It plans to retire that coal and build gas instead, just as its own gas fields decline. So more and more of each new megawatt of data centre load will run on imported LNG.</p>
@@ -282,7 +274,7 @@ svg text{font-family:var(--mono)!important}
 </section>
 
 <section id="risk">
-  <span class="eyebrow">8 · Leverage and weak points</span>
+  <span class="eyebrow">7 · Leverage and weak points</span>
   <h2>Promises run far ahead of use, and water runs out first</h2>
   <div class="funnel" id="funnel"></div>
   <p class="note">Sources: RHB Research after meeting TNB, via Business Today, 11 Jul 2026; energy ministry via Malay Mail, 4 Nov 2026; water regulator SPAN via Free Malaysia Today, 10 Feb 2025.</p>
@@ -301,7 +293,30 @@ svg text{font-family:var(--mono)!important}
   </div>
 </section>
 
-<section id="next" class="nextpage"><span class="eyebrow">Where the story goes next</span><p class="read">Malaysia's brakes since late 2025 are selective. Thailand, the next page, went further and stopped the clock on 166 projects.</p><a class="more" href="../thailand/index.html">Open Thailand →</a></section>
+<section id="global">
+  <span class="eyebrow">8 · In global context</span>
+  <h2>Outside the Americas, Asia Pacific has the largest pipeline</h2>
+  <p class="read sub">Operational capacity is built and operating today. Pipeline is under construction or planned. Sort by operational plus pipeline to see which markets leapfrog bigger ones on announcements alone.</p>
+  <div class="controls">
+    <div class="seg" role="group" aria-label="Sort">
+      <button id="sortOp" aria-pressed="false">Sort by operational</button>
+      <button id="sortTot" aria-pressed="true">Sort by operational + pipeline</button>
+    </div>
+    <div class="seg" role="group" aria-label="Units">
+      <button id="uGW" aria-pressed="true">GW</button>
+      <button id="uUSD" aria-pressed="false">US$ bn (est.)</button>
+    </div>
+    <div class="seg" role="group" aria-label="United States">
+      <button id="usOff" aria-pressed="true">Hide US and China</button>
+      <button id="usOn" aria-pressed="false">Show US and China</button>
+    </div>
+  </div>
+  <div class="figure"><svg id="gchart" role="img" aria-label="Bar chart of data centre capacity by country"></svg></div>
+  <div class="legend"><span><i style="background:var(--fg)"></i>Operational</span><span><i style="background:var(--muted);opacity:.35"></i>Pipeline</span><span><i style="background:var(--accent)"></i>Malaysia</span><span><i style="border:2px solid var(--accent);background:transparent"></i>Leapfrogs a market with more operational capacity</span><span>* lower-confidence or partial figure</span><span>‡ SemiAnalysis building-level count</span></div>
+  <p class="note" id="gnote"></p>
+</section>
+
+<section id="next" class="nextpage"><span class="eyebrow">Where the story goes next</span><p class="read">Malaysia's brakes since late 2025 are selective. Thailand, the next page, went further and stopped the clock on 166 projects.</p><div class="nav2"><a href="../thailand/index.html">Open Thailand →</a><a class="dim" href="../singapore/index.html">← Back to Singapore</a><a class="dim" href="../index.html">Regional overview</a></div></section>
 
 <section id="sources">
   <span class="eyebrow">Sources and method</span>
@@ -509,4 +524,13 @@ if((M.funnel||{}).water){const [wl,wp,wt]=M.funnel.water;const w=document.create
 const urls=new Map();
 [...EV.map(e=>[e.source_name,e.source_url]),...CO.map(c=>[c.capacity_source,c.capacity_source_url]),...SI.map(x=>[x.site_name,x.source_url])].forEach(([n,u])=>{if(u&&!urls.has(u))urls.set(u,n)});
 document.getElementById("srcs").innerHTML=`<span>Datasets: ${EV.length} timeline events, ${SI.length} ${M.adj} campuses and ${CO.length} countries, each row tied to a source and a confidence rating. ${M.srcNote||""}</span><details><summary>All ${urls.size} source links</summary>${[...urls].map(([u,n])=>`<div><a href="${esc(u)}" target="_blank" rel="noopener">${esc(n)}</a></div>`).join("")}</details>`;
+
+/* section jump bar */
+(function(){const L={global:"Global context",why:"Why here",timeline:"Timeline",map:"Map",stacks:"Two stacks",chipaccess:"Chips",energy:"Energy",risk:"Risks",next:"Next",sources:"Sources"};
+  const secs=[...document.querySelectorAll("section[id]")].filter(x=>L[x.id]);const hero=document.querySelector("header.hero");if(!hero||!secs.length)return;
+  const bar=document.createElement("nav");bar.className="jump";bar.setAttribute("aria-label","Sections on this page");
+  bar.innerHTML=secs.map(x=>`<a href="#${x.id}">${L[x.id]}</a>`).join("");hero.after(bar);
+  const links=[...bar.querySelectorAll("a")];
+  const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){links.forEach(a=>a.classList.toggle("on",a.getAttribute("href")==="#"+e.target.id));const a=bar.querySelector(".on");if(a)a.scrollIntoView({block:"nearest",inline:"nearest"})}})},{rootMargin:"-45% 0px -50% 0px"});
+  secs.forEach(x=>io.observe(x))})();
 </script>

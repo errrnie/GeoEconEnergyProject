@@ -128,10 +128,23 @@ svg text{font-family:var(--mono)!important}
 .nav{display:flex;flex-wrap:wrap;gap:4px 18px;align-items:center;padding:14px 0;border-bottom:1px solid var(--line);font-family:var(--mono);font-size:.8rem;letter-spacing:.08em;text-transform:uppercase}
 .nav a{color:var(--muted);text-decoration:none}.nav a[aria-current="page"]{color:var(--accent)}.nav a:hover{color:var(--fg)}
 .nav .brand{color:var(--fg);margin-right:auto}
+.jump{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:blur(6px);border-bottom:1px solid var(--line);display:flex;gap:6px;overflow-x:auto;padding:8px 0;scrollbar-width:none;font-family:var(--mono);font-size:.72rem;letter-spacing:.06em;text-transform:uppercase}
+.jump::-webkit-scrollbar{display:none}
+.jump a{flex:none;color:var(--muted);text-decoration:none;padding:5px 10px;border:1px solid var(--line);border-radius:2px;white-space:nowrap}
+.jump a:hover{color:var(--fg);border-color:var(--muted)}.jump a.on{color:#0b0f14;background:var(--accent);border-color:var(--accent)}
+.pager{display:flex;flex-wrap:wrap;gap:6px 14px;align-items:center;padding-top:14px;font-family:var(--mono);font-size:.75rem;color:var(--muted);letter-spacing:.04em}
+.pager a{color:var(--accent);text-decoration:none}.pager a:hover{text-decoration:underline}
+.pager .steps{display:flex;gap:4px}.pager .steps a,.pager .steps span{display:inline-block;width:22px;height:22px;line-height:22px;text-align:center;border:1px solid var(--line);border-radius:2px;color:var(--muted)}
+.pager .steps span{background:var(--accent);color:#0b0f14;border-color:var(--accent)}
+.nav .num{color:var(--accent);opacity:.7;margin-right:4px}
+@media (max-width:640px){.nav{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;gap:14px}.nav::-webkit-scrollbar{display:none}.nav a{flex:none}.nav .brand{margin-right:8px}}
+.nextpage .nav2{display:flex;flex-wrap:wrap;gap:10px 24px;font-family:var(--mono)}.nextpage .nav2 a{color:var(--accent);text-decoration:none}.nextpage .nav2 a.dim{color:var(--muted)}
+section{scroll-margin-top:52px}
 </style>
 
 <div class="wrap">
-<nav class="nav" aria-label="Markets"><a class="brand" href="../index.html">Southeast Asia Compute</a><a href="../singapore/index.html">Singapore</a><a href="../malaysia/index.html">Malaysia</a><a href="../thailand/index.html">Thailand</a><a href="../indonesia/index.html">Indonesia</a><a href="../vietnam/index.html" aria-current="page">Vietnam</a><a href="../philippines/index.html">Philippines</a></nav>
+<nav class="nav" aria-label="Markets"><a class="brand" href="../index.html">Southeast Asia Compute</a><a href="../singapore/index.html"><span class="num">1</span>Singapore</a><a href="../malaysia/index.html"><span class="num">2</span>Malaysia</a><a href="../thailand/index.html"><span class="num">3</span>Thailand</a><a href="../indonesia/index.html"><span class="num">4</span>Indonesia</a><a href="../vietnam/index.html" aria-current="page"><span class="num">5</span>Vietnam</a><a href="../philippines/index.html"><span class="num">6</span>Philippines</a></nav>
+<div class="pager"><span>Country 5 of 6 in reading order</span><span class="steps"><a href="../singapore/index.html" title="Singapore">1</a><a href="../malaysia/index.html" title="Malaysia">2</a><a href="../thailand/index.html" title="Thailand">3</a><a href="../indonesia/index.html" title="Indonesia">4</a><span title="Vietnam">5</span><a href="../philippines/index.html" title="Philippines">6</a></span><a href="../indonesia/index.html">← Indonesia</a><a href="../philippines/index.html">Philippines →</a></div>
 <header class="hero">
   <span class="banner">Updated November 2026 · sources linked throughout · figures marked "est." are my own estimates</span>
   <span class="eyebrow">Southeast Asia compute · Vietnam · 2018 to 2026</span>
@@ -144,31 +157,10 @@ svg text{font-family:var(--mono)!important}
   </div>
 </header>
 
-<section id="global">
-  <span class="eyebrow">1 · The global picture</span>
-  <h2>Outside the Americas, Asia Pacific has the largest pipeline</h2>
-  <p class="read sub">Operational capacity is built and operating today. Pipeline is under construction or planned. Vietnam's bar is Hanoi plus Ho Chi Minh City, from one broker.</p>
-  <div class="controls">
-    <div class="seg" role="group" aria-label="Sort">
-      <button id="sortOp" aria-pressed="false">Sort by operational</button>
-      <button id="sortTot" aria-pressed="true">Sort by operational + pipeline</button>
-    </div>
-    <div class="seg" role="group" aria-label="Units">
-      <button id="uGW" aria-pressed="true">GW</button>
-      <button id="uUSD" aria-pressed="false">US$ bn (est.)</button>
-    </div>
-    <div class="seg" role="group" aria-label="United States">
-      <button id="usOff" aria-pressed="true">Hide US and China</button>
-      <button id="usOn" aria-pressed="false">Show US and China</button>
-    </div>
-  </div>
-  <div class="figure"><svg id="gchart" role="img" aria-label="Bar chart of data centre capacity by country"></svg></div>
-  <div class="legend"><span><i style="background:var(--fg)"></i>Operational</span><span><i style="background:var(--muted);opacity:.35"></i>Pipeline</span><span><i style="background:var(--accent)"></i>Vietnam</span><span><i style="border:2px solid var(--accent);background:transparent"></i>Leapfrogs a market with more operational capacity</span><span>* lower-confidence or partial figure</span><span>‡ SemiAnalysis building-level count</span></div>
-  <p class="note" id="gnote"></p>
-</section>
+
 
 <section id="why">
-  <span class="eyebrow">2 · Why Vietnam</span>
+  <span class="eyebrow">1 · Why Vietnam</span>
   <h2>Cheap to build, newly open, with a home champion</h2>
   <p class="read sub">Select a card with a link to see the numbers behind it.</p>
   <div class="drivers" id="drivers">
@@ -181,7 +173,7 @@ svg text{font-family:var(--mono)!important}
 </section>
 
 <section id="timeline">
-  <span class="eyebrow">3 · How it happened</span>
+  <span class="eyebrow">2 · How it happened</span>
   <h2>From telecom server rooms to licensed hyperscale</h2>
   <div class="controls">
     <div class="seg" role="group" aria-label="Events shown">
@@ -195,7 +187,7 @@ svg text{font-family:var(--mono)!important}
 </section>
 
 <section id="map">
-  <span class="eyebrow">4 · Where it lands</span>
+  <span class="eyebrow">3 · Where it lands</span>
   <h2>Two cities more than 1,000 km apart</h2>
   <p class="read sub">Each dot is a campus. Colour shows whose stack it mainly serves, size shows megawatts where disclosed. Solid dots are operating, rings are under construction, dashed rings are announced, proposed or licensed but not started. Only the Tan Phu Trung campus has a public location; other sites are placed at the approximate centre of their technology park, and Hanoi's AWS zone at the city centre. Select a dot for details.</p>
   <div class="controls">
@@ -213,7 +205,7 @@ svg text{font-family:var(--mono)!important}
 </section>
 
 <section id="stacks">
-  <span class="eyebrow">5 · Two stacks, one host</span>
+  <span class="eyebrow">4 · Two stacks, one host</span>
   <h2>Vietnamese groups lead, and foreign clouds are only arriving</h2>
   <p class="read sub">Sites are tagged by their known tenant first, then by the operator's home country. Many new projects have no named tenant yet, so a large share is unknown.</p>
   <div class="stackbar" id="stackbar" role="img" aria-label="Sites by stack"></div>
@@ -225,7 +217,7 @@ svg text{font-family:var(--mono)!important}
 </section>
 
 <section id="chipaccess">
-  <span class="eyebrow">6 · Chip access and security</span>
+  <span class="eyebrow">5 · Chip access and security</span>
   <h2>Already licensed before the AI rules, and named in a diversion report</h2>
   <p class="read sub">Vietnam sat in the middle tier of the January 2025 US chip rule, like its neighbours. Unlike them, it already needed a US licence for advanced AI chips under rules issued in October 2023 (in force 17 November 2023), because the US lists it in a group of countries with arms-related controls. Those licences are usually approved, and the rule's rescission in May 2025 did not change that.</p>
   <div class="controls">
@@ -253,7 +245,7 @@ svg text{font-family:var(--mono)!important}
 </section>
 
 <section id="energy">
-  <span class="eyebrow">7 · Energy security</span>
+  <span class="eyebrow">6 · Energy security</span>
   
   <h2>Vietnam's limit is the wire to the north, more than the fuel</h2>
   <p class="read sub">Vietnam runs on coal and water. In 2024 coal made about half its electricity and hydro more than a quarter, so a dry year hits hard. In May and June 2023 drought cut hydro, coal deliveries fell short and the north could not draw on surplus power in the south, leaving 900 GWh unmet. The government answered with a 519 km, 500 kV line built in just over seven months. Data centres sit at both ends of that line, in Hanoi and Ho Chi Minh City.</p>
@@ -279,7 +271,7 @@ svg text{font-family:var(--mono)!important}
 </section>
 
 <section id="risk">
-  <span class="eyebrow">8 · Leverage and weak points</span>
+  <span class="eyebrow">7 · Leverage and weak points</span>
   <h2>Plans run ahead of delivery, and nobody agrees on the base</h2>
   <div class="funnel" id="funnel"></div>
   <p class="note">Sources: Savills via Vietnamese press; government aim and the 148 MW figure as cited at an August 2026 forum (VnExpress); Cushman &amp; Wakefield, April 2026. The figures use different definitions and are shown for scale.</p>
@@ -298,7 +290,30 @@ svg text{font-family:var(--mono)!important}
   </div>
 </section>
 
-<section id="next" class="nextpage"><span class="eyebrow">Where the story goes next</span><p class="read">The Philippines, the last page, is the region's US treaty ally, with costly power and a Chinese cloud region that arrived before any American one.</p><a class="more" href="../philippines/index.html">Open the Philippines →</a></section>
+<section id="global">
+  <span class="eyebrow">8 · In global context</span>
+  <h2>Outside the Americas, Asia Pacific has the largest pipeline</h2>
+  <p class="read sub">Operational capacity is built and operating today. Pipeline is under construction or planned. Vietnam's bar is Hanoi plus Ho Chi Minh City, from one broker.</p>
+  <div class="controls">
+    <div class="seg" role="group" aria-label="Sort">
+      <button id="sortOp" aria-pressed="false">Sort by operational</button>
+      <button id="sortTot" aria-pressed="true">Sort by operational + pipeline</button>
+    </div>
+    <div class="seg" role="group" aria-label="Units">
+      <button id="uGW" aria-pressed="true">GW</button>
+      <button id="uUSD" aria-pressed="false">US$ bn (est.)</button>
+    </div>
+    <div class="seg" role="group" aria-label="United States">
+      <button id="usOff" aria-pressed="true">Hide US and China</button>
+      <button id="usOn" aria-pressed="false">Show US and China</button>
+    </div>
+  </div>
+  <div class="figure"><svg id="gchart" role="img" aria-label="Bar chart of data centre capacity by country"></svg></div>
+  <div class="legend"><span><i style="background:var(--fg)"></i>Operational</span><span><i style="background:var(--muted);opacity:.35"></i>Pipeline</span><span><i style="background:var(--accent)"></i>Vietnam</span><span><i style="border:2px solid var(--accent);background:transparent"></i>Leapfrogs a market with more operational capacity</span><span>* lower-confidence or partial figure</span><span>‡ SemiAnalysis building-level count</span></div>
+  <p class="note" id="gnote"></p>
+</section>
+
+<section id="next" class="nextpage"><span class="eyebrow">Where the story goes next</span><p class="read">The Philippines, the last page, is the region's US treaty ally, with costly power and a Chinese cloud region that arrived before any American one.</p><div class="nav2"><a href="../philippines/index.html">Open the Philippines →</a><a class="dim" href="../indonesia/index.html">← Back to Indonesia</a><a class="dim" href="../index.html">Regional overview</a></div></section>
 
 <section id="sources">
   <span class="eyebrow">Sources and method</span>
@@ -506,4 +521,13 @@ if((M.funnel||{}).water){const [wl,wp,wt]=M.funnel.water;const w=document.create
 const urls=new Map();
 [...EV.map(e=>[e.source_name,e.source_url]),...CO.map(c=>[c.capacity_source,c.capacity_source_url]),...SI.map(x=>[x.site_name,x.source_url])].forEach(([n,u])=>{if(u&&!urls.has(u))urls.set(u,n)});
 document.getElementById("srcs").innerHTML=`<span>Datasets: ${EV.length} timeline events, ${SI.length} ${M.adj} campuses and ${CO.length} countries, each row tied to a source and a confidence rating. ${M.srcNote||""}</span><details><summary>All ${urls.size} source links</summary>${[...urls].map(([u,n])=>`<div><a href="${esc(u)}" target="_blank" rel="noopener">${esc(n)}</a></div>`).join("")}</details>`;
+
+/* section jump bar */
+(function(){const L={global:"Global context",why:"Why here",timeline:"Timeline",map:"Map",stacks:"Two stacks",chipaccess:"Chips",energy:"Energy",risk:"Risks",next:"Next",sources:"Sources"};
+  const secs=[...document.querySelectorAll("section[id]")].filter(x=>L[x.id]);const hero=document.querySelector("header.hero");if(!hero||!secs.length)return;
+  const bar=document.createElement("nav");bar.className="jump";bar.setAttribute("aria-label","Sections on this page");
+  bar.innerHTML=secs.map(x=>`<a href="#${x.id}">${L[x.id]}</a>`).join("");hero.after(bar);
+  const links=[...bar.querySelectorAll("a")];
+  const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){links.forEach(a=>a.classList.toggle("on",a.getAttribute("href")==="#"+e.target.id));const a=bar.querySelector(".on");if(a)a.scrollIntoView({block:"nearest",inline:"nearest"})}})},{rootMargin:"-45% 0px -50% 0px"});
+  secs.forEach(x=>io.observe(x))})();
 </script>

@@ -50,10 +50,10 @@ markets = [m for m in ORDER if m in markets] + [m for m in markets if m not in O
 
 def nav(current):
     links = [f'<a class="brand" href="{"../" if current else ""}index.html"{" aria-current=page" if not current else ""}>Southeast Asia Compute</a>']
-    for m in markets:
+    for i, m in enumerate(markets):
         href = f'../{m}/index.html' if current else f'{m}/index.html'
         cur = ' aria-current="page"' if m == current else ''
-        links.append(f'<a href="{href}"{cur}>{configs[m]["name"]}</a>')
+        links.append(f'<a href="{href}"{cur}><span class="num">{i + 1}</span>{configs[m]["name"]}</a>')
     return '<nav class="nav" aria-label="Markets">' + ''.join(links) + '</nav>'
 
 
@@ -88,10 +88,28 @@ def build_market(slug):
         f'<button data-v="{v["id"]}" aria-pressed="{"true" if i == 0 else "false"}">{v["label"]}</button>'
         for i, v in enumerate(cfg['views']))
     body = open(f'markets/{slug}/body.html').read().replace('__VIEWBTNS__', viewbtns)
+    # country first: move the global comparison to the end, then renumber section eyebrows
+    gs = body.find('<section id="global">')
+    if gs >= 0:
+        ge = body.index('</section>', gs) + len('</section>')
+        g = body[gs:ge].replace('1 · The global picture', '9 · In global context')
+        body = body[:gs] + body[ge:]
+        body = body.replace('<section id="sources">', g + '\n\n<section id="sources">', 1)
+    _n = iter(range(1, 50))
+    body = re.sub(r'<span class="eyebrow">\d+ · ', lambda m_: f'<span class="eyebrow">{next(_n)} · ', body)
+    k = markets.index(slug)
+    prv = markets[k - 1] if k > 0 else None
+    nxt = markets[k + 1] if k + 1 < len(markets) else None
+    steps = ''.join(f'<span title="{configs[m]["name"]}">{i + 1}</span>' if m == slug else f'<a href="../{m}/index.html" title="{configs[m]["name"]}">{i + 1}</a>' for i, m in enumerate(markets))
+    pager = (f'<div class="pager"><span>Country {k + 1} of {len(markets)} in reading order</span><span class="steps">{steps}</span>'
+             + (f'<a href="../{prv}/index.html">← {configs[prv]["name"]}</a>' if prv else '<a href="../index.html">← Regional overview</a>')
+             + (f'<a href="../{nxt}/index.html">{configs[nxt]["name"]} →</a>' if nxt else '<a href="../index.html">Regional overview →</a>') + '</div>')
+    body = body.replace('<header class="hero">', pager + '\n<header class="hero">', 1)
     nx = cfg.get('next')
     if nx:
         href = f'../{nx["slug"]}/index.html' if nx['slug'] else '../index.html'
-        body = body.replace('<section id="sources">', f'<section id="next" class="nextpage"><span class="eyebrow">Where the story goes next</span><p class="read">{nx["text"]}</p><a class="more" href="{href}">{nx["label"]} →</a></section>\n\n<section id="sources">', 1)
+        back = (f'<a class="dim" href="../{prv}/index.html">← Back to {configs[prv]["name"]}</a>' if prv else '') + '<a class="dim" href="../index.html">Regional overview</a>'
+        body = body.replace('<section id="sources">', f'<section id="next" class="nextpage"><span class="eyebrow">Where the story goes next</span><p class="read">{nx["text"]}</p><div class="nav2"><a href="{href}">{nx["label"]} →</a>{back}</div></section>\n\n<section id="sources">', 1)
     t = open('src/template.html').read()
     t = t.replace('__BODY__', body).replace('__NAV__', nav(slug)).replace('__TITLE__', cfg['title'])
     rep = {
