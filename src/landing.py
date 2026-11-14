@@ -164,7 +164,7 @@ def build(nav, configs, markets):
   <div class="read"><span class="eyebrow">How to read this site</span><p class="sub">Start with the map and the short history below, compare the six hosts in one table, then read the country pages in order. Each country page ends with a link to the next.</p></div>
   <nav class="path" aria-label="Country pages in reading order">{path}</nav>
 </header>
-<nav class="jump" aria-label="Sections on this page"><a href="#short">Short version</a><a href="#map">Map</a><a href="#story">History</a><a href="#glance">Six hosts compared</a><a href="#power">Power mix</a><a href="#countries">Country pages</a><a href="#sources">Sources</a></nav>
+<nav class="jump" aria-label="Sections on this page"><a href="#short">Short version</a><a href="#map">Map</a><a href="#story">History</a><a href="#glance">Six hosts compared</a><a href="#power">Power mix</a><a href="#countries">Country pages</a><a href="#outlook">Looking forward</a><a href="#sources">Sources</a></nav>
 
 <section id="short">
   <span class="eyebrow">The short version</span>
@@ -203,6 +203,14 @@ def build(nav, configs, markets):
   <span class="eyebrow">5 · Country deep dives</span>
   <h2>{NUM[len(markets)]} hosts, read in order</h2>
   <div class="mcards">{cards}</div>
+</section>
+
+<section id="outlook">
+  <span class="eyebrow">6 · Looking forward</span>
+  <h2>A region both superpowers need, and a prisoner's dilemma for its hosts</h2>
+  <p class="read">Southeast Asia is one of the few places in the world where US and Chinese firms both want large amounts of compute, and that demand looks set to grow. It will keep pushing host governments to balance US chip rules against Chinese capital and customers, while they also manage what data centres do at home.</p>
+  <p class="read">In the short run a data centre looks like an easy win, with billions in announced investment and a big new customer for the grid. Over the long run the gains are smaller than the headlines suggest. A finished campus employs relatively few people, and a poorly structured deal can leave the host paying for grid upgrades, fuel imports and water while the operator keeps the margin. Johor's water rules and Thailand's grid bond and separate tariff are early attempts to shift that cost back.</p>
+  <p class="read">The hosts now face something close to a prisoner's dilemma. Each gains by offering cheaper power and faster permits than its neighbour, yet if all of them race, every host ends up carrying more of the burden for less in return. Shared rules on power pricing, water and chip compliance, built on links that already exist like the Laos, Thailand, Malaysia and Singapore power trade, would leave all of them better off. Whether they compete or coordinate is the thing to watch next.</p>
 </section>
 
 <section id="sources">
